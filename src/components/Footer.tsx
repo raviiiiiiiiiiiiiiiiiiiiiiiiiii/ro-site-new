@@ -56,8 +56,12 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md overflow-hidden p-0.5 shrink-0">
                 <img 
-                  src="https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg" 
-                  alt={BUSINESS_DETAILS.name} 
+                  src="/logo-60x60.jpg" 
+                  alt={BUSINESS_DETAILS.name}
+                  width="44"
+                  height="44"
+                  loading="lazy"
+                  decoding="async" 
                   className="w-full h-full object-contain rounded-lg"
                 />
               </div>

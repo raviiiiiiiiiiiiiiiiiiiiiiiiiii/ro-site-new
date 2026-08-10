@@ -23,6 +23,11 @@ async function startServer() {
     res.sendFile(path.join(process.cwd(), "public", "sitemap.xml"));
   });
 
+  app.get("/llms.txt", (req, res) => {
+    res.type("text/plain");
+    res.sendFile(path.join(process.cwd(), "public", "llms.txt"));
+  });
+
   // Serve static public assets explicitly
   app.use(express.static(path.join(process.cwd(), "public")));
 

@@ -47,7 +47,15 @@ export const BrandsGrid: React.FC<BrandsGridProps> = ({ onNavigate }) => {
                 <div>
                   {brand.logoUrl && (
                     <div className="bg-white p-3 rounded-xl border border-slate-200/80 w-fit mb-4 shadow-sm flex items-center justify-center">
-                      <img src={brand.logoUrl} alt={`${brand.name} Logo`} className="h-8 sm:h-9 w-auto object-contain max-w-[140px]" />
+                      <img
+                        src={brand.logoUrl}
+                        alt={`${brand.name} Logo`}
+                        width="140"
+                        height="36"
+                        loading="lazy"
+                        decoding="async"
+                        className="h-8 sm:h-9 w-auto object-contain max-w-[140px]"
+                      />
                     </div>
                   )}
 

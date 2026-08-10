@@ -75,7 +75,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     name: 'Kent',
     slug: '/kt-service',
     logoText: 'KENT',
-    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786032964/KENT-RO-Logo-new_dkjihe.png',
+    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032964/KENT-RO-Logo-new_dkjihe.png',
     tagline: 'House of Purity - Expert Service & Genuine Spares in Bangalore',
     accentColor: 'from-blue-600 to-cyan-500',
     description: 'Looking for fast, reliable Kent RO service in Bangalore? Our certified technicians specialize in Kent Grand Plus, Pearl, Supreme, Prime, Wonder, and all Kent RO+UV+UF water purifiers with 100% genuine filters and same-day doorstep service.',
@@ -107,7 +107,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'General service inspection starts at just ₹299. Basic sediment/pre-filter replacement ranges from ₹350–₹600, while complete Kent filter overhaul costs are quoted upfront post-inspection with zero hidden fees.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
   },
 
   'aq-service': {
@@ -115,7 +115,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     name: 'Aquaguard / Eureka',
     slug: '/aq-service',
     logoText: 'Aquaguard',
-    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786032688/Screenshot_20260806_102503_Google_nsdk6g.jpg',
+    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032688/Screenshot_20260806_102503_Google_nsdk6g.jpg',
     tagline: 'Paani Ka Doctor - Prompt Service & Genuine Filter Replacement',
     accentColor: 'from-teal-600 to-emerald-500',
     description: 'Get expert doorstep service for your Aquaguard water purifier in Bangalore. We service Aquaguard Geneus, Enhance, Blaze, Ritz, Magna, Cristal, and all Active Copper models using authentic spare parts.',
@@ -147,7 +147,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'A continuous beep or red indicator light usually signifies a UV lamp failure, filter blockage, or mandatory service alert. Our technicians diagnose the exact sensor error and replace faulty parts on the spot.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
   },
 
   'pt-service': {
@@ -155,7 +155,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     name: 'Pureit (HUL)',
     slug: '/pt-service',
     logoText: 'Pureit',
-    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786031439/pureit_water_logo_zaej67.png',
+    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786031439/pureit_water_logo_zaej67.png',
     tagline: 'HUL Pureit Advanced Repair & GKK Replacement in Bangalore',
     accentColor: 'from-sky-600 to-indigo-500',
     description: 'Need a GKK (Germkill Kit) replacement or urgent repair for your HUL Pureit water purifier in Bangalore? We handle Pureit Marvella, Ultima, Copper RO+UV, Mineral RO, and Classic models with genuine kits and same-day delivery.',
@@ -183,7 +183,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes, if your local raw water TDS has increased, we can tune your Pureit RO system with a high-rejection 3000+ PPM membrane for crisp, pure water.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
   },
 
   'ao-service': {
@@ -191,7 +191,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     name: 'AO Smith',
     slug: '/ao-service',
     logoText: 'A. O. SMITH',
-    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786031439/logo_nk88jp.png',
+    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786031439/logo_nk88jp.png',
     tagline: 'Premium Mineralized RO Repair & Filter Replacement',
     accentColor: 'from-blue-700 to-slate-700',
     description: 'Specialized AO Smith water purifier repair and servicing in Bangalore. Certified care for AO Smith Z8, Z9, X8, ProPlanet, Green Series, and Under-Counter RO systems with genuine SCM (Silver Charged Membrane) and MIN-TECH filters.',
@@ -219,7 +219,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes, our visiting & inspection fee is just ₹299. All replacement parts are priced transparently before installation so you pay only for what you need.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
   },
 
   'lg-service': {
@@ -227,7 +227,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     name: 'LG Water Purifier',
     slug: '/lg-service',
     logoText: 'LG',
-    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786032689/images_5_t36ctz.png',
+    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032689/images_5_t36ctz.png',
     tagline: 'Dual Protection Stainless Steel Tank RO Service',
     accentColor: 'from-rose-600 to-red-600',
     description: 'Top-rated LG water purifier repair & maintenance service in Bangalore. We service LG PuriCare, Stainless Steel Tank RO, Dual Protection UV models, and EverFresh UV purifiers with genuine parts and hygienic digital sterilization.',
@@ -255,7 +255,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes, all repair work and replaced spare parts carry our 30-day post-service warranty for complete peace of mind.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
   },
 };
 

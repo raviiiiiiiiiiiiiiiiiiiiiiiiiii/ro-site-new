@@ -188,6 +188,10 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
                       <img
                         src={currentBrandData.logoUrl}
                         alt={`${currentBrandData.name} Logo`}
+                        width="140"
+                        height="36"
+                        loading="eager"
+                        decoding="async"
                         className="h-7 sm:h-9 w-auto object-contain max-w-[100px] sm:max-w-[140px] max-h-full"
                       />
                     </div>
@@ -218,8 +222,12 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
                   <>
                     <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 rounded-xl overflow-hidden bg-white shadow-xs border border-slate-200/80 p-0.5 group-hover:scale-105 transition-transform duration-200">
                       <img
-                        src="https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg"
+                        src="/logo-60x60.jpg"
                         alt={BUSINESS_DETAILS.name}
+                        width="60"
+                        height="60"
+                        loading="eager"
+                        decoding="async"
                         className="w-full h-full object-contain rounded-lg"
                       />
                     </div>

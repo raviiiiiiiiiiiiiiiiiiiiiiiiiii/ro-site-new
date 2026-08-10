@@ -22,16 +22,17 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       {/* HERO SECTION */}
       <section className="relative text-white pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-36 overflow-hidden bg-slate-950">
         
-        {/* Background Video (16:9 Cloudinary video, optimized scale to cover vertical mobile & desktop) */}
+        {/* Background Video (16:9 Cloudinary video, auto-compressed with q_auto,f_auto,vc_auto) */}
         <video 
           autoPlay 
           loop 
           muted 
-          playsInline 
+          playsInline
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-90 scale-[1.2] sm:scale-[1.02] transition-transform duration-700"
         >
           <source 
-            src="https://res.cloudinary.com/dieq3fjuv/video/upload/v1785923677/gemini_generated_video_7cd6567a_rscxlq.mp4" 
+            src="https://res.cloudinary.com/dieq3fjuv/video/upload/q_auto,f_auto,vc_auto/v1785923677/gemini_generated_video_7cd6567a_rscxlq.mp4" 
             type="video/mp4" 
           />
         </video>
@@ -155,8 +156,12 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-md border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 text-center sm:text-left">
             <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-inner flex items-center justify-center shrink-0">
               <img
-                src="https://res.cloudinary.com/dieq3fjuv/image/upload/v1786037616/file_000000005ba8821198056a961ff1f0c2_fahl4d.png"
+                src="https://res.cloudinary.com/dieq3fjuv/image/upload/w_210,h_140,c_fill,q_auto,f_auto/v1786037616/file_000000005ba8821198056a961ff1f0c2_fahl4d.png"
                 alt="Government of India MSME Certified"
+                width="210"
+                height="140"
+                loading="lazy"
+                decoding="async"
                 className="h-20 sm:h-24 w-auto object-contain max-w-full drop-shadow-sm"
               />
             </div>

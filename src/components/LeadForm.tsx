@@ -182,11 +182,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       className={`bg-white rounded-[24px] shadow-xl border border-slate-100 p-6 sm:p-8 relative transition-all w-full max-w-lg mx-auto ${className}`}
     >
       <div className="mb-8 text-center">
-        <h3 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] tracking-tight">
+        <h2 className="text-2xl sm:text-3xl font-black text-[#1a1a1a] tracking-tight">
           Book Service Now
-        </h3>
-        <p className="text-sm sm:text-base text-slate-500 mt-2">
-          Technician visit in <span className="font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full ml-1">60-90 mins</span>
+        </h2>
+        <p className="text-sm sm:text-base text-slate-600 mt-2">
+          Technician visit in <span className="font-bold text-emerald-950 bg-emerald-100/90 border border-emerald-200 px-2.5 py-0.5 rounded-full ml-1 shadow-2xs">60-90 mins</span>
         </p>
       </div>
 

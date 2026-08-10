@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { PageRoute } from './types';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { HomePage } from './pages/HomePage';
-import { BrandPage } from './pages/BrandPage';
-import { PolicyPage } from './pages/PolicyPage';
-import { NotFoundPage } from './pages/NotFoundPage';
 import { BRAND_PAGES_DATA, BUSINESS_DETAILS } from './data/content';
 import { X } from 'lucide-react';
 import { LeadForm } from './components/LeadForm';
 import { SEO, SEOProps } from './components/SEO';
+
+const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
+const PolicyPage = lazy(() => import('./pages/PolicyPage').then(m => ({ default: m.PolicyPage })));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
 
 const VALID_ROUTES: PageRoute[] = [
   '/',
@@ -279,6 +280,12 @@ export default function App() {
       return <HomePage onNavigate={navigate} />;
     }
 
+    const loadingFallback = (
+      <div className="min-h-[50vh] flex items-center justify-center">
+        <div className="w-8 h-8 border-4 border-[#0c54a0] border-t-transparent rounded-full animate-spin"></div>
+      </div>
+    );
+
     if (
       currentRoute === '/kt-service' ||
       currentRoute === '/aq-service' ||
@@ -286,7 +293,11 @@ export default function App() {
       currentRoute === '/ao-service' ||
       currentRoute === '/lg-service'
     ) {
-      return <BrandPage route={currentRoute} onNavigate={navigate} />;
+      return (
+        <Suspense fallback={loadingFallback}>
+          <BrandPage route={currentRoute} onNavigate={navigate} />
+        </Suspense>
+      );
     }
 
     if (
@@ -296,11 +307,19 @@ export default function App() {
       currentRoute === '/disclaimer' ||
       currentRoute === '/cookie-policy'
     ) {
-      return <PolicyPage route={currentRoute} onNavigate={navigate} lastBrandRoute={lastBrandRoute} />;
+      return (
+        <Suspense fallback={loadingFallback}>
+          <PolicyPage route={currentRoute} onNavigate={navigate} lastBrandRoute={lastBrandRoute} />
+        </Suspense>
+      );
     }
 
     if (currentRoute === '/404') {
-      return <NotFoundPage onNavigate={navigate} lastBrandRoute={lastBrandRoute} />;
+      return (
+        <Suspense fallback={loadingFallback}>
+          <NotFoundPage onNavigate={navigate} lastBrandRoute={lastBrandRoute} />
+        </Suspense>
+      );
     }
 
     return <HomePage onNavigate={navigate} />;

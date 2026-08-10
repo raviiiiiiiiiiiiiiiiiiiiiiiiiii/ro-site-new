@@ -147,8 +147,11 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         
         {/* Background Image */}
         <img
-          src="https://res.cloudinary.com/dieq3fjuv/image/upload/v1785990425/IMG_20260806_095543_woel3l.jpg"
+          src="https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"
           alt="RO Water Purifier Service Background"
+          width="1920"
+          height="1080"
+          decoding="async"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-85 scale-105"
         />
 
@@ -211,8 +214,11 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
               <img
                 src={brand.showcaseImage}
                 alt={`${brand.name} Water Purifier Models & Service Showcase`}
+                width="800"
+                height="500"
                 className="w-full h-auto object-contain max-h-[550px] mx-auto rounded-2xl"
-                loading="eager"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
@@ -397,8 +403,12 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           <div className="bg-white p-6 sm:p-8 rounded-3xl shadow-md border border-slate-200/80 flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8 text-center sm:text-left">
             <div className="bg-slate-50 p-4 rounded-2xl border border-slate-100 shadow-inner flex items-center justify-center shrink-0">
               <img
-                src="https://res.cloudinary.com/dieq3fjuv/image/upload/v1786037616/file_000000005ba8821198056a961ff1f0c2_fahl4d.png"
+                src="https://res.cloudinary.com/dieq3fjuv/image/upload/w_210,h_140,c_fill,q_auto,f_auto/v1786037616/file_000000005ba8821198056a961ff1f0c2_fahl4d.png"
                 alt="Government of India MSME Certified"
+                width="210"
+                height="140"
+                loading="lazy"
+                decoding="async"
                 className="h-20 sm:h-24 w-auto object-contain max-w-full drop-shadow-sm"
               />
             </div>
