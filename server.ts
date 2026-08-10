@@ -71,6 +71,12 @@ async function startServer() {
 
         template = template.replace(/<title>.*?<\/title>/i, seoHeadTags);
         template = template.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+        template = template.replace(
+          /<link rel="stylesheet"([^>]*?)href="([^"]+\.css)"([^>]*?)>/gi,
+          (_match, p1, cssUrl, p2) => {
+            return `<link rel="preload" as="style" href="${cssUrl}"${p1}${p2} onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="${cssUrl}"${p1}${p2}></noscript>`;
+          }
+        );
 
         res.status(200).set({ "Content-Type": "text/html" }).end(template);
       } catch (e) {
@@ -113,6 +119,12 @@ async function startServer() {
 
         template = template.replace(/<title>.*?<\/title>/i, seoHeadTags);
         template = template.replace('<div id="root"></div>', `<div id="root">${bodyHtml}</div>`);
+        template = template.replace(
+          /<link rel="stylesheet"([^>]*?)href="([^"]+\.css)"([^>]*?)>/gi,
+          (_match, p1, cssUrl, p2) => {
+            return `<link rel="preload" as="style" href="${cssUrl}"${p1}${p2} onload="this.onload=null;this.rel='stylesheet'"><noscript><link rel="stylesheet" href="${cssUrl}"${p1}${p2}></noscript>`;
+          }
+        );
 
         res.status(200).set({ "Content-Type": "text/html" }).end(template);
       } catch (e) {

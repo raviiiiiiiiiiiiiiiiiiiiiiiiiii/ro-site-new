@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, Menu, X, ChevronDown, Wrench } from 'lucide-react';
 import { BUSINESS_DETAILS, BRAND_PAGES_DATA } from '../data/content';
 import { PageRoute } from '../types';
+import logoImg from '../assets/logo-60x60.jpg';
 
 interface HeaderProps {
   currentRoute: PageRoute;
@@ -222,7 +223,10 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
                   <>
                     <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 rounded-xl overflow-hidden bg-white shadow-xs border border-slate-200/80 p-0.5 group-hover:scale-105 transition-transform duration-200">
                       <img
-                        src="/logo-60x60.jpg"
+                        src={logoImg}
+                        onError={(e) => {
+                          (e.target as HTMLImageElement).src = 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg';
+                        }}
                         alt={BUSINESS_DETAILS.name}
                         width="60"
                         height="60"

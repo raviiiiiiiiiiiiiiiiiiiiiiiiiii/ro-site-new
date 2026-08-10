@@ -2,6 +2,7 @@ import React from 'react';
 import { Phone, MapPin, Mail, Clock, ShieldCheck } from 'lucide-react';
 import { BUSINESS_DETAILS, BRAND_PAGES_DATA } from '../data/content';
 import { PageRoute } from '../types';
+import logoImg from '../assets/logo-60x60.jpg';
 
 interface FooterProps {
   onNavigate: (route: PageRoute) => void;
@@ -56,7 +57,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
             <div className="flex items-center gap-3">
               <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md overflow-hidden p-0.5 shrink-0">
                 <img 
-                  src="/logo-60x60.jpg" 
+                  src={logoImg} 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg';
+                  }}
                   alt={BUSINESS_DETAILS.name}
                   width="44"
                   height="44"

@@ -2,12 +2,12 @@ import React, { useState, useEffect, lazy, Suspense } from 'react';
 import { PageRoute } from './types';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
-import { HomePage } from './pages/HomePage';
 import { BRAND_PAGES_DATA, BUSINESS_DETAILS } from './data/content';
 import { X } from 'lucide-react';
 import { LeadForm } from './components/LeadForm';
 import { SEO, SEOProps } from './components/SEO';
 
+const HomePage = lazy(() => import('./pages/HomePage').then(m => ({ default: m.HomePage })));
 const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
 const PolicyPage = lazy(() => import('./pages/PolicyPage').then(m => ({ default: m.PolicyPage })));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ default: m.NotFoundPage })));
@@ -49,6 +49,7 @@ export default function App() {
   const [lastBrandRoute, setLastBrandRoute] = useState<PageRoute | null>(() => {
     const initial = getInitialRoute();
     if (initial.endsWith('-service')) return initial;
+    if (initial === '/') return null;
     if (typeof window !== 'undefined') {
       const saved = sessionStorage.getItem('lastBrandRoute') as PageRoute;
       if (saved && VALID_ROUTES.includes(saved)) return saved;
@@ -61,6 +62,11 @@ export default function App() {
       setLastBrandRoute(currentRoute);
       if (typeof window !== 'undefined') {
         sessionStorage.setItem('lastBrandRoute', currentRoute);
+      }
+    } else if (currentRoute === '/') {
+      setLastBrandRoute(null);
+      if (typeof window !== 'undefined') {
+        sessionStorage.removeItem('lastBrandRoute');
       }
     }
   }, [currentRoute]);
@@ -276,15 +282,19 @@ export default function App() {
   const seoConfig = getSEOConfig();
 
   const renderCurrentPage = () => {
-    if (currentRoute === '/') {
-      return <HomePage onNavigate={navigate} />;
-    }
-
     const loadingFallback = (
       <div className="min-h-[50vh] flex items-center justify-center">
         <div className="w-8 h-8 border-4 border-[#0c54a0] border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
+
+    if (currentRoute === '/') {
+      return (
+        <Suspense fallback={loadingFallback}>
+          <HomePage onNavigate={navigate} />
+        </Suspense>
+      );
+    }
 
     if (
       currentRoute === '/kt-service' ||
@@ -322,7 +332,11 @@ export default function App() {
       );
     }
 
-    return <HomePage onNavigate={navigate} />;
+    return (
+      <Suspense fallback={loadingFallback}>
+        <HomePage onNavigate={navigate} />
+      </Suspense>
+    );
   };
 
   return (
