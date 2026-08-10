@@ -33,4 +33,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://roservice24x7.in/sitemap.xml
+Sitemap: https://www.roservice24x7.in/sitemap.xml

@@ -8,8 +8,9 @@ export interface RenderResult {
   bodyHtml: string;
 }
 
-export function renderPageContent(urlPath: string, host: string = 'roservice24x7.in'): RenderResult {
-  const baseUrl = `https://${host}`;
+export function renderPageContent(urlPath: string, host: string = 'www.roservice24x7.in'): RenderResult {
+  const normalizedHost = host === 'roservice24x7.in' ? 'www.roservice24x7.in' : host;
+  const baseUrl = `https://${normalizedHost}`;
   const cleanPath = urlPath.split('?')[0].replace(/\/$/, '') || '/';
   const canonicalUrl = `${baseUrl}${cleanPath === '/' ? '' : cleanPath}`;
 
