@@ -108,7 +108,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'General service inspection starts at just ₹299. Basic sediment/pre-filter replacement ranges from ₹350–₹600, while complete Kent filter overhaul costs are quoted upfront post-inspection with zero hidden fees.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
   },
 
   'aq-service': {
@@ -148,7 +148,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'A continuous beep or red indicator light usually signifies a UV lamp failure, filter blockage, or mandatory service alert. Our technicians diagnose the exact sensor error and replace faulty parts on the spot.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
   },
 
   'pt-service': {
@@ -184,7 +184,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes, if your local raw water TDS has increased, we can tune your Pureit RO system with a high-rejection 3000+ PPM membrane for crisp, pure water.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
   },
 
   'ao-service': {
@@ -220,7 +220,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes, our visiting & inspection fee is just ₹299. All replacement parts are priced transparently before installation so you pay only for what you need.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
   },
 
   'lg-service': {
@@ -256,7 +256,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes, all repair work and replaced spare parts carry our 30-day post-service warranty for complete peace of mind.',
       },
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
   },
 };
 

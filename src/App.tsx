@@ -43,6 +43,16 @@ function getInitialRoute(): PageRoute {
   return '/';
 }
 
+const brandSkeleton = (
+  <div className="w-full bg-white min-h-screen">
+    <div className="bg-slate-950 w-full pt-16 pb-28 sm:pt-24 sm:pb-36 lg:pt-32 lg:pb-44 min-h-[440px] sm:min-h-[520px] lg:min-h-[580px] flex items-center justify-center">
+      <div className="w-8 h-8 border-4 border-white/20 border-t-white rounded-full animate-spin"></div>
+    </div>
+    <div className="max-w-3xl mx-auto -mt-16 relative z-20 h-[500px] bg-white rounded-3xl shadow-xl border border-slate-200/80"></div>
+    <div className="h-[800px] bg-slate-50 mt-16"></div>
+  </div>
+);
+
 export default function App() {
   const [currentRoute, setCurrentRoute] = useState<PageRoute>(getInitialRoute);
   const [isBookModalOpen, setIsBookModalOpen] = useState(false);
@@ -294,7 +304,7 @@ export default function App() {
       currentRoute === '/lg-service'
     ) {
       return (
-        <Suspense fallback={loadingFallback}>
+        <Suspense fallback={brandSkeleton}>
           <BrandPage route={currentRoute} onNavigate={navigate} />
         </Suspense>
       );

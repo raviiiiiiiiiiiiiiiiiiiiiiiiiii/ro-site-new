@@ -147,7 +147,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         
         {/* Background Image */}
         <img
-          src="https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"
+          src="https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"
           alt="RO Water Purifier Service Background"
           width="1920"
           height="1080"
@@ -212,15 +212,15 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         <section className="py-8 sm:py-14 bg-white border-b border-slate-100">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-3xl p-3 sm:p-6 lg:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.04)] border border-slate-200/80 max-w-4xl mx-auto overflow-hidden flex items-center justify-center">
-              <img
-                src={brand.showcaseImage}
-                alt={`${brand.name} Water Purifier Models & Service Showcase`}
-                width="800"
-                height="500"
-                className="w-full h-auto object-contain max-h-[550px] mx-auto rounded-2xl"
-                loading="lazy"
-                decoding="async"
-              />
+                <img
+                  src={brand.showcaseImage}
+                  alt={`${brand.name} Water Purifier Models & Service Showcase`}
+                  width="800"
+                  height="500"
+                  className="w-full h-auto aspect-[8/5] object-contain max-h-[550px] mx-auto rounded-2xl"
+                  loading="lazy"
+                  decoding="async"
+                />
             </div>
           </div>
         </section>
@@ -410,7 +410,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
                 height="140"
                 loading="lazy"
                 decoding="async"
-                className="h-20 sm:h-24 w-auto object-contain max-w-full drop-shadow-sm"
+                className="h-20 sm:h-24 w-auto aspect-[3/2] object-contain max-w-full drop-shadow-sm"
               />
             </div>
 
