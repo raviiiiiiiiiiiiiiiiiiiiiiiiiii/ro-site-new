@@ -1,0 +1,325 @@
+import { BRAND_PAGES_DATA, BUSINESS_DETAILS, HOMEPAGE_FAQS, SERVICES_LIST, BANGALORE_LOCALITIES } from './data/content';
+
+export interface RenderResult {
+  title: string;
+  metaDescription: string;
+  canonicalUrl: string;
+  jsonLd: object[];
+  bodyHtml: string;
+}
+
+export function renderPageContent(urlPath: string, host: string = 'roservice24x7.in'): RenderResult {
+  const baseUrl = `https://${host}`;
+  const cleanPath = urlPath.split('?')[0].replace(/\/$/, '') || '/';
+  const canonicalUrl = `${baseUrl}${cleanPath === '/' ? '' : cleanPath}`;
+
+  // Default homepage render result
+  let title = 'RO-service 24x7 | RO Water Purifier Repair & Service Bangalore | Call 8050291180';
+  let metaDescription = "Bangalore's trusted independent RO water purifier repair, filter replacement, installation & AMC service center. Servicing Kent, Aquaguard, Pureit, AO Smith, LG. Same-day technician in 60 mins.";
+  
+  let jsonLd: object[] = [
+    {
+      '@context': 'https://schema.org',
+      '@type': 'LocalBusiness',
+      '@id': `${baseUrl}/#organization`,
+      name: BUSINESS_DETAILS.fullName,
+      alternateName: BUSINESS_DETAILS.name,
+      url: baseUrl,
+      telephone: BUSINESS_DETAILS.phone,
+      email: BUSINESS_DETAILS.email,
+      priceRange: '₹299 - ₹2499',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Bangalore',
+        addressRegion: 'Karnataka',
+        addressCountry: 'IN',
+        postalCode: '560001',
+      },
+      geo: {
+        '@type': 'GeoCoordinates',
+        latitude: '12.9716',
+        longitude: '77.5946',
+      },
+      openingHoursSpecification: [
+        {
+          '@type': 'OpeningHoursSpecification',
+          dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+          opens: '08:00',
+          closes: '21:00',
+        },
+      ],
+      areaServed: BANGALORE_LOCALITIES.map((loc) => ({
+        '@type': 'Place',
+        name: `${loc}, Bangalore`,
+      })),
+      description: metaDescription,
+    },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: HOMEPAGE_FAQS.map((faq) => ({
+        '@type': 'Question',
+        name: faq.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: faq.answer,
+        },
+      })),
+    },
+  ];
+
+  let bodyHtml = '';
+
+  const brandKey = cleanPath.replace(/^\//, '');
+
+  if (cleanPath === '/' || cleanPath === '') {
+    // HOMEPAGE SSR CONTENT
+    bodyHtml = `
+      <header style="padding:16px; background:#0c54a0; color:#ffffff;">
+        <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+          <h1 style="font-size:24px; font-weight:bold; margin:0;">${BUSINESS_DETAILS.name} - Bangalore</h1>
+          <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; font-weight:bold; background:#ffffff; color:#0c54a0; padding:8px 16px; border-radius:8px; text-decoration:none;">Call ${BUSINESS_DETAILS.phone}</a>
+        </div>
+      </header>
+
+      <main style="max-width:1200px; margin:0 auto; padding:24px 16px; font-family:sans-serif; color:#1e293b;">
+        <section style="margin-bottom:32px; text-align:center;">
+          <h2 style="font-size:32px; font-weight:800; color:#0c54a0; margin-bottom:12px;">Doorstep RO Water Purifier Repair & Service in Bangalore</h2>
+          <p style="font-size:16px; color:#475569; max-width:700px; margin:0 auto 20px;">Fast 60–90 minute technician visit for all major RO brands including Kent, Aquaguard, Pureit, AO Smith, and LG across Bangalore.</p>
+          <div style="display:flex; justify-content:center; gap:12px;">
+            <a href="tel:${BUSINESS_DETAILS.phone}" style="background:#0c54a0; color:#fff; padding:12px 24px; border-radius:8px; text-decoration:none; font-weight:bold;">Call 8050291180 Now</a>
+          </div>
+        </section>
+
+        <section style="margin-bottom:40px;">
+          <h3 style="font-size:22px; font-weight:700; color:#0f172a; border-bottom:2px solid #0c54a0; padding-bottom:8px; margin-bottom:16px;">Our RO Services in Bangalore</h3>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+            ${SERVICES_LIST.map(
+              (s) => `
+              <div style="border:1px solid #e2e8f0; border-radius:12px; padding:16px; background:#f8fafc;">
+                <h4 style="font-size:18px; font-weight:bold; color:#0c54a0; margin:0 0 8px;">${s.title}</h4>
+                <p style="font-size:14px; color:#475569; margin:0 0 12px;">${s.description}</p>
+                <span style="font-size:14px; font-weight:bold; color:#059669;">Starting Price: ${s.startingPrice}</span>
+              </div>
+            `
+            ).join('')}
+          </div>
+        </section>
+
+        <section style="margin-bottom:40px;">
+          <h3 style="font-size:22px; font-weight:700; color:#0f172a; border-bottom:2px solid #0c54a0; padding-bottom:8px; margin-bottom:16px;">Supported Water Purifier Brands</h3>
+          <ul style="display:flex; flex-wrap:wrap; gap:12px; list-style:none; padding:0;">
+            ${Object.values(BRAND_PAGES_DATA)
+              .map(
+                (b) => `
+              <li>
+                <a href="${b.slug}" style="display:inline-block; padding:8px 16px; background:#eff6ff; color:#0c54a0; border:1px solid #bfdbfe; border-radius:8px; text-decoration:none; font-weight:bold;">${b.name} Service</a>
+              </li>
+            `
+              )
+              .join('')}
+          </ul>
+        </section>
+
+        <section style="margin-bottom:40px;">
+          <h3 style="font-size:22px; font-weight:700; color:#0f172a; border-bottom:2px solid #0c54a0; padding-bottom:8px; margin-bottom:16px;">Frequently Asked Questions (FAQs)</h3>
+          <div style="display:flex; flex-col; gap:16px;">
+            ${HOMEPAGE_FAQS.map(
+              (faq) => `
+              <div style="border-bottom:1px solid #e2e8f0; padding-bottom:12px;">
+                <h4 style="font-size:16px; font-weight:bold; color:#0f172a; margin:0 0 4px;">${faq.question}</h4>
+                <p style="font-size:14px; color:#475569; margin:0;">${faq.answer}</p>
+              </div>
+            `
+            ).join('')}
+          </div>
+        </section>
+
+        <section style="margin-bottom:40px; background:#f1f5f9; padding:20px; border-radius:12px;">
+          <h3 style="font-size:18px; font-weight:bold; color:#0f172a; margin-top:0;">Bangalore Service Areas Covered</h3>
+          <p style="font-size:14px; color:#475569;">${BANGALORE_LOCALITIES.join(' • ')}</p>
+        </section>
+      </main>
+    `;
+  } else if (BRAND_PAGES_DATA[brandKey]) {
+    // BRAND PAGE SSR CONTENT
+    const brand = BRAND_PAGES_DATA[brandKey];
+    title = brand.metaTitle;
+    metaDescription = brand.metaDescription;
+
+    jsonLd = [
+      {
+        '@context': 'https://schema.org',
+        '@type': 'Service',
+        name: `${brand.name} RO Water Purifier Repair & Service Bangalore`,
+        serviceType: 'Water Purifier Repair, Maintenance & Filter Replacement',
+        provider: {
+          '@type': 'LocalBusiness',
+          name: BUSINESS_DETAILS.fullName,
+          telephone: BUSINESS_DETAILS.phone,
+          email: BUSINESS_DETAILS.email,
+        },
+        areaServed: {
+          '@type': 'City',
+          name: 'Bangalore',
+        },
+        description: brand.description,
+        image: brand.logoUrl || brand.showcaseImage,
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          {
+            '@type': 'ListItem',
+            position: 1,
+            name: 'Home',
+            item: baseUrl,
+          },
+          {
+            '@type': 'ListItem',
+            position: 2,
+            name: `${brand.name} Service`,
+            item: canonicalUrl,
+          },
+        ],
+      },
+      {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: brand.brandFaqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      },
+    ];
+
+    bodyHtml = `
+      <header style="padding:16px; background:#0c54a0; color:#ffffff;">
+        <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <a href="${baseUrl}" style="color:#ffffff; text-decoration:none; font-weight:bold; font-size:18px;">${BUSINESS_DETAILS.name}</a>
+          </div>
+          <a href="tel:${BUSINESS_DETAILS.phone}" style="background:#ffffff; color:#0c54a0; padding:8px 16px; border-radius:8px; text-decoration:none; font-weight:bold;">Call ${BUSINESS_DETAILS.phone}</a>
+        </div>
+      </header>
+
+      <main style="max-width:1200px; margin:0 auto; padding:24px 16px; font-family:sans-serif; color:#1e293b; line-height:1.6;">
+        <nav style="font-size:14px; color:#64748b; margin-bottom:16px;">
+          <a href="${baseUrl}" style="color:#0c54a0; text-decoration:none;">Home</a> &gt; <span>${brand.name} Service Bangalore</span>
+        </nav>
+
+        <section style="margin-bottom:32px;">
+          ${brand.logoUrl ? `<div style="margin-bottom:16px;"><img src="${brand.logoUrl}" alt="${brand.name} Logo" style="height:48px; width:auto; max-width:180px; object-fit:contain; background:#ffffff; padding:6px 12px; border-radius:12px; border:1px solid #cbd5e1;" /></div>` : ''}
+          <h1 style="font-size:32px; font-weight:800; color:#0c54a0; margin-bottom:12px; line-height:1.2;">${brand.name} RO Water Purifier Repair & Service in Bangalore</h1>
+          <p style="font-size:16px; color:#334155; margin-bottom:20px;">${brand.description}</p>
+          
+          <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:18px; border-radius:12px; margin-bottom:24px;">
+            <strong style="color:#0c54a0; font-size:16px;">⚡ Doorstep Technician Dispatch in 60–90 Minutes:</strong>
+            <p style="font-size:14px; color:#1e3a8a; margin:6px 0 0;">Facing water leakage, slow filtration, high TDS taste, or error sound in your ${brand.name} purifier? Our certified local engineers provide same-day inspection and genuine filter replacement across all localities in Bangalore. Call <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#0c54a0; font-weight:bold;">${BUSINESS_DETAILS.phone}</a> for instant booking.</p>
+          </div>
+        </section>
+
+        <section style="margin-bottom:36px; background:#f8fafc; padding:24px; border-radius:16px; border:1px solid #e2e8f0;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">Why Choose Our Independent ${brand.name} RO Repair Service in Bangalore?</h2>
+          <p style="font-size:15px; color:#475569; margin-bottom:14px;">
+            Bangalore's municipal and borewell water supplies vary greatly in TDS (Total Dissolved Solids) levels ranging from 150 PPM up to 2000+ PPM. ${brand.name} water purifiers require precise filter maintenance, pressure adjustments, and authentic membrane replacements to ensure crisp, safe drinking water. Our dedicated team specializes in comprehensive servicing for all ${brand.name} domestic models including Wall-mounted, Under-the-Counter (UTC), and Commercial purifiers.
+          </p>
+          <ul style="padding-left:20px; font-size:15px; color:#334155; line-height:1.8;">
+            <li><strong>100% Genuine Spare Parts:</strong> High-density sediment filters, pre-carbon blocks, post-carbon mineralizers, and authentic high-rejection RO membranes.</li>
+            <li><strong>Digital Water Quality & TDS Meter Testing:</strong> Free raw water vs purified water TDS measurement before and after every service.</li>
+            <li><strong>Upfront & Transparent Billing:</strong> Inspection fee is just ₹299 and is fully adjusted if you proceed with repair or filter replacement.</li>
+            <li><strong>30-Day Post-Service Warranty:</strong> Complete peace of mind with 30-day warranty on labor and up to 1-year warranty on replaced major electronic parts.</li>
+          </ul>
+        </section>
+
+        <section style="margin-bottom:36px;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">Common ${brand.name} Problems We Diagnose & Fix Daily</h2>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px;">
+            ${brand.commonProblems
+              .map(
+                (prob) => `
+              <div style="border:1px solid #e2e8f0; border-radius:12px; padding:16px; background:#ffffff; border-left:4px solid #0c54a0;">
+                <p style="font-size:15px; font-weight:600; color:#1e293b; margin:0;">${prob}</p>
+              </div>
+            `
+              )
+              .join('')}
+          </div>
+        </section>
+
+        <section style="margin-bottom:36px; background:#ffffff; padding:24px; border-radius:16px; border:1px solid #cbd5e1;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">Our 8-Step ${brand.name} RO Service & Check Protocol</h2>
+          <ol style="padding-left:20px; font-size:15px; color:#334155; line-height:1.8;">
+            <li>Input Water Pressure & Pre-Filter Outer Housing Flushing</li>
+            <li>Spun Sediment Filter Inspection & Multi-Layer Replacement</li>
+            <li>Activated Carbon Block Deodorization & Chlorine Removal Check</li>
+            <li>High-TDS RO Membrane Rejection Calibration & Flushing</li>
+            <li>UV Lamp Intensity & Solenoid Auto-Cut Solenoid Valve Test</li>
+            <li>Booster Pump Pressure & SMPS Electrical Adapter Output Verification</li>
+            <li>Internal Storage Tank Deep Sanitization & Descaling</li>
+            <li>Final Digital TDS & Water Hardness Level Output Certification</li>
+          </ol>
+        </section>
+
+        <section style="margin-bottom:36px;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">Frequently Asked Questions for ${brand.name} Service in Bangalore</h2>
+          <div style="display:flex; flex-direction:column; gap:16px;">
+            ${brand.brandFaqs
+              .map(
+                (faq) => `
+              <div style="border-bottom:1px solid #e2e8f0; padding-bottom:14px;">
+                <h3 style="font-size:16px; font-weight:bold; color:#0f172a; margin:0 0 6px;">${faq.question}</h3>
+                <p style="font-size:14px; color:#475569; margin:0;">${faq.answer}</p>
+              </div>
+            `
+              )
+              .join('')}
+          </div>
+        </section>
+
+        <section style="margin-bottom:40px; background:#f1f5f9; padding:20px; border-radius:12px;">
+          <h3 style="font-size:18px; font-weight:bold; color:#0f172a; margin-top:0; margin-bottom:8px;">${brand.name} Service Coverage Areas in Bangalore</h3>
+          <p style="font-size:14px; color:#475569; margin:0;">${BANGALORE_LOCALITIES.join(' • ')}</p>
+        </section>
+      </main>
+    `;
+  } else {
+    // POLICY PAGES OR OTHER ROUTES
+    const policyTitles: Record<string, string> = {
+      '/privacy-policy': 'Privacy Policy',
+      '/terms-of-service': 'Terms and Conditions',
+      '/refund-policy': 'Refund & Return Policy',
+      '/disclaimer': 'Disclaimer & Brand Affiliation Notice',
+      '/cookie-policy': 'Cookie Policy',
+    };
+
+    const policyName = policyTitles[cleanPath] || 'Customer Care Policy';
+    title = `${policyName} | ${BUSINESS_DETAILS.name} Bangalore`;
+    metaDescription = `${policyName} for ${BUSINESS_DETAILS.name} doorstep water purifier repair services in Bangalore.`;
+
+    bodyHtml = `
+      <header style="padding:16px; background:#0c54a0; color:#ffffff;">
+        <div style="max-width:1200px; margin:0 auto;">
+          <h1 style="font-size:24px; font-weight:bold; margin:0;">${policyName}</h1>
+        </div>
+      </header>
+      <main style="max-width:1200px; margin:0 auto; padding:24px 16px; font-family:sans-serif; color:#1e293b;">
+        <h2 style="font-size:26px; font-weight:800; color:#0c54a0;">${policyName} - ${BUSINESS_DETAILS.name}</h2>
+        <p style="font-size:14px; color:#475569;">Please read our official ${policyName} for doorstep water purifier service bookings in Bangalore.</p>
+      </main>
+    `;
+  }
+
+  return {
+    title,
+    metaDescription,
+    canonicalUrl,
+    jsonLd,
+    bodyHtml,
+  };
+}
