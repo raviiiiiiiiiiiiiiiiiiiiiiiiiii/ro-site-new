@@ -68,7 +68,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
   const currentBrandData = currentBrandKey ? BRAND_PAGES_DATA[currentBrandKey] : undefined;
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [brandsDropdownOpen, setBrandsDropdownOpen] = useState(false);
   const [policiesDropdownOpen, setPoliciesDropdownOpen] = useState(false);
   
   const [announcementIndex, setAnnouncementIndex] = useState(0);
@@ -115,7 +114,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
   const handleNavClick = (route: PageRoute) => {
     onNavigate(route);
     setMobileMenuOpen(false);
-    setBrandsDropdownOpen(false);
   };
 
   const handleScrollToForm = () => {
@@ -262,36 +260,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
                   Home
                 </button>
 
-                {/* Brands Dropdown */}
-                <div className="relative">
-                  <button
-                    onClick={() => setBrandsDropdownOpen(!brandsDropdownOpen)}
-                    onMouseEnter={() => setBrandsDropdownOpen(true)}
-                    className={`flex items-center gap-1 text-sm font-semibold transition-colors py-2 ${
-                      currentRoute.endsWith('-service') ? 'text-[#0c54a0]' : 'text-slate-700 hover:text-[#0c54a0]'
-                    }`}
-                  >
-                    Brands Serviced
-                    <ChevronDown className={`w-4 h-4 transition-transform ${brandsDropdownOpen ? 'rotate-180' : ''}`} />
-                  </button>
-
-                  {brandsDropdownOpen && (
-                    <div
-                      onMouseLeave={() => setBrandsDropdownOpen(false)}
-                      className="absolute top-full left-0 w-64 bg-white rounded-2xl shadow-xl border border-slate-100 py-2.5 z-50 animate-fadeIn"
-                    >
-                      <div className="px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-400">
-                        RO Purifier Brands
-                      </div>
-                      <button onClick={() => handleNavClick('/kt-service')} className="w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors text-slate-700 hover:text-[#0c54a0] font-medium">Kent RO Water Purifier Service</button>
-                      <button onClick={() => handleNavClick('/aq-service')} className="w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors text-slate-700 hover:text-[#0c54a0] font-medium">Aquaguard Water Purifier Service</button>
-                      <button onClick={() => handleNavClick('/pt-service')} className="w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors text-slate-700 hover:text-[#0c54a0] font-medium">Pureit RO Service & GKK Change</button>
-                      <button onClick={() => handleNavClick('/ao-service')} className="w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors text-slate-700 hover:text-[#0c54a0] font-medium">AO Smith RO Purifier Service</button>
-                      <button onClick={() => handleNavClick('/lg-service')} className="w-full text-left px-4 py-2 text-sm hover:bg-blue-50 transition-colors text-slate-700 hover:text-[#0c54a0] font-medium">LG Water Purifier Service</button>
-                    </div>
-                  )}
-                </div>
-
                 <button
                   onClick={() => {
                     handleNavClick('/');
@@ -400,19 +368,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
               >
                 Home
               </button>
-
-
-
-              <div className="border-t border-slate-100 pt-2 pb-1">
-                <div className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-400">
-                  Brand RO Services
-                </div>
-                <button onClick={() => handleNavClick('/kt-service')} className="w-full text-left py-2 px-3 text-sm text-slate-700 hover:bg-slate-50 rounded-lg font-medium">Kent RO Water Purifier Service</button>
-                <button onClick={() => handleNavClick('/aq-service')} className="w-full text-left py-2 px-3 text-sm text-slate-700 hover:bg-slate-50 rounded-lg font-medium">Aquaguard Water Purifier Service</button>
-                <button onClick={() => handleNavClick('/pt-service')} className="w-full text-left py-2 px-3 text-sm text-slate-700 hover:bg-slate-50 rounded-lg font-medium">Pureit RO Service & GKK Change</button>
-                <button onClick={() => handleNavClick('/ao-service')} className="w-full text-left py-2 px-3 text-sm text-slate-700 hover:bg-slate-50 rounded-lg font-medium">AO Smith RO Purifier Service</button>
-                <button onClick={() => handleNavClick('/lg-service')} className="w-full text-left py-2 px-3 text-sm text-slate-700 hover:bg-slate-50 rounded-lg font-medium">LG Water Purifier Service</button>
-              </div>
 
               <div className="border-t border-slate-100 pt-2 pb-1">
                 <div className="px-3 py-1 text-xs font-bold uppercase tracking-wider text-slate-400">
