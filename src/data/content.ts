@@ -198,9 +198,9 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     metaTitle: 'AO Smith RO Repair & Service Bangalore | Call 080502 91180',
     metaDescription: 'Professional AO Smith water purifier repair, filter replacement & AMC service in Bangalore. Expert technicians, genuine spare parts. Call 080502 91180.',
     commonProblems: [
-      'AO Smith hot & normal water dispense touch button not working',
+      'AO Smith touch panel or water output button not working',
       'SCM membrane or MIN-TECH cartridge change indicator glowing',
-      'Low hot water temperature or heating element issue in Z8/Z9',
+      'Low water flow or temperature indicator error in Z8/Z9',
       'Purifier continuously draining wastewater without stopping',
       'Water leakage from internal solenoid valves or fitting elbows',
       'Power light flickering or no display response on front panel',
@@ -211,8 +211,8 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes! We carry authentic AO Smith replacement filters including pre-filter cartridges, sediment filters, carbon blocks, SCM membranes, and MIN-TECH mineralizers.',
       },
       {
-        question: 'My AO Smith Z8 hot water dispenser is not heating — can you fix it?',
-        answer: 'Yes, our experienced technicians specialize in troubleshooting AO Smith heating thermostats, electronic controllers, and heating elements.',
+        question: 'My AO Smith Z8 purifier water output is very slow — can you fix it?',
+        answer: 'Yes, our experienced technicians specialize in troubleshooting AO Smith booster pumps, solenoid valves, and filter cartridges.',
       },
       {
         question: 'Are your service charges reasonable for premium brands like AO Smith?',
@@ -239,7 +239,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'Water leaking from bottom body or drain pipe valve',
       'Purified water taste feels unusual or TDS output is high',
       'LG RO pump making loud humming or vibrating noise',
-      'No water dispensing from tap or soft touch dispenser',
+      'No water output from tap or touch button',
     ],
     brandFaqs: [
       {
