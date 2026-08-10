@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Phone, Menu, X, ChevronDown, Wrench } from 'lucide-react';
 import { BUSINESS_DETAILS, BRAND_PAGES_DATA } from '../data/content';
 import { PageRoute } from '../types';
-import logoImg from '../assets/logo-60x60.jpg';
 
 interface HeaderProps {
   currentRoute: PageRoute;
@@ -221,18 +220,15 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
                   </div>
                 ) : (
                   <>
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center shrink-0 rounded-xl overflow-hidden bg-white shadow-xs border border-slate-200/80 p-0.5 group-hover:scale-105 transition-transform duration-200">
+                    <div className="h-10 sm:h-12 bg-white px-1.5 sm:px-2 py-1 rounded-xl shrink-0 overflow-hidden shadow-xs border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
                       <img
-                        src={logoImg}
-                        onError={(e) => {
-                          (e.target as HTMLImageElement).src = 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg';
-                        }}
+                        src={BUSINESS_DETAILS.logoUrl}
                         alt={BUSINESS_DETAILS.name}
                         width="60"
                         height="60"
                         loading="eager"
                         decoding="async"
-                        className="w-full h-full object-contain rounded-lg"
+                        className="h-full w-auto max-w-[120px] object-contain rounded-lg"
                       />
                     </div>
                     <div className="flex flex-col">

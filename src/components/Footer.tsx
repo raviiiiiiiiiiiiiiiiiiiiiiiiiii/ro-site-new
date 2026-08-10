@@ -1,8 +1,7 @@
 import React from 'react';
-import { Phone, MapPin, Mail, Clock, ShieldCheck } from 'lucide-react';
-import { BUSINESS_DETAILS, BRAND_PAGES_DATA } from '../data/content';
+import { Phone, MapPin, Mail, Clock } from 'lucide-react';
+import { BUSINESS_DETAILS } from '../data/content';
 import { PageRoute } from '../types';
-import logoImg from '../assets/logo-60x60.jpg';
 
 interface FooterProps {
   onNavigate: (route: PageRoute) => void;
@@ -50,23 +49,20 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
   return (
     <footer style={{ backgroundColor: bgStyle }} className="text-blue-100 pt-16 pb-24 md:pb-16 border-t border-white/10 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           
           {/* Column 1: Brand Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-11 h-11 rounded-xl bg-white flex items-center justify-center shadow-md overflow-hidden p-0.5 shrink-0">
+              <div className="h-11 bg-white px-2 py-0.5 rounded-xl flex items-center justify-center shadow-md overflow-hidden shrink-0">
                 <img 
-                  src={logoImg} 
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg';
-                  }}
+                  src={BUSINESS_DETAILS.logoUrl} 
                   alt={BUSINESS_DETAILS.name}
-                  width="44"
+                  width="80"
                   height="44"
                   loading="lazy"
                   decoding="async" 
-                  className="w-full h-full object-contain rounded-lg"
+                  className="h-full w-auto max-w-[100px] object-contain rounded-lg"
                 />
               </div>
               <div className="flex flex-col">
@@ -93,56 +89,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
             </div>
           </div>
 
-          {/* Column 2: Brand Services */}
-          <div>
-            <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/20 pb-2">
-              Brand RO Services
-            </h4>
-            <ul className="space-y-2 text-xs sm:text-sm">
-              <li>
-                <button
-                  onClick={() => onNavigate('/kt-service')}
-                  className="text-white/85 hover:text-white transition-colors text-left font-medium"
-                >
-                  Kent RO Water Purifier Service
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('/aq-service')}
-                  className="text-white/85 hover:text-white transition-colors text-left font-medium"
-                >
-                  Aquaguard Water Purifier Service
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('/pt-service')}
-                  className="text-white/85 hover:text-white transition-colors text-left font-medium"
-                >
-                  Pureit RO Service & GKK Change
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('/ao-service')}
-                  className="text-white/85 hover:text-white transition-colors text-left font-medium"
-                >
-                  AO Smith RO Purifier Service
-                </button>
-              </li>
-              <li>
-                <button
-                  onClick={() => onNavigate('/lg-service')}
-                  className="text-white/85 hover:text-white transition-colors text-left font-medium"
-                >
-                  LG Water Purifier Service
-                </button>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 3: Policy Links */}
+          {/* Column 2: Policy Links */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/20 pb-2">
               Legal & Policies
@@ -191,7 +138,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
             </ul>
           </div>
 
-          {/* Column 4: Contact Info */}
+          {/* Column 3: Contact Info */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/20 pb-2">
               Contact & Location
