@@ -152,6 +152,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           width="1920"
           height="1080"
           decoding="async"
+          fetchpriority="high"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-85 scale-105"
         />
 

@@ -216,8 +216,8 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
 
         <section style="margin-bottom:32px;">
           ${brand.logoUrl ? `<div style="margin-bottom:16px;"><img src="${brand.logoUrl}" alt="${brand.name} Logo" style="height:48px; width:auto; max-width:180px; object-fit:contain; background:#ffffff; padding:6px 12px; border-radius:12px; border:1px solid #cbd5e1;" /></div>` : ''}
-          <h1 style="font-size:32px; font-weight:800; color:#0c54a0; margin-bottom:12px; line-height:1.2;">${brand.name} RO Water Purifier Repair & Service in Bangalore</h1>
-          <p style="font-size:16px; color:#334155; margin-bottom:20px;">${brand.description}</p>
+          <h1 style="font-size:32px; font-weight:800; color:#0c54a0; margin-bottom:12px; line-height:1.2;">${brand.name} RO Water Purifier Repair &amp; Service in Bangalore</h1>
+          <p style="font-size:16px; color:#334155; margin-bottom:20px;">Fast 60–90 min doorstep repair, genuine filter replacements &amp; AMC by certified technicians in Bangalore.</p>
           
           <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:18px; border-radius:12px; margin-bottom:24px;">
             <strong style="color:#0c54a0; font-size:16px;">⚡ Doorstep Technician Dispatch in 60–90 Minutes:</strong>
@@ -225,21 +225,14 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
           </div>
         </section>
 
-        <section style="margin-bottom:36px; background:#f8fafc; padding:24px; border-radius:16px; border:1px solid #e2e8f0;">
-          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">Why Choose Our Independent ${brand.name} RO Repair Service in Bangalore?</h2>
-          <p style="font-size:15px; color:#475569; margin-bottom:14px;">
-            Bangalore's municipal and borewell water supplies vary greatly in TDS (Total Dissolved Solids) levels ranging from 150 PPM up to 2000+ PPM. ${brand.name} water purifiers require precise filter maintenance, pressure adjustments, and authentic membrane replacements to ensure crisp, safe drinking water. Our dedicated team specializes in comprehensive servicing for all ${brand.name} domestic models including Wall-mounted, Under-the-Counter (UTC), and Commercial purifiers.
-          </p>
-          <ul style="padding-left:20px; font-size:15px; color:#334155; line-height:1.8;">
-            <li><strong>100% Genuine Spare Parts:</strong> High-density sediment filters, pre-carbon blocks, post-carbon mineralizers, and authentic high-rejection RO membranes.</li>
-            <li><strong>Digital Water Quality & TDS Meter Testing:</strong> Free raw water vs purified water TDS measurement before and after every service.</li>
-            <li><strong>Upfront & Transparent Billing:</strong> Inspection fee is just ₹299 and is fully adjusted if you proceed with repair or filter replacement.</li>
-            <li><strong>30-Day Post-Service Warranty:</strong> Complete peace of mind with 30-day warranty on labor and up to 1-year warranty on replaced major electronic parts.</li>
-          </ul>
-        </section>
+        
+        ${brand.showcaseImage ? `<section style="margin-bottom:36px; padding:24px; background:#ffffff; border-radius:16px; border:1px solid #e2e8f0; text-align:center;">
+          <img src="${brand.showcaseImage}" alt="${brand.name} Water Purifier Models & Service Showcase" style="max-width:100%; height:auto; border-radius:12px;" />
+        </section>` : ''}
 
         <section style="margin-bottom:36px;">
-          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">Common ${brand.name} Problems We Diagnose & Fix Daily</h2>
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">Common ${brand.name} Problems We Fix</h2>
+          <p style="font-size:15px; color:#475569; margin-bottom:14px;">Diagnostic & repair coverage for all genuine ${brand.name} filter, electrical & membrane issues.</p>
           <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:16px;">
             ${brand.commonProblems
               .map(
@@ -253,22 +246,52 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
           </div>
         </section>
 
+        
+        <section style="margin-bottom:36px;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">${brand.name} Services Offered</h2>
+          <p style="font-size:15px; color:#475569; margin-bottom:14px;">Professional doorstep solutions delivered with original parts & transparent pricing.</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:16px;">
+            ${SERVICES_LIST.map(
+              (srv) => `
+              <div style="border:1px solid #e2e8f0; border-radius:12px; padding:16px; background:#f8fafc;">
+                <h3 style="font-size:18px; font-weight:bold; color:#0f172a; margin-top:0; margin-bottom:12px;">${brand.name} ${srv.title}</h3>
+                <ul style="padding-left:20px; font-size:14px; color:#475569; margin:0; line-height:1.6;">
+                  ${srv.features.map((f) => `<li>${f}</li>`).join('')}
+                </ul>
+              </div>
+            `
+            ).join('')}
+          </div>
+        </section>
+
+        <section style="margin-bottom:36px; background:#f8fafc; padding:24px; border-radius:16px; border:1px solid #e2e8f0;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">Doorstep ${brand.name} RO Water Purifier Servicing Across Bangalore</h2>
+          <p style="font-size:15px; color:#475569; margin-bottom:14px;">
+            Bangalore's municipal Cauvery water and groundwater borewells exhibit variable Total Dissolved Solids (TDS) levels ranging from 150 PPM to over 2000 PPM. ${brand.name} water purifiers require routine filter flushing, TDS calibration, and genuine membrane replacement to deliver pure, crystal-clear drinking water. Our certified local technicians provide specialized maintenance for all ${brand.name} models — including Grand Plus, Mineral RO, Active Copper, Germkill, and Stainless Steel tank series.
+          </p>
+          <h3 style="font-size:18px; font-weight:bold; color:#0c54a0; margin-bottom:8px;">100% Genuine Spare Guarantee</h3>
+          <p style="font-size:14px; color:#475569; margin-bottom:14px;">We install original high-density sediment filters, pre-carbon blocks, post-carbon mineralizers, and high-rejection RO membranes built to handle heavy hard water.</p>
+          <h3 style="font-size:18px; font-weight:bold; color:#0f5132; margin-bottom:8px;">30-Day Post-Service Warranty</h3>
+          <p style="font-size:14px; color:#475569; margin-bottom:20px;">Enjoy complete peace of mind with our 30-day labor service warranty and up to 1-year replacement warranty on major pumps and SMPS power units.</p>
+        </section>
+
         <section style="margin-bottom:36px; background:#ffffff; padding:24px; border-radius:16px; border:1px solid #cbd5e1;">
-          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">Our 8-Step ${brand.name} RO Service & Check Protocol</h2>
-          <ol style="padding-left:20px; font-size:15px; color:#334155; line-height:1.8;">
-            <li>Input Water Pressure & Pre-Filter Outer Housing Flushing</li>
-            <li>Spun Sediment Filter Inspection & Multi-Layer Replacement</li>
-            <li>Activated Carbon Block Deodorization & Chlorine Removal Check</li>
-            <li>High-TDS RO Membrane Rejection Calibration & Flushing</li>
-            <li>UV Lamp Intensity & Solenoid Auto-Cut Solenoid Valve Test</li>
-            <li>Booster Pump Pressure & SMPS Electrical Adapter Output Verification</li>
-            <li>Internal Storage Tank Deep Sanitization & Descaling</li>
-            <li>Final Digital TDS & Water Hardness Level Output Certification</li>
-          </ol>
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">Our 8-Point ${brand.name} Service & Inspection Protocol</h2>
+          <ul style="padding-left:20px; font-size:15px; color:#334155; line-height:1.8;">
+            <li>Pre-filter outer bowl flushing & cartridge replacement</li>
+            <li>Spun sediment & activated carbon deodorization check</li>
+            <li>High-TDS RO membrane rejection rate calibration</li>
+            <li>UV lamp intensity & quartz sleeve descaling</li>
+            <li>Booster pump PSI pressure & vibration test</li>
+            <li>Solenoid valve auto-cut & power adapter output test</li>
+            <li>Water storage tank food-grade sanitization</li>
+            <li>Digital TDS meter verification before & after service</li>
+          </ul>
         </section>
 
         <section style="margin-bottom:36px;">
-          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">Frequently Asked Questions for ${brand.name} Service in Bangalore</h2>
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-bottom:16px;">${brand.name} Service FAQs</h2>
+          <p style="font-size:15px; color:#475569; margin-bottom:14px;">Answers to common questions about servicing your ${brand.name} RO system in Bangalore.</p>
           <div style="display:flex; flex-direction:column; gap:16px;">
             ${brand.brandFaqs
               .map(
@@ -282,11 +305,13 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
               .join('')}
           </div>
         </section>
-
-        <section style="margin-bottom:40px; background:#f1f5f9; padding:20px; border-radius:12px;">
-          <h3 style="font-size:18px; font-weight:bold; color:#0f172a; margin-top:0; margin-bottom:8px;">${brand.name} Service Coverage Areas in Bangalore</h3>
-          <p style="font-size:14px; color:#475569; margin:0;">${BANGALORE_LOCALITIES.join(' • ')}</p>
+        
+        <section style="margin-bottom:36px; background:#f8fafc; padding:24px; border-radius:16px; border:1px solid #e2e8f0;">
+          <h2 style="font-size:22px; font-weight:700; color:#0f172a; margin-top:0; margin-bottom:14px;">MSME Certified Water Purifier Service</h2>
+          <p style="font-size:15px; color:#475569; margin-bottom:14px;">Officially recognized government enterprise for trusted doorstep ${brand.name} RO repair, maintenance & filter replacement in Bangalore.</p>
+          <p style="font-size:15px; color:#475569; margin-bottom:0;">MSME Registration No: UDYAM-KR-03-0561611</p>
         </section>
+
       </main>
     `;
   } else {
