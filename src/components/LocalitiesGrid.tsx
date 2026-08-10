@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'motion/react';
+
 import { MapPin, Search, Check } from 'lucide-react';
 import { BANGALORE_LOCALITIES } from '../data/content';
 
@@ -13,11 +13,7 @@ export const LocalitiesGrid: React.FC = () => {
   return (
     <section id="localities-section" className="py-16 sm:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div 
           className="text-center max-w-3xl mx-auto mb-10"
         >
           <span className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wider mb-3">
@@ -30,7 +26,7 @@ export const LocalitiesGrid: React.FC = () => {
           <p className="text-sm sm:text-base text-slate-600 mt-2">
             Our local technicians are stationed across East, West, North, and South Bangalore to reach your doorstep within 60 minutes.
           </p>
-        </motion.div>
+        </div>
 
         {/* Search bar */}
         <div className="max-w-md mx-auto mb-8 relative">

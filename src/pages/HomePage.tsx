@@ -1,5 +1,4 @@
 import React from 'react';
-import { motion } from 'motion/react';
 import { Phone } from 'lucide-react';
 import { BUSINESS_DETAILS, HOMEPAGE_FAQS } from '../data/content';
 import { LeadForm } from '../components/LeadForm';
@@ -29,6 +28,8 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           muted 
           playsInline
           preload="metadata"
+          width="1920"
+          height="1080"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-90 scale-[1.2] sm:scale-[1.02] transition-transform duration-700"
         >
           <source 
@@ -46,38 +47,26 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
           <div className="absolute -bottom-1/2 -left-1/4 w-[800px] h-[800px] rounded-full bg-cyan-500/15 blur-3xl" />
         </div>
 
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        <div 
           className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10"
         >
-          <motion.h1 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+          <h1 
             className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-2 sm:mb-3 drop-shadow-lg"
           >
             Doorstep RO Water Purifier
             <span className="block mt-1 bg-gradient-to-r from-sky-300 via-blue-100 to-cyan-200 bg-clip-text text-transparent">
               Repair & Service in Bangalore
             </span>
-          </motion.h1>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+          <p 
             className="text-sm sm:text-base font-semibold mb-5 sm:mb-6 text-blue-100 drop-shadow max-w-lg mx-auto"
           >
             Fast, Reliable, Affordable doorstep service in Bangalore
-          </motion.p>
+          </p>
 
           {/* Action Buttons */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+          <div 
             className="flex flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-sm mx-auto mb-10 sm:mb-14"
           >
             <a
@@ -93,63 +82,52 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             >
               Book Service
             </button>
-          </motion.div>
+          </div>
 
-        </motion.div>
+        </div>
         
         {/* Soft bottom gradient cutout blending into page */}
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#f4f7f9] via-[#f4f7f9]/60 to-transparent pointer-events-none"></div>
       </section>
 
       {/* LEAD FORM SECTION */}
-      <motion.section 
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+      <section 
         className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-16"
       >
         <LeadForm sourcePage="Homepage Hero" hideServiceSelector={true} />
-      </motion.section>
+      </section>
 
       {/* OUR SERVICES SECTION */}
-      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+      <div>
         <ServicesGrid />
-      </motion.div>
+      </div>
 
       {/* WHY CHOOSE US */}
-      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+      <div>
         <WhyChooseUs />
-      </motion.div>
+      </div>
 
       {/* PROCESS / HOW IT WORKS */}
-      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+      <div>
         <ProcessTimeline />
-      </motion.div>
+      </div>
 
       {/* TESTIMONIALS */}
-      <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.6 }}>
+      <div>
         <Testimonials />
-      </motion.div>
+      </div>
 
       {/* FAQ SECTION */}
-      <motion.section 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+      <section 
         className="py-16 sm:py-24 bg-white"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FAQAccordion faqs={HOMEPAGE_FAQS} />
         </div>
-      </motion.section>
+      </section>
 
       {/* MSME CERTIFIED BADGE (Just above footer) */}
-      <motion.section 
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.5 }}
+      <section 
         className="py-12 bg-slate-50/80 border-t border-slate-200/80"
       >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -182,7 +160,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             </div>
           </div>
         </div>
-      </motion.section>
+      </section>
 
     </div>
   );

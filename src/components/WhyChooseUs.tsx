@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+
 import { UserCheck, Zap, ShieldCheck, Tag, Clock, Award } from 'lucide-react';
 import { WHY_CHOOSE_US_POINTS } from '../data/content';
 
@@ -26,11 +26,7 @@ export const WhyChooseUs: React.FC = () => {
   return (
     <section className="py-16 sm:py-24 bg-[#f4f7f9] border-t border-slate-200/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div 
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <h2 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] tracking-tight">
@@ -39,17 +35,12 @@ export const WhyChooseUs: React.FC = () => {
           <p className="text-base sm:text-lg text-slate-600 mt-3">
             The preferred choice for RO servicing across Bangalore
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {WHY_CHOOSE_US_POINTS.map((item, idx) => (
-            <motion.div
+            <div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: idx * 0.08 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="p-8 rounded-[24px] bg-white border border-slate-100 shadow-[0_4px_24px_rgba(0,0,0,0.04)] text-center flex flex-col items-center hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-shadow group"
             >
               <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -59,7 +50,7 @@ export const WhyChooseUs: React.FC = () => {
               <p className="text-[15px] text-slate-600 leading-relaxed">
                 {item.description}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

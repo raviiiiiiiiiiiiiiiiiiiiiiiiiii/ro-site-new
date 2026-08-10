@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+
 import { ChevronRight } from 'lucide-react';
 import { BRAND_PAGES_DATA } from '../data/content';
 import { PageRoute } from '../types';
@@ -15,11 +15,7 @@ export const BrandsGrid: React.FC<BrandsGridProps> = ({ onNavigate }) => {
     <section className="py-16 sm:py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div 
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] tracking-tight mb-4">
@@ -28,19 +24,14 @@ export const BrandsGrid: React.FC<BrandsGridProps> = ({ onNavigate }) => {
           <p className="text-base sm:text-lg text-slate-600">
             Our technicians are trained to repair all major water purifier brands with genuine spare parts.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {brandKeys.map((key, index) => {
             const brand = BRAND_PAGES_DATA[key];
             return (
-              <motion.div
+              <div
                 key={brand.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.08 }}
-                whileHover={{ y: -6, transition: { duration: 0.2 } }}
                 onClick={() => onNavigate(brand.slug)}
                 className="group cursor-pointer bg-[#f4f7f9] border border-transparent hover:border-[#0c54a0]/20 rounded-[24px] p-8 transition-all flex flex-col justify-between hover:shadow-lg"
               >
@@ -72,7 +63,7 @@ export const BrandsGrid: React.FC<BrandsGridProps> = ({ onNavigate }) => {
                   <span>{brand.name} Repair & Service</span>
                   <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

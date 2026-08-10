@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+
 import { Star } from 'lucide-react';
 import { HOMEPAGE_TESTIMONIALS } from '../data/content';
 
@@ -8,11 +8,7 @@ export const Testimonials: React.FC = () => {
     <section className="py-16 sm:py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div 
           className="text-center max-w-3xl mx-auto mb-12"
         >
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
@@ -25,17 +21,12 @@ export const Testimonials: React.FC = () => {
           <p className="text-sm sm:text-base text-slate-600 mt-2">
             Real feedback from homeowners and tenants across Bangalore.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {HOMEPAGE_TESTIMONIALS.map((review, index) => (
-            <motion.div 
+            <div 
               key={review.id} 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
               className="bg-white rounded-[24px] p-6 border border-slate-200/80 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow relative"
             >
               <div>
@@ -60,7 +51,7 @@ export const Testimonials: React.FC = () => {
                   {review.brandServiced}
                 </span>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

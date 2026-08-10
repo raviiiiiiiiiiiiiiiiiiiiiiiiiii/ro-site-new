@@ -103,7 +103,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
       } else {
         setShowHead(true);
       }
-      
       setLastScrollY(currentScrollY);
     };
 

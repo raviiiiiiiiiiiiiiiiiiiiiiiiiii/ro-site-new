@@ -1,5 +1,5 @@
 import React from 'react';
-import { motion } from 'motion/react';
+
 import {
   Wrench,
   Download,
@@ -48,11 +48,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
     <div id="services-section" className="py-16 sm:py-24 bg-[#f4f7f9]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+        <div 
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <h2 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] tracking-tight mb-4">
@@ -61,17 +57,12 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
           <p className="text-base sm:text-lg text-slate-600 leading-relaxed">
             From basic filter changes to complete AMC plans, we ensure your purifier delivers 100% safe drinking water.
           </p>
-        </motion.div>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES_LIST.map((service, index) => (
-            <motion.div
+            <div
               key={service.id}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.08 }}
-              whileHover={{ y: -6, transition: { duration: 0.2 } }}
               className="bg-white rounded-[24px] p-8 shadow-[0_4px_24px_rgba(0,0,0,0.04)] border border-slate-100 flex flex-col group relative transition-shadow hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)]"
             >
               <div className="mb-6">
@@ -102,7 +93,7 @@ export const ServicesGrid: React.FC<ServicesGridProps> = ({ onSelectService }) =
                   <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
 
