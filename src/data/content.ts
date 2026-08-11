@@ -71,10 +71,10 @@ export const SERVICES_LIST: ServiceItem[] = [
 ];
 
 export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
-  'kt-service': {
+  'kent-service': {
     id: 'kent',
     name: 'Kent',
-    slug: '/kt-service',
+    slug: '/kent-service',
     logoText: 'KENT',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032964/KENT-RO-Logo-new_dkjihe.png',
     tagline: 'House of Purity - Expert Service & Genuine Spares in Bangalore',
@@ -111,10 +111,10 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
   },
 
-  'aq-service': {
+  'aquaguard-service': {
     id: 'aquaguard',
     name: 'Aquaguard / Eureka',
-    slug: '/aq-service',
+    slug: '/aquaguard-service',
     logoText: 'Aquaguard',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032688/Screenshot_20260806_102503_Google_nsdk6g.jpg',
     tagline: 'Paani Ka Doctor - Prompt Service & Genuine Filter Replacement',
@@ -151,10 +151,10 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
   },
 
-  'pt-service': {
+  'pureit-service': {
     id: 'pureit',
     name: 'Pureit (HUL)',
-    slug: '/pt-service',
+    slug: '/pureit-service',
     logoText: 'Pureit',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786031439/pureit_water_logo_zaej67.png',
     tagline: 'HUL Pureit Advanced Repair & GKK Replacement in Bangalore',
@@ -187,10 +187,10 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
   },
 
-  'ao-service': {
+  'aosmith-service': {
     id: 'ao-smith',
     name: 'AO Smith',
-    slug: '/ao-service',
+    slug: '/aosmith-service',
     logoText: 'A. O. SMITH',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786031439/logo_nk88jp.png',
     tagline: 'Premium Mineralized RO Repair & Filter Replacement',

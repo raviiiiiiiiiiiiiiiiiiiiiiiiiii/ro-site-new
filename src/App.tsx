@@ -14,10 +14,10 @@ const NotFoundPage = lazy(() => import('./pages/NotFoundPage').then(m => ({ defa
 
 const VALID_ROUTES: PageRoute[] = [
   '/',
-  '/kt-service',
-  '/aq-service',
-  '/pt-service',
-  '/ao-service',
+  '/kent-service',
+  '/aquaguard-service',
+  '/pureit-service',
+  '/aosmith-service',
   '/lg-service',
   '/privacy-policy',
   '/terms-of-service',
@@ -297,10 +297,10 @@ export default function App() {
     );
 
     if (
-      currentRoute === '/kt-service' ||
-      currentRoute === '/aq-service' ||
-      currentRoute === '/pt-service' ||
-      currentRoute === '/ao-service' ||
+      currentRoute === '/kent-service' ||
+      currentRoute === '/aquaguard-service' ||
+      currentRoute === '/pureit-service' ||
+      currentRoute === '/aosmith-service' ||
       currentRoute === '/lg-service'
     ) {
       return (

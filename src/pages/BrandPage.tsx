@@ -52,7 +52,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
     serviceCtaColor: '#A50034',
     ctaBtnBg: '#A50034',
   },
-  'aq-service': {
+  'aquaguard-service': {
     primary: '#0072BC',
     secondary: '#005a96',
     heroOverlay: 'from-slate-950/80 via-[#0072BC]/45 to-slate-900/80',
@@ -72,7 +72,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
     serviceCtaColor: '#0072BC',
     ctaBtnBg: '#0072BC',
   },
-  'pt-service': {
+  'pureit-service': {
     primary: '#2B2A6B',
     secondary: '#4CA6DE',
     heroOverlay: 'from-slate-950/80 via-[#2B2A6B]/55 to-slate-900/80',
@@ -92,7 +92,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
     serviceCtaColor: '#4CA6DE',
     ctaBtnBg: '#4CA6DE',
   },
-  'ao-service': {
+  'aosmith-service': {
     primary: '#00843D',
     secondary: '#231F20',
     heroOverlay: 'from-slate-950/80 via-[#00843D]/45 to-slate-900/80',
@@ -112,7 +112,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
     serviceCtaColor: '#00843D',
     ctaBtnBg: '#00843D',
   },
-  'kt-service': {
+  'kent-service': {
     primary: '#1B3F8C',
     secondary: '#0284C7',
     heroOverlay: 'from-slate-950/80 via-[#1B3F8C]/50 to-slate-900/80',
@@ -136,8 +136,8 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
 
 export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
   const brandKey = route.replace('/', '');
-  const brand = BRAND_PAGES_DATA[brandKey] || BRAND_PAGES_DATA['kt-service'];
-  const theme = BRAND_THEMES[brandKey] || BRAND_THEMES['kt-service'];
+  const brand = BRAND_PAGES_DATA[brandKey] || BRAND_PAGES_DATA['kent-service'];
+  const theme = BRAND_THEMES[brandKey] || BRAND_THEMES['kent-service'];
 
   return (
     <div className="min-h-screen bg-white font-sans">

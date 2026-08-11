@@ -1,9 +1,9 @@
 export type PageRoute = 
   | '/'
-  | '/kt-service'
-  | '/aq-service'
-  | '/pt-service'
-  | '/ao-service'
+  | '/kent-service'
+  | '/aquaguard-service'
+  | '/pureit-service'
+  | '/aosmith-service'
   | '/lg-service'
   | '/privacy-policy'
   | '/terms-of-service'

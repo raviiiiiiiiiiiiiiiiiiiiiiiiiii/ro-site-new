@@ -31,25 +31,25 @@ const BRAND_HEADER_CONFIGS: Record<string, BrandHeaderStyle> = {
     phoneBorderColor: '#A50034',
     phoneTextColor: '#A50034',
   },
-  '/aq-service': {
+  '/aquaguard-service': {
     primary: '#0072BC',
     announcementBg: '#0072BC',
     phoneBorderColor: '#0072BC',
     phoneTextColor: '#0072BC',
   },
-  '/pt-service': {
+  '/pureit-service': {
     primary: '#2B2A6B',
     announcementBg: '#2B2A6B',
     phoneBorderColor: '#2B2A6B',
     phoneTextColor: '#2B2A6B',
   },
-  '/ao-service': {
+  '/aosmith-service': {
     primary: '#00843D',
     announcementBg: '#00843D',
     phoneBorderColor: '#00843D',
     phoneTextColor: '#00843D',
   },
-  '/kt-service': {
+  '/kent-service': {
     primary: '#1B3F8C',
     announcementBg: '#1B3F8C',
     phoneBorderColor: '#1B3F8C',

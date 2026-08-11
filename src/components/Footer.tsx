@@ -19,19 +19,19 @@ const BRAND_FOOTER_CONFIGS: Record<string, BrandFooterStyle> = {
     bg: '#A50034',
     badgeAccent: '#FCA5A5',
   },
-  '/aq-service': {
+  '/aquaguard-service': {
     bg: '#0072BC',
     badgeAccent: '#7DD3FC',
   },
-  '/pt-service': {
+  '/pureit-service': {
     bg: '#2B2A6B',
     badgeAccent: '#4CA6DE',
   },
-  '/ao-service': {
+  '/aosmith-service': {
     bg: '#00843D',
     badgeAccent: '#6EE7B7',
   },
-  '/kt-service': {
+  '/kent-service': {
     bg: '#1B3F8C',
     badgeAccent: '#F472B6',
   },
