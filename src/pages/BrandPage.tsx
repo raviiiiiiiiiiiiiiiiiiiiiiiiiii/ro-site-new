@@ -152,7 +152,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           width="1920"
           height="1080"
           decoding="async"
-          fetchpriority="high"
+          fetchPriority="high"
           className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-85 scale-105"
         />
 
@@ -207,11 +207,16 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         <LeadForm preselectedBrand={brand.name} sourcePage={`${brand.name} Service Page`} buttonColor={theme.ctaBtnBg} hideBrandSelector={true} />
       </section>
 
-      {/* BRAND SHOWCASE IMAGE SECTION */}
-      {brand.showcaseImage && (
-        <section className="py-8 sm:py-14 bg-white border-b border-slate-100">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="bg-white rounded-3xl p-3 sm:p-6 lg:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.04)] border border-slate-200/80 max-w-4xl mx-auto overflow-hidden flex items-center justify-center">
+      {/* NEW SECTION: Water Purifier Tech, Image & CTA */}
+      <section className="py-12 bg-white border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 style={{ color: theme.headingColor }} className="text-2xl md:text-3xl font-black tracking-tight mb-8">
+            Water Purifier RO + UV + UF + Alkaline + MC + TF
+          </h2>
+          
+          {brand.showcaseImage && (
+            <div className="mb-10 max-w-4xl mx-auto">
+              <div className="bg-white rounded-3xl p-3 sm:p-6 lg:p-8 shadow-[0_12px_36px_rgba(0,0,0,0.04)] border border-slate-200/80 overflow-hidden flex items-center justify-center">
                 <img
                   src={brand.showcaseImage}
                   alt={`${brand.name} Water Purifier Models & Service Showcase`}
@@ -221,10 +226,20 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
                   loading="lazy"
                   decoding="async"
                 />
+              </div>
             </div>
-          </div>
-        </section>
-      )}
+          )}
+
+          <a
+            href={`tel:${BUSINESS_DETAILS.phone}`}
+            style={{ backgroundColor: theme.ctaBtnBg }}
+            className="inline-flex items-center justify-center px-8 py-3.5 border border-transparent text-base font-bold rounded-xl text-white transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5"
+          >
+            <Phone className="w-5 h-5 mr-2" />
+            Book Service
+          </a>
+        </div>
+      </section>
 
       {/* COMMON PROBLEMS WE FIX */}
       <section className="py-16 sm:py-24 bg-white border-b border-slate-100">
@@ -431,6 +446,27 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           </div>
         </div>
       </section>
+
+      {/* POPULAR SEARCHES */}
+      {brand.popularSearches && brand.popularSearches.length > 0 && (
+        <section className="py-8 bg-white border-t border-slate-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p className="text-xs font-medium text-slate-400 uppercase tracking-widest mb-4">
+              Related Services
+            </p>
+            <div className="flex flex-wrap justify-center gap-x-2 gap-y-3">
+              {brand.popularSearches.map((search, idx) => (
+                <span key={idx} className="inline-flex items-center">
+                  <span className="text-[13px] text-slate-500">{search}</span>
+                  {idx < brand.popularSearches!.length - 1 && (
+                    <span className="mx-2 text-slate-300 font-bold">·</span>
+                  )}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
     </div>
   );

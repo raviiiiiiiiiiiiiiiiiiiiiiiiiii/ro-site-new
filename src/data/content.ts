@@ -77,11 +77,11 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     slug: '/kent-service',
     logoText: 'KENT',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032964/KENT-RO-Logo-new_dkjihe.png',
-    tagline: 'House of Purity - Expert Service & Genuine Spares in Bangalore',
+    tagline: 'House of Purity - Your Trusted Kent Service Center Alternative in Bangalore',
     accentColor: 'from-blue-600 to-cyan-500',
-    description: 'Looking for fast, reliable Kent RO service in Bangalore? Our certified technicians specialize in Kent Grand Plus, Pearl, Supreme, Prime, Wonder, and all Kent RO+UV+UF water purifiers with 100% genuine filters and same-day doorstep service.',
-    metaTitle: 'Kent RO Water Purifier Repair & Service Bangalore | Call 080502 91180',
-    metaDescription: 'Trusted Kent RO repair, filter change, membrane replacement & AMC in Bangalore. Same-day technician visit, genuine Kent parts, 30-day warranty. Book now!',
+    description: 'Looking for fast, reliable Kent RO service in Bangalore? Our certified technicians specialize in Kent Grand Plus, Pearl, Supreme, Prime, Wonder, and all Kent RO+UV+UF water purifiers. We provide professional Kent water purifier service Bangalore relies on, featuring 100% genuine filters and same-day doorstep support.',
+    metaTitle: 'Kent Water Purifier Service Bangalore | Kent RO Repair | Call 08050291180',
+    metaDescription: 'Need expert Kent RO repair Bangalore? We are your trusted alternative to a Kent service center. Get same-day technician visits, genuine parts, and a 30-day warranty.',
     commonProblems: [
       'Kent RO water leaking from bottom or inlet pipes',
       'Low water flow speed from tank or slow filtration rate',
@@ -100,28 +100,55 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Absolutely. We source original high-grade Kent compatible sediment filters, activated carbon blocks, UV lamps, and authentic RO membranes to ensure high TDS rejection and long life.',
       },
       {
-        question: 'How quickly can a technician visit my location in Bangalore for Kent repair?',
-        answer: 'We provide same-day service! Once you submit the form or call 080502 91180, our nearest local technician in your area (Whitefield, Koramangala, Indiranagar, HSR, etc.) is dispatched within 60 to 90 minutes.',
+        question: 'I am looking for a Kent service near me. How quickly can a technician visit my location?',
+        answer: 'We provide same-day service! Once you call 080502 91180, our nearest local technician in your area is dispatched within 60 to 90 minutes to handle your Kent RO repair Bangalore requests.',
       },
       {
         question: 'How much does a Kent RO service or filter replacement cost?',
         answer: 'General service inspection starts at just ₹299. Basic sediment/pre-filter replacement ranges from ₹350–₹600, while complete Kent filter overhaul costs are quoted upfront post-inspection with zero hidden fees.',
       },
+      {
+        question: 'Is there a Kent RO service center near me in Bangalore?',
+        answer: 'Yes! We operate locally across Bangalore. Our roaming technicians mean there is always a Kent service center alternative right in your neighborhood for rapid response.',
+      },
+      {
+        question: 'Are there hidden charges in Kent water purifier service?',
+        answer: 'No, we believe in complete transparency. Our visiting charge is fixed, and if any parts are needed, we provide a clear quote before beginning the work.',
+      },
+      {
+        question: 'What is included in the Kent Annual Maintenance Contract (AMC)?',
+        answer: 'Our Kent AMC covers regular preventive maintenance, free replacement of sediment and carbon filters, membrane health checks, and unlimited free breakdown visits.',
+      },
+      {
+        question: 'How do I know if my Kent RO membrane needs replacement?',
+        answer: 'Signs include a drop in water flow, unusual taste, or if the systems TDS meter indicates high impurity levels. Our technicians can test your Kent RO membrane precisely.',
+      },
+      {
+        question: 'Do you provide a warranty on Kent RO repair in Bangalore?',
+        answer: 'Yes, we offer a 30-day warranty on our repair workmanship, plus up to 1-year manufacturer warranty on major replaced parts like pumps and membranes.',
+      },
+    ],
+    popularSearches: [
+      'Kent RO service',
+      'Kent service center',
+      'Kent water purifier service Bangalore',
+      'Kent RO repair Bangalore',
+      'Kent service near me'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
   },
 
   'aquaguard-service': {
     id: 'aquaguard',
-    name: 'Aquaguard / Eureka',
+    name: 'Eureka Forbes Aquaguard',
     slug: '/aquaguard-service',
     logoText: 'Aquaguard',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032688/Screenshot_20260806_102503_Google_nsdk6g.jpg',
-    tagline: 'Paani Ka Doctor - Prompt Service & Genuine Filter Replacement',
+    tagline: 'Paani Ka Doctor - Prompt Aquaguard Service Bangalore Trusts',
     accentColor: 'from-teal-600 to-emerald-500',
-    description: 'Get expert doorstep service for your Aquaguard water purifier in Bangalore. We service Aquaguard Geneus, Enhance, Blaze, Ritz, Magna, Cristal, and all Active Copper models using authentic spare parts.',
-    metaTitle: 'Aquaguard RO Repair & Service in Bangalore | Call 080502 91180',
-    metaDescription: 'Expert Aquaguard water purifier repair, copper filter change, UV lamp replacement & AMC in Bangalore. Doorstep technician in 60 mins. Call 080502 91180.',
+    description: 'Get expert doorstep Aquaguard water purifier service in your area. We handle Eureka Aquaguard service for models like Geneus, Enhance, Blaze, Ritz, Magna, and all Active Copper systems using authentic spare parts.',
+    metaTitle: 'Aquaguard Service Bangalore | RO Repair & Filter Replacement',
+    metaDescription: 'Need an Aquaguard RO service center near me? Get expert water purifier repair, copper filter changes, and AMC in Bangalore. Doorstep visit in 60 mins.',
     commonProblems: [
       'Aquaguard red/orange error light blinking or buzzer sound',
       'Water flow suddenly stopped or extremely slow stream',
@@ -132,8 +159,8 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     ],
     brandFaqs: [
       {
-        question: 'Do you service all Aquaguard models in Bangalore?',
-        answer: 'Yes! We service all Aquaguard models including Active Copper, Geneus, Enhance, Smart Plus, Ritz, UTC (Under the Counter), and commercial Aquaguard purifiers.',
+        question: 'How can I find a reliable Aquaguard technician near me?',
+        answer: 'It is easy! Just call 080502 91180 and we will dispatch a certified Aquaguard technician near you within 60 to 90 minutes. We service all models including Active Copper, Geneus, Enhance, and UTC.',
       },
       {
         question: 'What is included in an Aquaguard full service check?',
@@ -147,21 +174,48 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         question: 'Why is my Aquaguard water purifier beeping continuously or showing red light?',
         answer: 'A continuous beep or red indicator light usually signifies a UV lamp failure, filter blockage, or mandatory service alert. Our technicians diagnose the exact sensor error and replace faulty parts on the spot.',
       },
+      {
+        question: 'Where is the closest Aquaguard RO service center near me?',
+        answer: 'We provide a mobile doorstep service throughout Bangalore, making us your fastest alternative to finding a physical Aquaguard RO service center near me.',
+      },
+      {
+        question: 'Do you use authentic parts for Eureka Aquaguard service?',
+        answer: 'Absolutely. We stock genuine Aquaguard compatible filters, UV lamps, and carbon blocks to ensure your water tastes exactly as it should.',
+      },
+      {
+        question: 'How much time does an Aquaguard water purifier service take?',
+        answer: 'A standard service and filter replacement usually takes about 30 to 45 minutes, done entirely at your home.',
+      },
+      {
+        question: 'Why does water taste bitter from my Aquaguard?',
+        answer: 'This usually indicates the RO membrane or carbon filter has reached the end of its lifespan. A quick filter change during your Aquaguard service Bangalore visit will restore the natural taste.',
+      },
+      {
+        question: 'Do you provide emergency Aquaguard technician near me services?',
+        answer: 'Yes, if your purifier is leaking or completely stopped, we prioritize emergency visits to resolve the issue the very same day.',
+      },
+    ],
+    popularSearches: [
+      'Aquaguard service Bangalore',
+      'Aquaguard water purifier service',
+      'Eureka Aquaguard service',
+      'Aquaguard RO service center near me',
+      'Aquaguard technician near me'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
   },
 
   'pureit-service': {
     id: 'pureit',
-    name: 'Pureit (HUL)',
+    name: 'HUL Pureit',
     slug: '/pureit-service',
     logoText: 'Pureit',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786031439/pureit_water_logo_zaej67.png',
-    tagline: 'HUL Pureit Advanced Repair & GKK Replacement in Bangalore',
+    tagline: 'Your Dependable Pureit Service Center Alternative in Bangalore',
     accentColor: 'from-sky-600 to-indigo-500',
-    description: 'Need a GKK (Germkill Kit) replacement or urgent repair for your HUL Pureit water purifier in Bangalore? We handle Pureit Marvella, Ultima, Copper RO+UV, Mineral RO, and Classic models with genuine kits and same-day delivery.',
-    metaTitle: 'Pureit RO Repair & GKK Replacement Bangalore | Call 080502 91180',
-    metaDescription: 'Fast HUL Pureit RO service & GKK filter kit replacement in Bangalore. Certified technicians, genuine parts, low prices. Call 080502 91180 now!',
+    description: 'Looking for top-tier Pureit service Bangalore residents trust? Whether you need a GKK (Germkill Kit) replacement or an urgent Pureit water purifier service, we handle Marvella, Ultima, Copper RO+UV, and Mineral RO models with same-day delivery.',
+    metaTitle: 'Pureit Service Bangalore | HUL Pureit RO Repair & GKK Replacement',
+    metaDescription: 'Fast and reliable Pureit service in Bangalore. Get your GKK filter kit replaced by certified professionals right at your doorstep. Book your repair today!',
     commonProblems: [
       'Pureit GKK indicator light turned red or auto-shutoff activated',
       'No water flow from Pureit purifier despite water pressure',
@@ -172,8 +226,8 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     ],
     brandFaqs: [
       {
-        question: 'How do I know when my Pureit Germkill Kit (GKK) needs replacement?',
-        answer: 'Pureit devices have an advance alert system. When the indicator turns half-red or full-red, water flow automatically stops to protect you from unpurified water. Call us at 080502 91180 for immediate doorstep replacement.',
+        question: 'I need a Pureit service center near me for GKK replacement. Can you help?',
+        answer: 'Absolutely. If your indicator turns red and water flow stops, there is no need to travel. We act as a faster alternative to a traditional Pureit service center by bringing the original Germkill Kit directly to your doorstep in Bangalore.',
       },
       {
         question: 'Do you carry original HUL Pureit Germkill Kits?',
@@ -183,6 +237,36 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         question: 'Can you convert my Pureit RO to handle higher Bangalore borewell TDS?',
         answer: 'Yes, if your local raw water TDS has increased, we can tune your Pureit RO system with a high-rejection 3000+ PPM membrane for crisp, pure water.',
       },
+      {
+        question: 'Is there a Pureit service center near my location?',
+        answer: 'With technicians deployed across all major Bangalore zones, we function as a highly responsive Pureit service center alternative right at your doorstep.',
+      },
+      {
+        question: 'Does your Pureit service include tank cleaning?',
+        answer: 'Yes, every comprehensive Pureit water purifier service includes deep cleaning and sanitization of your water storage tank.',
+      },
+      {
+        question: 'Why is my Pureit Marvella showing a filter change error?',
+        answer: 'Pureit devices have built-in digital alerts. When it is time for a GKK change, the indicator will notify you. We can quickly reset this during our service visit.',
+      },
+      {
+        question: 'How do I book a Pureit service Bangalore appointment?',
+        answer: 'You can simply call our helpline or fill out the booking form on our website. We arrange same-day service visits.',
+      },
+      {
+        question: 'Are your technicians certified for Pureit RO repair?',
+        answer: 'Our technicians undergo rigorous training specifically on HUL Pureit models, ensuring your device is handled by professionals.',
+      },
+      {
+        question: 'What is the warranty on Pureit GKK replacement?',
+        answer: 'We offer a 30-day service warranty on our work, giving you peace of mind that the new Pureit Germkill Kit is installed perfectly.',
+      },
+    ],
+    popularSearches: [
+      'Pureit service',
+      'Pureit water purifier service',
+      'Pureit service center',
+      'Pureit service Bangalore'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
   },
@@ -193,11 +277,11 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     slug: '/aosmith-service',
     logoText: 'A. O. SMITH',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786031439/logo_nk88jp.png',
-    tagline: 'Premium Mineralized RO Repair & Filter Replacement',
+    tagline: 'Premium AO Smith Water Purifier Service & Filter Replacement',
     accentColor: 'from-blue-700 to-slate-700',
-    description: 'Specialized AO Smith water purifier repair and servicing in Bangalore. Certified care for AO Smith Z8, Z9, X8, ProPlanet, Green Series, and Under-Counter RO systems with genuine SCM (Silver Charged Membrane) and MIN-TECH filters.',
-    metaTitle: 'AO Smith RO Repair & Service Bangalore | Call 080502 91180',
-    metaDescription: 'Professional AO Smith water purifier repair, filter replacement & AMC service in Bangalore. Expert technicians, genuine spare parts. Call 080502 91180.',
+    description: 'Looking for specialized AO Smith RO repair Bangalore? We provide expert care for AO Smith Z8, Z9, X8, ProPlanet, and Green Series RO systems. Enjoy peace of mind with our doorstep AO Smith RO service featuring genuine SCM and MIN-TECH filters.',
+    metaTitle: 'AO Smith Water Purifier Service Bangalore | Fast RO Repair',
+    metaDescription: 'Need an AO Smith technician near me? Get professional AO Smith water purifier service, filter replacement, and prompt AMC support across Bangalore today.',
     commonProblems: [
       'AO Smith touch panel or water output button not working',
       'SCM membrane or MIN-TECH cartridge change indicator glowing',
@@ -212,28 +296,59 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes! We carry authentic AO Smith replacement filters including pre-filter cartridges, sediment filters, carbon blocks, SCM membranes, and MIN-TECH mineralizers.',
       },
       {
-        question: 'My AO Smith Z8 purifier water output is very slow — can you fix it?',
-        answer: 'Yes, our experienced technicians specialize in troubleshooting AO Smith booster pumps, solenoid valves, and filter cartridges.',
+        question: 'How quickly can I get an AO Smith RO service near me?',
+        answer: 'We dispatch a certified AO Smith technician near you within 60 to 90 minutes. Whether your Z8 purifier water output is slow or you need a filter change, we handle it quickly and professionally.',
       },
       {
         question: 'Are your service charges reasonable for premium brands like AO Smith?',
         answer: 'Yes, our visiting & inspection fee is just ₹299. All replacement parts are priced transparently before installation so you pay only for what you need.',
       },
+      {
+        question: 'Can I find an AO Smith RO service near me today?',
+        answer: 'Yes! We offer same-day doorstep visits across Bangalore, meaning an expert AO Smith RO service near you is just a phone call away.',
+      },
+      {
+        question: 'Do you resolve AO Smith RO repair Bangalore heating issues?',
+        answer: 'Yes, for models like the AO Smith Z8 with hot water dispensers, we repair thermostat and heating tank issues safely and effectively.',
+      },
+      {
+        question: 'Why is my AO Smith water purifier beeping?',
+        answer: 'This is usually a filter replacement alert or a UV failure warning. An AO Smith technician near me from our team can quickly diagnose and replace the necessary components.',
+      },
+      {
+        question: 'Does your AO Smith water purifier service include a warranty?',
+        answer: 'We provide a comprehensive 30-day service warranty on all repair tasks and standard warranties on authentic AO Smith spare parts.',
+      },
+      {
+        question: 'How often should I schedule an AO Smith RO service?',
+        answer: 'We recommend a preventive maintenance check every 6 to 8 months, especially in areas of Bangalore with high borewell water TDS.',
+      },
+      {
+        question: 'Is it safe to drink water immediately after AO Smith filter replacement?',
+        answer: 'We flush the new filters during the service, but we recommend draining the first tank of water before consumption just to be absolutely sure.',
+      },
+    ],
+    popularSearches: [
+      'AO Smith water purifier service',
+      'AO Smith RO service',
+      'AO Smith RO service near me',
+      'AO Smith RO repair Bangalore',
+      'AO Smith technician near me'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
   },
 
   'lg-service': {
     id: 'lg',
-    name: 'LG Water Purifier',
+    name: 'LG',
     slug: '/lg-service',
     logoText: 'LG',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032689/images_5_t36ctz.png',
-    tagline: 'Dual Protection Stainless Steel Tank RO Service',
+    tagline: 'Expert LG Water Purifier Service Bangalore Residents Trust',
     accentColor: 'from-rose-600 to-red-600',
-    description: 'Top-rated LG water purifier repair & maintenance service in Bangalore. We service LG PuriCare, Stainless Steel Tank RO, Dual Protection UV models, and EverFresh UV purifiers with genuine parts and hygienic digital sterilization.',
-    metaTitle: 'LG Water Purifier Repair & Service Bangalore | Call 080502 91180',
-    metaDescription: 'Reliable LG RO water purifier repair, filter replacement & AMC service in Bangalore. Fast doorstep visit, genuine LG spares, 30-day warranty.',
+    description: 'Looking for prompt LG RO repair Bangalore? We provide top-rated maintenance for LG PuriCare, Stainless Steel Tank RO, and Dual Protection UV models. Our doorstep service includes hygienic digital sterilization and genuine parts.',
+    metaTitle: 'LG RO Repair Bangalore | LG Water Purifier Service',
+    metaDescription: 'Searching for an LG water purifier service near me? Get fast LG water purifier filter replacement Bangalore counts on, with genuine spares and a 30-day warranty.',
     commonProblems: [
       'LG Stainless Steel tank UV sterilizing light malfunction',
       'Digital filter change indicator icon glowing red on LG panel',
@@ -248,13 +363,44 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Yes! During servicing, we thoroughly descale and sanitize the LG internal stainless steel tank using safe food-grade sanitizing kits and UV verification.',
       },
       {
-        question: 'How long does an LG RO filter replacement take?',
-        answer: 'A complete LG filter replacement and system health check usually takes 30 to 45 minutes right at your doorstep in Bangalore.',
+        question: 'How do I find a certified LG RO technician near me?',
+        answer: 'You can book an expert with us instantly! We send a skilled technician to handle your LG water purifier filter replacement Bangalore requests directly at your doorstep, usually completing the job in 30 to 45 minutes.',
       },
       {
         question: 'Do you provide service warranty on LG repairs?',
         answer: 'Yes, all repair work and replaced spare parts carry our 30-day post-service warranty for complete peace of mind.',
       },
+      {
+        question: 'Where can I find an LG water purifier service near me?',
+        answer: 'Our mobile technicians cover all of Bangalore, providing a fast, reliable LG water purifier service near me without you having to travel.',
+      },
+      {
+        question: 'Are you an authorized LG RO repair Bangalore provider?',
+        answer: 'We are an independent, premium repair network specializing in LG water purifiers, using authentic spares for high-quality out-of-warranty service.',
+      },
+      {
+        question: 'How quickly can an LG RO technician near me arrive?',
+        answer: 'In most cases, we can dispatch an expert LG RO technician near you within 60 to 90 minutes of your booking confirmation.',
+      },
+      {
+        question: 'What does LG water purifier filter replacement Bangalore cost?',
+        answer: 'Costs vary based on whether you need a basic pre-filter or a complete RO membrane change. We always quote you clearly after the initial ₹299 inspection.',
+      },
+      {
+        question: 'Does LG dual protection RO require special service?',
+        answer: 'Yes, LGs stainless steel tanks and digital UV sterilization require careful handling, which our trained technicians are fully equipped to perform.',
+      },
+      {
+        question: 'Why is water leaking from my LG purifier?',
+        answer: 'Leaks can occur from worn-out O-rings or loose inlet valves. We quickly seal and repair these leaks during our service visit.',
+      },
+    ],
+    popularSearches: [
+      'LG water purifier service Bangalore',
+      'LG RO repair Bangalore',
+      'LG water purifier service near me',
+      'LG RO technician near me',
+      'LG water purifier filter replacement Bangalore'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
   },

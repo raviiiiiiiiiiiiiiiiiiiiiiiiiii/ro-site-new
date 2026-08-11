@@ -35,6 +35,7 @@ export interface BrandInfo {
   metaDescription: string;
   commonProblems: string[];
   brandFaqs: { question: string; answer: string }[];
+  popularSearches?: string[];
   showcaseImage?: string;
 }
 

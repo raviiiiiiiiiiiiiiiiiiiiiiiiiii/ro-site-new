@@ -266,6 +266,11 @@ export const PolicyPage: React.FC<PolicyPageProps> = ({ route, onNavigate, lastB
 
           {/* Contact Us Box at Bottom */}
           <div className="mt-12 pt-8 border-t border-slate-100">
+            {route === '/privacy-policy' && (
+              <div className="mb-8 text-xs text-slate-500 leading-relaxed text-justify">
+                Copyright 2026. Brand names and trademarks are the property of their respective owners. Disclaimer and Copyrights: all products and company names are trademarks of their respective holders. Use of them does not imply any affiliation with or endorsement by them. We are an independent service provider, we don't have any authorization from any company or any brand. We provide service for all appliances after the standard one-year warranty period.
+              </div>
+            )}
             <div className="bg-slate-50 rounded-2xl p-6 border border-slate-200/80 space-y-3">
               <h4 className="text-sm font-bold text-slate-900 flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-sky-600" />
