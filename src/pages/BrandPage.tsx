@@ -166,32 +166,32 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         </div>
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          <div className="max-w-[280px] sm:max-w-[320px] lg:max-w-[380px]">
-            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3 leading-snug text-white drop-shadow-md">
+          <div className="max-w-[210px] sm:max-w-[320px] lg:max-w-[380px]">
+            <h1 className="text-[1.35rem] sm:text-3xl lg:text-4xl font-bold tracking-tight mb-2.5 sm:mb-3 leading-snug text-white drop-shadow-md">
               {brand.name} RO Water Purifier Repair
               <span className={`block mt-1 bg-gradient-to-r ${theme.heroTitleAccent} bg-clip-text text-transparent`}>
                 & Service in Bangalore
               </span>
             </h1>
 
-            <p className="text-xs sm:text-sm font-medium mb-5 text-slate-100 max-w-[280px] sm:max-w-[320px] leading-relaxed drop-shadow-md">
+            <p className="text-[11px] sm:text-sm font-medium mb-4 sm:mb-5 text-slate-100 max-w-[210px] sm:max-w-[320px] leading-relaxed drop-shadow-md">
               Fast 60–90 min doorstep repair, genuine filter replacements & AMC by certified technicians in Bangalore.
             </p>
 
-            <div className="flex flex-col gap-2.5 w-full max-w-[220px] sm:max-w-[240px]">
+            <div className="flex flex-col gap-2 w-full max-w-[170px] sm:max-w-[240px]">
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 style={{ color: theme.heroCallText }}
-                className="w-full px-5 py-2.5 rounded-lg bg-white font-bold text-sm shadow-md hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-4 py-2 sm:px-5 sm:py-2.5 rounded-md sm:rounded-lg bg-white font-bold text-xs sm:text-sm shadow-md hover:bg-slate-50 transition-colors flex items-center justify-center gap-1.5 sm:gap-2"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                 Call Now
               </a>
 
               <button
                 onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
                 style={{ backgroundColor: theme.heroBookBg, color: theme.heroBookText }}
-                className="w-full px-5 py-2.5 rounded-lg font-bold text-sm shadow-md hover:brightness-110 transition-all"
+                className="w-full px-4 py-2 sm:px-5 sm:py-2.5 rounded-md sm:rounded-lg font-bold text-xs sm:text-sm shadow-md hover:brightness-110 transition-all"
               >
                 Book Service Now
               </button>
