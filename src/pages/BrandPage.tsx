@@ -166,32 +166,32 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         </div>
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          <div className="max-w-[340px] sm:max-w-md">
-            <h1 className="text-3xl sm:text-[40px] font-bold tracking-tight mb-4 leading-[1.15] text-white drop-shadow-sm">
+          <div className="max-w-[280px] sm:max-w-[320px] lg:max-w-[380px]">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight mb-3 leading-snug text-white drop-shadow-md">
               {brand.name} RO Water Purifier Repair
               <span className={`block mt-1 bg-gradient-to-r ${theme.heroTitleAccent} bg-clip-text text-transparent`}>
                 & Service in Bangalore
               </span>
             </h1>
 
-            <p className="text-sm sm:text-[15px] font-medium mb-8 text-slate-100 max-w-[320px] leading-relaxed drop-shadow-sm">
+            <p className="text-xs sm:text-sm font-medium mb-5 text-slate-100 max-w-[280px] sm:max-w-[320px] leading-relaxed drop-shadow-md">
               Fast 60–90 min doorstep repair, genuine filter replacements & AMC by certified technicians in Bangalore.
             </p>
 
-            <div className="flex flex-col gap-3 w-full max-w-[260px] sm:max-w-[280px]">
+            <div className="flex flex-col gap-2.5 w-full max-w-[220px] sm:max-w-[240px]">
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 style={{ color: theme.heroCallText }}
-                className="w-full px-6 py-3.5 rounded-xl bg-white font-bold text-sm shadow-lg hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
+                className="w-full px-5 py-2.5 rounded-lg bg-white font-bold text-sm shadow-md hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
               >
-                <Phone className="w-5 h-5" />
+                <Phone className="w-4 h-4" />
                 Call Now
               </a>
 
               <button
                 onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
                 style={{ backgroundColor: theme.heroBookBg, color: theme.heroBookText }}
-                className="w-full px-6 py-3.5 rounded-xl font-bold text-sm shadow-lg hover:brightness-110 transition-all"
+                className="w-full px-5 py-2.5 rounded-lg font-bold text-sm shadow-md hover:brightness-110 transition-all"
               >
                 Book Service Now
               </button>
