@@ -60,7 +60,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
   const brandOptions = [
     'Kent',
-    'Aquaguard / Eureka Forbes',
+    'Aquaguard',
     'Pureit (HUL)',
     'AO Smith',
     'LG',

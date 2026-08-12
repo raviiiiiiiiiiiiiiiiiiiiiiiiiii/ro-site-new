@@ -166,7 +166,7 @@ export default function App() {
                 name: 'Which brands of RO water purifiers do you service in Bangalore?',
                 acceptedAnswer: {
                   '@type': 'Answer',
-                  text: 'We service all major brands including Kent, Aquaguard / Eureka Forbes, HUL Pureit, AO Smith, LG, Livpure, Havells, and Blue Star.',
+                  text: 'We service all major brands including Kent, Aquaguard, HUL Pureit, AO Smith, LG, Livpure, Havells, and Blue Star.',
                 },
               },
             ],

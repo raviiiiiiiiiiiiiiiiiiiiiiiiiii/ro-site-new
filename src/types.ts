@@ -37,6 +37,7 @@ export interface BrandInfo {
   brandFaqs: { question: string; answer: string }[];
   popularSearches?: string[];
   showcaseImage?: string;
+  heroImage?: string;
 }
 
 export interface FAQItem {

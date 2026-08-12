@@ -136,17 +136,18 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'Kent service near me'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
+    heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194243_himoc3.jpg',
   },
 
   'aquaguard-service': {
     id: 'aquaguard',
-    name: 'Eureka Forbes Aquaguard',
+    name: 'Aquaguard',
     slug: '/aquaguard-service',
     logoText: 'Aquaguard',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/q_auto,f_auto/v1786032688/Screenshot_20260806_102503_Google_nsdk6g.jpg',
     tagline: 'Paani Ka Doctor - Prompt Aquaguard Service Bangalore Trusts',
     accentColor: 'from-teal-600 to-emerald-500',
-    description: 'Get expert doorstep Aquaguard water purifier service in your area. We handle Eureka Aquaguard service for models like Geneus, Enhance, Blaze, Ritz, Magna, and all Active Copper systems using authentic spare parts.',
+    description: 'Get expert doorstep Aquaguard water purifier service in your area. We handle Aquaguard service for models like Geneus, Enhance, Blaze, Ritz, Magna, and all Active Copper systems using authentic spare parts.',
     metaTitle: 'Aquaguard Service Bangalore | RO Repair & Filter Replacement',
     metaDescription: 'Need an Aquaguard RO service center near me? Get expert water purifier repair, copper filter changes, and AMC in Bangalore. Doorstep visit in 60 mins.',
     commonProblems: [
@@ -179,7 +180,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'We provide a mobile doorstep service throughout Bangalore, making us your fastest alternative to finding a physical Aquaguard RO service center near me.',
       },
       {
-        question: 'Do you use authentic parts for Eureka Aquaguard service?',
+        question: 'Do you use authentic parts for Aquaguard service?',
         answer: 'Absolutely. We stock genuine Aquaguard compatible filters, UV lamps, and carbon blocks to ensure your water tastes exactly as it should.',
       },
       {
@@ -198,11 +199,12 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     popularSearches: [
       'Aquaguard service Bangalore',
       'Aquaguard water purifier service',
-      'Eureka Aquaguard service',
+      'Aquaguard RO service',
       'Aquaguard RO service center near me',
       'Aquaguard technician near me'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
+    heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194328_pcq7uw.png',
   },
 
   'pureit-service': {
@@ -269,6 +271,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'Pureit service Bangalore'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
+    heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194420_cdv3yx.jpg',
   },
 
   'aosmith-service': {
@@ -336,6 +339,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'AO Smith technician near me'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
+    heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194311_vmj5ot.jpg',
   },
 
   'lg-service': {
@@ -403,6 +407,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'LG water purifier filter replacement Bangalore'
     ],
     showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
+    heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194339_j4gjia.jpg',
   },
 };
 

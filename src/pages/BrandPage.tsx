@@ -147,7 +147,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         
         {/* Background Image */}
         <img
-          src="https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"
+          src={brand.heroImage || "https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"}
           alt="RO Water Purifier Service Background"
           width="1920"
           height="1080"
@@ -165,36 +165,37 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           <div className="absolute -bottom-1/2 -left-1/4 w-[600px] h-[600px] rounded-full bg-white/5 blur-3xl" />
         </div>
 
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-3 leading-tight">
-            {brand.name} RO Water Purifier Repair
-            <span className={`block mt-1 bg-gradient-to-r ${theme.heroTitleAccent} bg-clip-text text-transparent`}>
-              & Service in Bangalore
-            </span>
-          </h1>
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 text-left">
+          <div className="max-w-[340px] sm:max-w-md">
+            <h1 className="text-3xl sm:text-[40px] font-bold tracking-tight mb-4 leading-[1.15] text-white drop-shadow-sm">
+              {brand.name} RO Water Purifier Repair
+              <span className={`block mt-1 bg-gradient-to-r ${theme.heroTitleAccent} bg-clip-text text-transparent`}>
+                & Service in Bangalore
+              </span>
+            </h1>
 
-          <p className="text-sm sm:text-base font-semibold mb-6 text-slate-100 max-w-xl mx-auto leading-relaxed">
-            Fast 60–90 min doorstep repair, genuine filter replacements & AMC by certified technicians in Bangalore.
-          </p>
+            <p className="text-sm sm:text-[15px] font-medium mb-8 text-slate-100 max-w-[320px] leading-relaxed drop-shadow-sm">
+              Fast 60–90 min doorstep repair, genuine filter replacements & AMC by certified technicians in Bangalore.
+            </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-3 max-w-md mx-auto">
-            <a
-              href={`tel:${BUSINESS_DETAILS.phone}`}
-              style={{ color: theme.heroCallText }}
-              className="w-full sm:w-auto px-7 py-3 rounded-xl bg-white font-extrabold text-sm shadow-md hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
-            >
-              <Phone className="w-4 h-4" />
-              Call Now
-            </a>
+            <div className="flex flex-col gap-3 w-full max-w-[260px] sm:max-w-[280px]">
+              <a
+                href={`tel:${BUSINESS_DETAILS.phone}`}
+                style={{ color: theme.heroCallText }}
+                className="w-full px-6 py-3.5 rounded-xl bg-white font-bold text-sm shadow-lg hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
+              >
+                <Phone className="w-5 h-5" />
+                Call Now
+              </a>
 
-            <button
-              onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
-              style={{ backgroundColor: theme.heroBookBg, color: theme.heroBookText }}
-              className="w-full sm:w-auto px-7 py-3 rounded-xl font-extrabold text-sm shadow-md hover:brightness-110 transition-all"
-            >
-              Book Service Now
-            </button>
+              <button
+                onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
+                style={{ backgroundColor: theme.heroBookBg, color: theme.heroBookText }}
+                className="w-full px-6 py-3.5 rounded-xl font-bold text-sm shadow-lg hover:brightness-110 transition-all"
+              >
+                Book Service Now
+              </button>
+            </div>
           </div>
         </div>
         
