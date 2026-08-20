@@ -165,7 +165,7 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
           name: 'Bangalore',
         },
         description: brand.description,
-        image: brand.logoUrl || brand.showcaseImage,
+        image: brand.showcaseImage || BUSINESS_DETAILS.logoUrl,
       },
       {
         '@context': 'https://schema.org',
@@ -215,7 +215,6 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
         </nav>
 
         <section style="margin-bottom:32px;">
-          ${brand.logoUrl ? `<div style="margin-bottom:16px;"><img src="${brand.logoUrl}" alt="${brand.name} Logo" style="height:48px; width:auto; max-width:180px; object-fit:contain; background:#ffffff; padding:6px 12px; border-radius:12px; border:1px solid #cbd5e1;" /></div>` : ''}
           <h1 style="font-size:32px; font-weight:800; color:#0c54a0; margin-bottom:12px; line-height:1.2;">${brand.name} RO Water Purifier Repair &amp; Service in Bangalore</h1>
           <p style="font-size:16px; color:#334155; margin-bottom:20px;">Fast 60–90 min doorstep repair, genuine filter replacements &amp; AMC by certified technicians in Bangalore.</p>
           

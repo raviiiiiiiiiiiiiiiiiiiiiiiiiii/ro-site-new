@@ -64,8 +64,6 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
 
   const brandConfig = activeRouteForBrand ? BRAND_HEADER_CONFIGS[activeRouteForBrand] : undefined;
   const activeBrandColor = brandConfig?.primary;
-  const currentBrandKey = activeRouteForBrand ? activeRouteForBrand.replace(/^\//, '') : '';
-  const currentBrandData = currentBrandKey ? BRAND_PAGES_DATA[currentBrandKey] : undefined;
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [policiesDropdownOpen, setPoliciesDropdownOpen] = useState(false);
@@ -181,79 +179,39 @@ export const Header: React.FC<HeaderProps> = ({ currentRoute, lastBrandRoute, on
                 }}
                 className="flex items-center gap-2.5 sm:gap-3 text-left group focus:outline-none py-1"
               >
-                {currentBrandData?.logoUrl ? (
-                  <div className="flex items-center gap-2 sm:gap-3 shrink-0">
-                    <div className="h-10 sm:h-13 bg-white px-2.5 sm:px-3.5 py-1 rounded-xl sm:rounded-2xl shadow-xs border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 shrink-0">
-                      <img
-                        src={currentBrandData.logoUrl}
-                        alt={`${currentBrandData.name} Logo`}
-                        width="140"
-                        height="36"
-                        loading="eager"
-                        decoding="async"
-                        className="h-7 sm:h-9 w-auto object-contain max-w-[100px] sm:max-w-[140px] max-h-full"
-                      />
-                    </div>
-                    <div className="flex flex-col shrink-0">
-                      <div className="flex items-center gap-0.5 sm:gap-1 font-['Outfit'] font-black text-base sm:text-xl tracking-tight leading-none">
-                        <span
-                          style={activeBrandColor ? { color: activeBrandColor } : undefined}
-                          className={activeBrandColor ? '' : 'bg-gradient-to-r from-[#0c54a0] via-blue-700 to-sky-600 bg-clip-text text-transparent'}
-                        >
-                          RO
-                        </span>
-                        <span className="text-slate-800 font-extrabold">-service</span>
-                        <span
-                          style={activeBrandColor ? { backgroundColor: activeBrandColor } : undefined}
-                          className={`text-white text-[9px] sm:text-[10px] font-black px-1.5 py-0.5 rounded-md shadow-xs tracking-wider inline-block transform -translate-y-0.5 uppercase ${
-                            activeBrandColor ? '' : 'bg-gradient-to-r from-[#0c54a0] to-teal-600'
-                          }`}
-                        >
-                          24x7
-                        </span>
-                      </div>
-                      <span className="text-[9px] sm:text-[10px] font-bold text-slate-500 tracking-wider uppercase mt-0.5 block font-['Plus_Jakarta_Sans']">
-                        Doorstep Service
-                      </span>
-                    </div>
+                <div className="h-10 sm:h-12 bg-white px-1.5 sm:px-2 py-1 rounded-xl shrink-0 overflow-hidden shadow-xs border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
+                  <img
+                    src={BUSINESS_DETAILS.logoUrl}
+                    alt={BUSINESS_DETAILS.name}
+                    width="60"
+                    height="60"
+                    loading="eager"
+                    decoding="async"
+                    className="h-full w-auto max-w-[120px] object-contain rounded-lg"
+                  />
+                </div>
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1 font-['Outfit'] font-black text-xl sm:text-2xl tracking-tight leading-none">
+                    <span
+                      style={activeBrandColor ? { color: activeBrandColor } : undefined}
+                      className={activeBrandColor ? '' : 'bg-gradient-to-r from-[#0c54a0] via-blue-700 to-sky-600 bg-clip-text text-transparent'}
+                    >
+                      RO
+                    </span>
+                    <span className="text-slate-800 font-extrabold">-service</span>
+                    <span
+                      style={activeBrandColor ? { backgroundColor: activeBrandColor } : undefined}
+                      className={`text-white text-[10px] sm:text-xs font-black px-1.5 py-0.5 rounded-md shadow-xs tracking-wider inline-block transform -translate-y-0.5 uppercase ${
+                        activeBrandColor ? '' : 'bg-gradient-to-r from-[#0c54a0] to-teal-600'
+                      }`}
+                    >
+                      24x7
+                    </span>
                   </div>
-                ) : (
-                  <>
-                    <div className="h-10 sm:h-12 bg-white px-1.5 sm:px-2 py-1 rounded-xl shrink-0 overflow-hidden shadow-xs border border-slate-200/80 flex items-center justify-center group-hover:scale-105 transition-transform duration-200">
-                      <img
-                        src={BUSINESS_DETAILS.logoUrl}
-                        alt={BUSINESS_DETAILS.name}
-                        width="60"
-                        height="60"
-                        loading="eager"
-                        decoding="async"
-                        className="h-full w-auto max-w-[120px] object-contain rounded-lg"
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <div className="flex items-center gap-1 font-['Outfit'] font-black text-xl sm:text-2xl tracking-tight leading-none">
-                        <span
-                          style={activeBrandColor ? { color: activeBrandColor } : undefined}
-                          className={activeBrandColor ? '' : 'bg-gradient-to-r from-[#0c54a0] via-blue-700 to-sky-600 bg-clip-text text-transparent'}
-                        >
-                          RO
-                        </span>
-                        <span className="text-slate-800 font-extrabold">-service</span>
-                        <span
-                          style={activeBrandColor ? { backgroundColor: activeBrandColor } : undefined}
-                          className={`text-white text-[10px] sm:text-[11px] font-black px-1.5 py-0.5 rounded-md shadow-xs tracking-wider inline-block transform -translate-y-0.5 uppercase ${
-                            activeBrandColor ? '' : 'bg-gradient-to-r from-[#0c54a0] to-teal-600'
-                          }`}
-                        >
-                          24x7
-                        </span>
-                      </div>
-                      <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 tracking-wider uppercase mt-0.5 block font-['Plus_Jakarta_Sans']">
-                        Doorstep RO Service
-                      </span>
-                    </div>
-                  </>
-                )}
+                  <span className="text-[10px] sm:text-[11px] font-bold text-slate-500 tracking-wider uppercase mt-1 block font-['Plus_Jakarta_Sans']">
+                    Doorstep Service
+                  </span>
+                </div>
               </button>
 
               {/* Desktop Nav Items */}

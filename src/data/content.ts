@@ -135,7 +135,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'Kent RO repair Bangalore',
       'Kent service near me'
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992454/file_0000000055688208b6f807e9b088e60e_akivhm.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_00000000cb9082119ada12e5c50c238d_yb23pj.png',
     heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194243_himoc3.jpg',
   },
 
@@ -203,7 +203,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'Aquaguard RO service center near me',
       'Aquaguard technician near me'
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992456/file_00000000143c8211adfde447de9f4d32_mvhaoz.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_000000009e748211af646f5d6dda5fcb_wzukgr.png',
     heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194328_pcq7uw.png',
   },
 
@@ -270,7 +270,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'Pureit service center',
       'Pureit service Bangalore'
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992453/file_00000000005c820894f1f0d1dc9be3b8_ybyzwe.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_0000000011a48211aeafadfc49fb86c5_ohr8va.png',
     heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194420_cdv3yx.jpg',
   },
 
@@ -338,7 +338,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'AO Smith RO repair Bangalore',
       'AO Smith technician near me'
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1786029346/file_00000000a4488208bd1b9ce6f84561a5_uzgyoz.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_00000000fd3c8211b4b336a783a3474e_wzjdjr.png',
     heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194311_vmj5ot.jpg',
   },
 
@@ -406,7 +406,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
       'LG RO technician near me',
       'LG water purifier filter replacement Bangalore'
     ],
-    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/w_800,h_500,c_fill,q_auto,f_auto/v1785992452/file_000000000fa08208a9c1ed18a6c93a0e_uxr8cn.png',
+    showcaseImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_0000000041048211bfb990996067ea39_yiuihn.png',
     heroImage: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1786544412/IMG_20260812_194339_j4gjia.jpg',
   },
 };
