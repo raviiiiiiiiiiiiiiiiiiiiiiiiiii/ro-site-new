@@ -164,6 +164,16 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
           </div>
         </div>
 
+        {/* Brand Trademark & Affiliation Disclaimer */}
+        <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-black/20 border border-white/20 text-center sm:text-left shadow-xs">
+          <p id="brand-footer-disclaimer" className="text-xs sm:text-[13px] text-white/95 leading-relaxed font-normal">
+            <strong className="font-bold text-white uppercase tracking-wider text-[11px] mr-2 inline-block">
+              Disclaimer:
+            </strong>
+            All brand names and trademarks belong to their respective owners. Their use does not imply any affiliation or endorsement.
+          </p>
+        </div>
+
         {/* Bottom copyright */}
         <div className="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 text-center sm:text-left">
           <p>

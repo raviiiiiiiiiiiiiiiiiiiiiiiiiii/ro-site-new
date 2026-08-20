@@ -141,6 +141,20 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
           <p style="font-size:14px; color:#475569;">${BANGALORE_LOCALITIES.join(' • ')}</p>
         </section>
       </main>
+
+      <footer style="background:#0c54a0; color:#ffffff; padding:32px 16px; margin-top:40px; font-family:sans-serif;">
+        <div style="max-width:1200px; margin:0 auto;">
+          <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.2); padding:16px; border-radius:12px; margin-bottom:20px; text-align:center;">
+            <p id="ssr-footer-disclaimer" style="margin:0; font-size:13px; line-height:1.6; color:#ffffff;">
+              <strong>Disclaimer:</strong> All brand names and trademarks belong to their respective owners. Their use does not imply any affiliation or endorsement.
+            </p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; font-size:13px; color:#e2e8f0; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <p style="margin:0;">© ${new Date().getFullYear()} ${BUSINESS_DETAILS.fullName}. All rights reserved.</p>
+            <p style="margin:0;">Call: <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; font-weight:bold;">${BUSINESS_DETAILS.phone}</a> | Bangalore, Karnataka</p>
+          </div>
+        </div>
+      </footer>
     `;
   } else if (BRAND_PAGES_DATA[brandKey]) {
     // BRAND PAGE SSR CONTENT
@@ -312,6 +326,20 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
         </section>
 
       </main>
+
+      <footer style="background:#0c54a0; color:#ffffff; padding:32px 16px; margin-top:40px; font-family:sans-serif;">
+        <div style="max-width:1200px; margin:0 auto;">
+          <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.2); padding:16px; border-radius:12px; margin-bottom:20px; text-align:center;">
+            <p id="ssr-brand-footer-disclaimer" style="margin:0; font-size:13px; line-height:1.6; color:#ffffff;">
+              <strong>Disclaimer:</strong> All brand names and trademarks belong to their respective owners. Their use does not imply any affiliation or endorsement.
+            </p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; font-size:13px; color:#e2e8f0; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <p style="margin:0;">© ${new Date().getFullYear()} ${BUSINESS_DETAILS.fullName}. All rights reserved. Independent ${brand.name} RO Service in Bangalore.</p>
+            <p style="margin:0;">Booking Helpline: <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; font-weight:bold;">${BUSINESS_DETAILS.phone}</a></p>
+          </div>
+        </div>
+      </footer>
     `;
   } else {
     // POLICY PAGES OR OTHER ROUTES
@@ -337,6 +365,19 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
         <h2 style="font-size:26px; font-weight:800; color:#0c54a0;">${policyName} - ${BUSINESS_DETAILS.name}</h2>
         <p style="font-size:14px; color:#475569;">Please read our official ${policyName} for doorstep water purifier service bookings in Bangalore.</p>
       </main>
+      <footer style="background:#0c54a0; color:#ffffff; padding:32px 16px; margin-top:40px; font-family:sans-serif;">
+        <div style="max-width:1200px; margin:0 auto;">
+          <div style="background:rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.2); padding:16px; border-radius:12px; margin-bottom:20px; text-align:center;">
+            <p id="ssr-policy-footer-disclaimer" style="margin:0; font-size:13px; line-height:1.6; color:#ffffff;">
+              <strong>Disclaimer:</strong> All brand names and trademarks belong to their respective owners. Their use does not imply any affiliation or endorsement.
+            </p>
+          </div>
+          <div style="display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:12px; font-size:13px; color:#e2e8f0; border-top:1px solid rgba(255,255,255,0.15); padding-top:16px;">
+            <p style="margin:0;">© ${new Date().getFullYear()} ${BUSINESS_DETAILS.fullName}. All rights reserved.</p>
+            <p style="margin:0;">Helpline: <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; font-weight:bold;">${BUSINESS_DETAILS.phone}</a></p>
+          </div>
+        </div>
+      </footer>
     `;
   }
 
