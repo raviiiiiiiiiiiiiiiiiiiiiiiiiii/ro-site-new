@@ -192,34 +192,48 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
   return (
     <div className="min-h-screen bg-white font-sans">
       
-      {/* BRAND HERO SECTION - MATCHING REFERENCE DESIGN */}
-      <section className="bg-[#0b1c3a] text-white pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 sm:px-6 relative overflow-hidden">
+      {/* BRAND HERO SECTION - MATCHING REFERENCE DESIGN WITH BRAND BACKGROUND IMAGE */}
+      <section className="bg-slate-950 text-white pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 sm:px-6 relative overflow-hidden">
+        {/* Background Image from previous design */}
+        <img
+          src={brand.heroImage || "https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"}
+          alt={`${brand.name} RO Water Purifier Background`}
+          width="1920"
+          height="1080"
+          decoding="async"
+          fetchPriority="high"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-90 scale-105"
+        />
+
+        {/* Light subtle overlay for vivid image visibility */}
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-[#0b1c3a]/30 to-slate-950/55 z-[1]"></div>
+
         <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
           
           {/* 1. TEXT ON TOP */}
           <div className="text-left">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight drop-shadow-md">
               Ro Water Purifier Services
             </h1>
-            <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal">
+            <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal drop-shadow-sm">
               Ro Service Center online is your trusted partner for comprehensive {brand.name} water purifier services. From installation to maintenance and repairs, we ensure your {brand.name} purifier delivers pure, healthy water.
             </p>
           </div>
 
-          {/* 2. BRAND LOGO CARD */}
-          <div className="bg-black rounded-2xl p-4 sm:p-5 border border-slate-800 shadow-2xl flex items-center justify-center">
+          {/* 2. BRAND LOGO CARD (Even Bigger) */}
+          <div className="bg-black rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-700/80 shadow-2xl flex items-center justify-center">
             {brand.logoUrl ? (
               <img
                 src={brand.logoUrl}
                 alt={`${brand.name} Mineral RO Water Purifiers`}
-                width="300"
-                height="130"
-                className="max-h-24 sm:max-h-28 w-auto object-contain mx-auto"
+                width="480"
+                height="220"
+                className="max-h-40 sm:max-h-52 md:max-h-60 w-auto max-w-[95%] sm:max-w-[90%] object-contain mx-auto rounded-lg shadow-sm"
                 loading="eager"
                 decoding="async"
               />
             ) : (
-              <span className="text-2xl font-black tracking-wider text-white py-4">
+              <span className="text-4xl sm:text-5xl font-black tracking-wider text-white py-8">
                 {brand.name.toUpperCase()}
               </span>
             )}
