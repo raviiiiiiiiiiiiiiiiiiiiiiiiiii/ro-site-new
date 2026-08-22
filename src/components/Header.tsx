@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Phone, Menu, X, ChevronDown, Calendar, ShieldCheck } from 'lucide-react';
 import { BUSINESS_DETAILS } from '../data/content';
 import { PageRoute } from '../types';
+import { getBrandTheme } from '../utils/brandTheme';
 
 interface HeaderProps {
   currentRoute: PageRoute;
@@ -19,7 +20,7 @@ const ANNOUNCEMENTS = [
 
 export const Header: React.FC<HeaderProps> = ({
   currentRoute,
-  lastBrandRoute: _lastBrandRoute,
+  lastBrandRoute,
   onNavigate,
   onOpenBookModal,
 }) => {
@@ -29,6 +30,8 @@ export const Header: React.FC<HeaderProps> = ({
   const [isScrolled, setIsScrolled] = useState(false);
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+
+  const brandTheme = getBrandTheme(currentRoute, lastBrandRoute);
 
   // Rotate Announcements
   useEffect(() => {
@@ -105,24 +108,27 @@ export const Header: React.FC<HeaderProps> = ({
           isScrolled ? 'bg-white shadow-md border-b border-slate-200/80' : 'bg-white border-b border-slate-100'
         }`}
       >
-        {/* Top Info Banner */}
-        <div className="bg-[#1d63d8] text-white text-[11px] sm:text-xs py-1.5 px-4 font-medium tracking-wide">
+        {/* Top Info Banner with dynamic brand background */}
+        <div 
+          style={{ backgroundColor: brandTheme.bannerBg }}
+          className="text-white text-[11px] sm:text-xs py-1.5 px-4 font-medium tracking-wide transition-colors duration-300"
+        >
           <div className="max-w-7xl mx-auto flex items-center justify-between">
             <div className="flex items-center gap-2 mx-auto sm:mx-0 overflow-hidden">
-              <ShieldCheck className="w-3.5 h-3.5 text-sky-200 shrink-0 hidden sm:inline" />
+              <ShieldCheck className="w-3.5 h-3.5 text-white/80 shrink-0 hidden sm:inline" />
               <span key={announcementIndex} className="animate-fadeIn truncate text-center">
                 {ANNOUNCEMENTS[announcementIndex]}
               </span>
             </div>
             
-            <div className="hidden sm:flex items-center gap-4 text-sky-100 text-xs">
+            <div className="hidden sm:flex items-center gap-4 text-white/90 text-xs">
               <span>Bangalore 24x7 Doorstep</span>
               <span>•</span>
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 className="font-bold text-white hover:underline flex items-center gap-1"
               >
-                <Phone className="w-3 h-3 text-sky-300" />
+                <Phone className="w-3 h-3 text-white/80" />
                 {BUSINESS_DETAILS.phone}
               </a>
             </div>
@@ -138,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
               onClick={() => handleNavClick('/')}
               className="flex items-center gap-3 text-left focus:outline-none group"
             >
-              <div className="h-10 sm:h-12 bg-white px-2 py-1 rounded-xl shrink-0 overflow-hidden border border-slate-200 shadow-xs flex items-center justify-center group-hover:border-[#1d63d8] transition-colors">
+              <div className="h-10 sm:h-12 bg-white px-2 py-1 rounded-xl shrink-0 overflow-hidden border border-slate-200 shadow-xs flex items-center justify-center group-hover:border-slate-400 transition-colors">
                 <img
                   src={BUSINESS_DETAILS.logoUrl}
                   alt={BUSINESS_DETAILS.name}
@@ -151,9 +157,14 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1 font-['Outfit'] font-black text-lg sm:text-2xl tracking-tight text-slate-900 leading-none">
-                  <span className="text-[#1d63d8]">RO</span>
+                  <span style={{ color: brandTheme.primary }} className="transition-colors duration-300">
+                    RO
+                  </span>
                   <span>-service</span>
-                  <span className="bg-[#1d63d8] text-white text-[9px] sm:text-[11px] font-black px-1.5 py-0.5 rounded shadow-xs tracking-wider uppercase ml-0.5">
+                  <span 
+                    style={{ backgroundColor: brandTheme.badgeBg }}
+                    className="text-white text-[9px] sm:text-[11px] font-black px-1.5 py-0.5 rounded shadow-xs tracking-wider uppercase ml-0.5 transition-colors duration-300"
+                  >
                     24x7
                   </span>
                 </div>
@@ -167,8 +178,9 @@ export const Header: React.FC<HeaderProps> = ({
             <nav className="hidden lg:flex items-center gap-8">
               <button
                 onClick={() => handleNavClick('/')}
+                style={currentRoute === '/' ? { color: brandTheme.primary } : undefined}
                 className={`text-sm font-semibold transition-colors ${
-                  currentRoute === '/' ? 'text-[#1d63d8] font-bold' : 'text-slate-700 hover:text-[#1d63d8]'
+                  currentRoute === '/' ? 'font-bold' : 'text-slate-700 hover:text-slate-950'
                 }`}
               >
                 Home
@@ -185,14 +197,14 @@ export const Header: React.FC<HeaderProps> = ({
                     window.scrollTo({ top: 400, behavior: 'smooth' });
                   }
                 }}
-                className="text-sm font-semibold text-slate-700 hover:text-[#1d63d8] transition-colors"
+                className="text-sm font-semibold text-slate-700 hover:text-slate-950 transition-colors"
               >
                 Services
               </button>
 
               <button
                 onClick={() => handleScrollToForm()}
-                className="text-sm font-semibold text-slate-700 hover:text-[#1d63d8] transition-colors"
+                className="text-sm font-semibold text-slate-700 hover:text-slate-950 transition-colors"
               >
                 Book Doorstep Visit
               </button>
@@ -202,14 +214,23 @@ export const Header: React.FC<HeaderProps> = ({
                 <button
                   onClick={() => setPoliciesDropdownOpen(!policiesDropdownOpen)}
                   onMouseEnter={() => setPoliciesDropdownOpen(true)}
+                  style={
+                    currentRoute.includes('policy') ||
+                    currentRoute.includes('terms') ||
+                    currentRoute.includes('disclaimer') ||
+                    currentRoute.includes('refund') ||
+                    currentRoute.includes('cookie')
+                      ? { color: brandTheme.primary }
+                      : undefined
+                  }
                   className={`flex items-center gap-1 text-sm font-semibold transition-colors py-2 ${
                     currentRoute.includes('policy') ||
                     currentRoute.includes('terms') ||
                     currentRoute.includes('disclaimer') ||
                     currentRoute.includes('refund') ||
                     currentRoute.includes('cookie')
-                      ? 'text-[#1d63d8]'
-                      : 'text-slate-700 hover:text-[#1d63d8]'
+                      ? 'font-bold'
+                      : 'text-slate-700 hover:text-slate-950'
                   }`}
                 >
                   Policies
@@ -228,31 +249,31 @@ export const Header: React.FC<HeaderProps> = ({
                     </div>
                     <button
                       onClick={() => handleNavClick('/privacy-policy')}
-                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#1d63d8] transition-colors"
+                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                     >
                       Privacy Policy
                     </button>
                     <button
                       onClick={() => handleNavClick('/terms-of-service')}
-                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#1d63d8] transition-colors"
+                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                     >
                       Terms of Service
                     </button>
                     <button
                       onClick={() => handleNavClick('/refund-policy')}
-                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#1d63d8] transition-colors"
+                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                     >
                       Refund Policy
                     </button>
                     <button
                       onClick={() => handleNavClick('/disclaimer')}
-                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#1d63d8] transition-colors"
+                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                     >
                       Disclaimer Notice
                     </button>
                     <button
                       onClick={() => handleNavClick('/cookie-policy')}
-                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-blue-50 hover:text-[#1d63d8] transition-colors"
+                      className="w-full text-left px-3.5 py-1.5 text-xs font-medium text-slate-700 hover:bg-slate-50 transition-colors"
                     >
                       Cookie Policy
                     </button>
@@ -265,14 +286,20 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="hidden sm:flex items-center gap-3">
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-blue-50 text-[#1d63d8] border border-blue-200 hover:bg-blue-100 text-sm font-bold transition-all shadow-2xs"
+                style={{
+                  backgroundColor: brandTheme.lightBg,
+                  color: brandTheme.phoneTextColor,
+                  borderColor: brandTheme.borderColor,
+                }}
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-bold transition-all shadow-2xs hover:brightness-95"
               >
-                <Phone className="w-4 h-4 text-[#1d63d8]" />
+                <Phone className="w-4 h-4" />
                 <span>{BUSINESS_DETAILS.phone}</span>
               </a>
               <button
                 onClick={handleScrollToForm}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[#1d63d8] hover:bg-[#154db0] text-white text-sm font-bold shadow-md hover:shadow-lg transition-all"
+                style={{ backgroundColor: brandTheme.buttonBg }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-sm font-bold shadow-md hover:brightness-110 transition-all"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Service</span>
@@ -283,7 +310,8 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="flex sm:hidden items-center gap-2">
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg bg-[#1d63d8] text-white text-xs font-bold shadow-xs"
+                style={{ backgroundColor: brandTheme.buttonBg }}
+                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-white text-xs font-bold shadow-xs hover:brightness-110"
                 aria-label="Call Now"
               >
                 <Phone className="w-3.5 h-3.5 fill-white text-white" />
@@ -307,8 +335,9 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="sm:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-2xl animate-fadeIn">
             <button
               onClick={() => handleNavClick('/')}
+              style={currentRoute === '/' ? { backgroundColor: brandTheme.lightBg, color: brandTheme.primary } : undefined}
               className={`w-full text-left py-2 px-3 rounded-lg text-sm font-semibold ${
-                currentRoute === '/' ? 'bg-blue-50 text-[#1d63d8]' : 'text-slate-800'
+                currentRoute === '/' ? '' : 'text-slate-800'
               }`}
             >
               Home
@@ -332,31 +361,31 @@ export const Header: React.FC<HeaderProps> = ({
               </div>
               <button
                 onClick={() => handleNavClick('/privacy-policy')}
-                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-[#1d63d8]"
+                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-slate-900"
               >
                 Privacy Policy
               </button>
               <button
                 onClick={() => handleNavClick('/terms-of-service')}
-                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-[#1d63d8]"
+                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-slate-900"
               >
                 Terms of Service
               </button>
               <button
                 onClick={() => handleNavClick('/refund-policy')}
-                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-[#1d63d8]"
+                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-slate-900"
               >
                 Refund Policy
               </button>
               <button
                 onClick={() => handleNavClick('/disclaimer')}
-                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-[#1d63d8]"
+                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-slate-900"
               >
                 Disclaimer Notice
               </button>
               <button
                 onClick={() => handleNavClick('/cookie-policy')}
-                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-[#1d63d8]"
+                className="w-full text-left py-1.5 px-3 text-xs text-slate-600 hover:text-slate-900"
               >
                 Cookie Policy
               </button>
@@ -365,13 +394,19 @@ export const Header: React.FC<HeaderProps> = ({
             <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
               <button
                 onClick={handleScrollToForm}
-                className="w-full py-2.5 px-4 rounded-xl bg-[#1d63d8] text-white font-bold text-sm text-center shadow-xs"
+                style={{ backgroundColor: brandTheme.buttonBg }}
+                className="w-full py-2.5 px-4 rounded-xl text-white font-bold text-sm text-center shadow-xs hover:brightness-110"
               >
                 Book RO Service
               </button>
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
-                className="w-full py-2.5 px-4 rounded-xl bg-blue-50 border border-blue-200 text-[#1d63d8] font-bold text-sm text-center flex items-center justify-center gap-1.5"
+                style={{
+                  backgroundColor: brandTheme.lightBg,
+                  borderColor: brandTheme.borderColor,
+                  color: brandTheme.phoneTextColor,
+                }}
+                className="w-full py-2.5 px-4 rounded-xl border font-bold text-sm text-center flex items-center justify-center gap-1.5"
               >
                 <Phone className="w-4 h-4" />
                 Call {BUSINESS_DETAILS.phone}

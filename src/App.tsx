@@ -356,7 +356,7 @@ export default function App() {
       <Footer currentRoute={currentRoute} lastBrandRoute={lastBrandRoute} onNavigate={navigate} />
 
       {/* Sticky Bottom Call Bar & Floating Call Icon */}
-      <CallWidgets />
+      <CallWidgets currentRoute={currentRoute} lastBrandRoute={lastBrandRoute} />
 
       {/* Pop-up Booking Modal if triggered from sticky mobile or secondary CTA */}
       {isBookModalOpen && (

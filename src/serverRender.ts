@@ -1,4 +1,6 @@
 import { BRAND_PAGES_DATA, BUSINESS_DETAILS, HOMEPAGE_FAQS, SERVICES_LIST, BANGALORE_LOCALITIES } from './data/content';
+import { getBrandTheme } from './utils/brandTheme';
+import { PageRoute } from './types';
 
 export interface RenderResult {
   title: string;
@@ -217,27 +219,29 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
       },
     ];
 
+    const brandTheme = getBrandTheme(`/${brandKey}` as PageRoute);
+
     bodyHtml = `
-      <header style="padding:16px; background:#0c54a0; color:#ffffff;">
+      <header style="padding:16px; background:${brandTheme.primary}; color:#ffffff;">
         <div style="max-width:1200px; margin:0 auto; display:flex; justify-content:space-between; align-items:center;">
           <div style="display:flex; align-items:center; gap:12px;">
             <a href="${baseUrl}" style="color:#ffffff; text-decoration:none; font-weight:bold; font-size:18px;">${BUSINESS_DETAILS.name}</a>
           </div>
-          <a href="tel:${BUSINESS_DETAILS.phone}" style="background:#ffffff; color:#0c54a0; padding:8px 16px; border-radius:8px; text-decoration:none; font-weight:bold;">Call ${BUSINESS_DETAILS.phone}</a>
+          <a href="tel:${BUSINESS_DETAILS.phone}" style="background:#ffffff; color:${brandTheme.primary}; padding:8px 16px; border-radius:8px; text-decoration:none; font-weight:bold;">Call ${BUSINESS_DETAILS.phone}</a>
         </div>
       </header>
 
       <main style="max-width:1200px; margin:0 auto; padding:24px 16px; font-family:sans-serif; color:#1e293b; line-height:1.6;">
         <nav style="font-size:14px; color:#64748b; margin-bottom:16px;">
-          <a href="${baseUrl}" style="color:#0c54a0; text-decoration:none;">Home</a> &gt; <span>${brand.name} Service Bangalore</span>
+          <a href="${baseUrl}" style="color:${brandTheme.primary}; text-decoration:none;">Home</a> &gt; <span>${brand.name} Service Bangalore</span>
         </nav>
 
         <section style="margin-bottom:32px;">
-          <h1 style="font-size:32px; font-weight:800; color:#0c54a0; margin-bottom:12px; line-height:1.2;">${brand.name} RO Water Purifier Repair &amp; Service in Bangalore</h1>
+          <h1 style="font-size:32px; font-weight:800; color:${brandTheme.primary}; margin-bottom:12px; line-height:1.2;">${brand.name} RO Water Purifier Repair &amp; Service in Bangalore</h1>
           <p style="font-size:16px; color:#334155; margin-bottom:20px;">Fast 60–90 min doorstep repair, genuine filter replacements &amp; AMC by certified technicians in Bangalore.</p>
           
           <div style="background:#eff6ff; border:1px solid #bfdbfe; padding:18px; border-radius:12px; margin-bottom:24px;">
-            <strong style="color:#0c54a0; font-size:16px;">⚡ Doorstep Technician Dispatch in 60–90 Minutes:</strong>
+            <strong style="color:${brandTheme.primary}; font-size:16px;">⚡ Doorstep Technician Dispatch in 60–90 Minutes:</strong>
             <p style="font-size:14px; color:#1e3a8a; margin:6px 0 0;">Facing water leakage, slow filtration, high TDS taste, or error sound in your ${brand.name} purifier? Our certified local engineers provide same-day inspection and genuine filter replacement across all localities in Bangalore. Call <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#0c54a0; font-weight:bold;">${BUSINESS_DETAILS.phone}</a> for instant booking.</p>
           </div>
         </section>
@@ -344,7 +348,7 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
           </div>
         </div>
       </footer>
-      <div style="position:fixed; bottom:0; left:0; right:0; background:#1d63d8; color:#ffffff; padding:12px 16px; text-align:center; z-index:1000; box-shadow:0 -4px 12px rgba(0,0,0,0.15);">
+      <div style="position:fixed; bottom:0; left:0; right:0; background:${brandTheme.primary}; color:#ffffff; padding:12px 16px; text-align:center; z-index:1000; box-shadow:0 -4px 12px rgba(0,0,0,0.15);">
         <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; text-decoration:none; font-weight:bold; font-size:18px;">
           Call Now : ${BUSINESS_DETAILS.phone}
         </a>

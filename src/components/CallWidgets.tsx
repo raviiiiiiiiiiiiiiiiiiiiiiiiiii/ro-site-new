@@ -1,14 +1,23 @@
 import React from 'react';
 import { Phone } from 'lucide-react';
 import { BUSINESS_DETAILS } from '../data/content';
+import { PageRoute } from '../types';
+import { getBrandTheme } from '../utils/brandTheme';
 
 interface CallWidgetsProps {
+  currentRoute?: PageRoute;
+  lastBrandRoute?: PageRoute | null;
   customPhone?: string;
 }
 
-export const CallWidgets: React.FC<CallWidgetsProps> = ({ customPhone }) => {
+export const CallWidgets: React.FC<CallWidgetsProps> = ({
+  currentRoute = '/',
+  lastBrandRoute,
+  customPhone,
+}) => {
   const phone = customPhone || BUSINESS_DETAILS.phone;
   const telLink = `tel:${phone}`;
+  const theme = getBrandTheme(currentRoute, lastBrandRoute);
 
   return (
     <>
@@ -20,10 +29,16 @@ export const CallWidgets: React.FC<CallWidgetsProps> = ({ customPhone }) => {
         <a
           href={telLink}
           aria-label={`Click to call ${phone}`}
-          className="group flex items-center bg-[#1d63d8] hover:bg-[#154db0] text-white pl-1.5 pr-2.5 sm:pr-3 py-1 sm:py-1.5 rounded-xl shadow-lg border border-white/80 transition-all duration-300 transform hover:scale-105 active:scale-95"
+          style={{ backgroundColor: theme.primary }}
+          className="group flex items-center text-white pl-1.5 pr-2.5 sm:pr-3 py-1 sm:py-1.5 rounded-xl shadow-lg border border-white/80 transition-all duration-300 transform hover:scale-105 active:scale-95"
         >
           {/* Circular Phone Icon Button */}
-          <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-tr from-sky-400 to-cyan-300 text-white flex items-center justify-center shadow-xs mr-1.5 sm:mr-2 shrink-0 group-hover:rotate-12 transition-transform duration-300">
+          <div 
+            style={{
+              background: `linear-gradient(135deg, ${theme.gradientFrom}, ${theme.gradientTo})`,
+            }}
+            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full text-white flex items-center justify-center shadow-xs mr-1.5 sm:mr-2 shrink-0 group-hover:rotate-12 transition-transform duration-300"
+          >
             <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-white text-white drop-shadow-xs" />
           </div>
 
@@ -32,7 +47,10 @@ export const CallWidgets: React.FC<CallWidgetsProps> = ({ customPhone }) => {
             <span className="text-[9px] sm:text-[10px] font-black tracking-wider uppercase text-white/95 leading-tight">
               Click To Call
             </span>
-            <div className="mt-0.5 bg-white text-slate-950 font-black font-mono text-[10px] sm:text-[11px] px-1.5 py-0.2 rounded shadow-xs leading-tight tracking-tight">
+            <div 
+              style={{ color: '#0f172a' }}
+              className="mt-0.5 bg-white font-black font-mono text-[10px] sm:text-[11px] px-1.5 py-0.2 rounded shadow-xs leading-tight tracking-tight"
+            >
               {phone}
             </div>
           </div>
@@ -42,7 +60,8 @@ export const CallWidgets: React.FC<CallWidgetsProps> = ({ customPhone }) => {
       {/* Full-width Sticky Bottom Call Bar */}
       <div
         id="sticky-call-footer"
-        className="fixed bottom-0 left-0 right-0 z-40 bg-[#1d63d8] hover:bg-[#1752b5] text-white py-3 sm:py-3.5 px-4 shadow-[0_-4px_20px_rgba(0,0,0,0.18)] transition-colors border-t border-blue-400/30"
+        style={{ backgroundColor: theme.primary }}
+        className="fixed bottom-0 left-0 right-0 z-40 text-white py-3 sm:py-3.5 px-4 shadow-[0_-4px_20px_rgba(0,0,0,0.18)] transition-colors border-t border-white/20"
       >
         <a
           href={telLink}
