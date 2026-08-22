@@ -1,7 +1,6 @@
-import React from 'react';
-import { Phone, CheckCircle2, AlertCircle, Wrench, ShieldCheck, Clock, Award, Check } from 'lucide-react';
-import { BRAND_PAGES_DATA, BUSINESS_DETAILS, SERVICES_LIST } from '../data/content';
-import { LeadForm } from '../components/LeadForm';
+import React, { useState } from 'react';
+import { Phone, CheckCircle2, AlertCircle, Loader2, ChevronDown } from 'lucide-react';
+import { BRAND_PAGES_DATA, BUSINESS_DETAILS } from '../data/content';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { PageRoute } from '../types';
 
@@ -10,86 +9,130 @@ interface BrandPageProps {
   onNavigate: (route: PageRoute) => void;
 }
 
-interface BrandTheme {
-  primary: string;
-  secondary: string;
-  heroOverlay: string;
-  heroTitleAccent: string;
-  heroCallText: string;
-  heroBookBg: string;
-  heroBookText: string;
-  headingColor: string;
-  bodyColor: string;
-  ctaBtnBg: string;
-}
-
-const BRAND_THEMES: Record<string, BrandTheme> = {
-  'lg-service': {
-    primary: '#A50034',
-    secondary: '#6D6E71',
-    heroOverlay: 'from-slate-950/45 via-[#A50034]/20 to-slate-900/35',
-    heroTitleAccent: 'from-red-300 via-rose-200 to-white',
-    heroCallText: '#A50034',
-    heroBookBg: '#A50034',
-    heroBookText: '#FFFFFF',
-    headingColor: '#1d63d8',
-    bodyColor: '#475569',
-    ctaBtnBg: '#A50034',
-  },
-  'aquaguard-service': {
-    primary: '#0072BC',
-    secondary: '#005a96',
-    heroOverlay: 'from-slate-950/45 via-[#0072BC]/20 to-slate-900/35',
-    heroTitleAccent: 'from-sky-200 via-cyan-100 to-white',
-    heroCallText: '#0072BC',
-    heroBookBg: '#0072BC',
-    heroBookText: '#FFFFFF',
-    headingColor: '#1d63d8',
-    bodyColor: '#475569',
-    ctaBtnBg: '#0072BC',
-  },
-  'pureit-service': {
-    primary: '#2B2A6B',
-    secondary: '#4CA6DE',
-    heroOverlay: 'from-slate-950/45 via-[#2B2A6B]/25 to-slate-900/35',
-    heroTitleAccent: 'from-sky-300 via-[#4CA6DE] to-cyan-100',
-    heroCallText: '#2B2A6B',
-    heroBookBg: '#4CA6DE',
-    heroBookText: '#FFFFFF',
-    headingColor: '#1d63d8',
-    bodyColor: '#475569',
-    ctaBtnBg: '#1d63d8',
-  },
-  'aosmith-service': {
-    primary: '#00843D',
-    secondary: '#231F20',
-    heroOverlay: 'from-slate-950/45 via-[#00843D]/20 to-slate-900/35',
-    heroTitleAccent: 'from-emerald-300 via-green-200 to-teal-100',
-    heroCallText: '#00843D',
-    heroBookBg: '#00843D',
-    heroBookText: '#FFFFFF',
-    headingColor: '#1d63d8',
-    bodyColor: '#475569',
-    ctaBtnBg: '#00843D',
-  },
-  'kent-service': {
-    primary: '#1B3F8C',
-    secondary: '#0284C7',
-    heroOverlay: 'from-slate-950/45 via-[#1B3F8C]/25 to-slate-900/35',
-    heroTitleAccent: 'from-sky-300 via-blue-200 to-white',
-    heroCallText: '#1B3F8C',
-    heroBookBg: '#1B3F8C',
-    heroBookText: '#FFFFFF',
-    headingColor: '#1d63d8',
-    bodyColor: '#475569',
-    ctaBtnBg: '#1d63d8',
-  },
+const BRAND_PRODUCT_OPTIONS: Record<string, string[]> = {
+  'kent-service': [
+    'Kent Grand Plus RO+UV+UF',
+    'Kent Grand Star RO',
+    'Kent Prime Plus Mineral RO',
+    'Kent Supreme Copper RO',
+    'Kent Pearl Under-the-Counter',
+    'Kent Maxx / Elite RO',
+    'Other Kent Purifier Model',
+  ],
+  'aquaguard-service': [
+    'Aquaguard Active Copper RO',
+    'Aquaguard Geneus RO+UV+UF',
+    'Aquaguard Enhance RO+UV',
+    'Aquaguard Blaze Hot & Ambient',
+    'Aquaguard Ritz / Magna RO',
+    'Aquaguard UTC Under Sink RO',
+    'Other Aquaguard Purifier Model',
+  ],
+  'pureit-service': [
+    'Pureit Marvella Mineral RO',
+    'Pureit Ultima RO+UV+MF',
+    'Pureit Copper+ RO',
+    'Pureit Advanced Plus RO',
+    'Pureit Germkill Kit (GKK) Replacement',
+    'Other Pureit Purifier Model',
+  ],
+  'aosmith-service': [
+    'AO Smith Z8 Hot & Normal RO',
+    'AO Smith Z9 Green Series RO',
+    'AO Smith X8 Dual Filter RO',
+    'AO Smith ProPlanet RO',
+    'AO Smith Elegance / Pro RO',
+    'Other AO Smith Purifier Model',
+  ],
+  'lg-service': [
+    'LG PuriCare Stainless Steel Tank RO',
+    'LG WW180EP / WW182EP RO',
+    'LG Dual Protection RO+UV',
+    'LG Water Purifier Filter Change',
+    'Other LG Purifier Model',
+  ],
 };
 
 export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
   const brandKey = route.replace('/', '');
   const brand = BRAND_PAGES_DATA[brandKey] || BRAND_PAGES_DATA['kent-service'];
-  const theme = BRAND_THEMES[brandKey] || BRAND_THEMES['kent-service'];
+
+  const productOptions = BRAND_PRODUCT_OPTIONS[brandKey] || [
+    `${brand.name} RO Water Purifier`,
+    `${brand.name} RO+UV+UF System`,
+    `${brand.name} Filter Kit Replacement`,
+    `${brand.name} General Service & AMC`,
+    `Other ${brand.name} Model`,
+  ];
+
+  // Lead Form State
+  const [formData, setFormData] = useState({
+    fullName: '',
+    mobileNumber: '',
+    pinCode: '',
+    selectedProduct: '',
+  });
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const validate = (): boolean => {
+    const newErrors: Record<string, string> = {};
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = 'Please enter your full name';
+    }
+
+    const cleanMobile = formData.mobileNumber.replace(/\D/g, '');
+    if (!cleanMobile) {
+      newErrors.mobileNumber = 'Please enter mobile number';
+    } else if (cleanMobile.length !== 10) {
+      newErrors.mobileNumber = 'Please enter a valid 10-digit mobile number';
+    } else if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+      newErrors.mobileNumber = 'Mobile number should start with 6, 7, 8, or 9';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) return;
+
+    setIsSubmitting(true);
+    try {
+      const endpoint = `https://formsubmit.co/ajax/${BUSINESS_DETAILS.formSubmitEmail}`;
+      const payload = new FormData();
+      payload.append('fullName', formData.fullName);
+      payload.append('mobileNumber', formData.mobileNumber);
+      payload.append('pinCode', formData.pinCode || 'Bangalore');
+      payload.append('selectedBrand', brand.name);
+      payload.append('selectedProduct', formData.selectedProduct || `${brand.name} RO Service`);
+      payload.append('sourcePage', `${brand.name} Service Page`);
+      payload.append('_subject', `New ${brand.name} Appointment: ${formData.fullName} - ${formData.mobileNumber}`);
+      payload.append('_captcha', 'false');
+      payload.append('_template', 'table');
+
+      await fetch(endpoint, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: payload,
+      });
+
+      setIsSuccess(true);
+      setFormData({
+        fullName: '',
+        mobileNumber: '',
+        pinCode: '',
+        selectedProduct: '',
+      });
+    } catch (err) {
+      console.warn('Form submission fallback:', err);
+      setIsSuccess(true);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const brandServices = [
     {
@@ -149,100 +192,190 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
   return (
     <div className="min-h-screen bg-white font-sans">
       
-      {/* BRAND HERO SECTION */}
-      <section className="bg-slate-950 text-white pt-14 pb-24 sm:pt-20 sm:pb-32 lg:pt-28 lg:pb-36 min-h-[420px] sm:min-h-[500px] flex flex-col justify-center relative overflow-hidden">
-        
-        {/* Background Image */}
-        <img
-          src={brand.heroImage || "https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"}
-          alt="RO Water Purifier Service Background"
-          width="1920"
-          height="1080"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-95 scale-105"
-        />
-
-        {/* Brand specific Gradient Overlay with reduced intensity for vibrant clarity */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${theme.heroOverlay} z-[1]`}></div>
-
-        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 text-left">
-          <div className="max-w-[340px] sm:max-w-lg">
-            <h1 className="text-3xl sm:text-[40px] font-bold tracking-tight mb-4 leading-[1.15] text-white drop-shadow-md">
-              {brand.name} RO Water Purifier Repair
-              <span className={`block mt-1 bg-gradient-to-r ${theme.heroTitleAccent} bg-clip-text text-transparent`}>
-                & Service in Bangalore
-              </span>
+      {/* BRAND HERO SECTION - MATCHING REFERENCE DESIGN */}
+      <section className="bg-[#0b1c3a] text-white pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 sm:px-6 relative overflow-hidden">
+        <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
+          
+          {/* 1. TEXT ON TOP */}
+          <div className="text-left">
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight">
+              Ro Water Purifier Services
             </h1>
-
-            <p className="text-sm sm:text-[15px] font-medium mb-8 text-white max-w-[320px] leading-relaxed drop-shadow-md">
-              Fast 60–90 min doorstep repair, genuine filter replacements & AMC by certified technicians in Bangalore.
+            <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal">
+              Ro Service Center online is your trusted partner for comprehensive {brand.name} water purifier services. From installation to maintenance and repairs, we ensure your {brand.name} purifier delivers pure, healthy water.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-3 w-full max-w-[280px] sm:max-w-md">
-              <a
-                href={`tel:${BUSINESS_DETAILS.phone}`}
-                style={{ color: theme.heroCallText }}
-                className="w-full sm:w-auto flex-1 px-6 py-3.5 rounded-xl bg-white font-bold text-sm shadow-lg hover:bg-slate-50 transition-colors flex items-center justify-center gap-2"
-              >
-                <Phone className="w-5 h-5 text-[#1d63d8]" />
-                Call Now
-              </a>
-
-              <button
-                onClick={() => document.getElementById('lead-form')?.scrollIntoView({ behavior: 'smooth' })}
-                style={{ backgroundColor: theme.heroBookBg, color: theme.heroBookText }}
-                className="w-full sm:w-auto flex-1 px-6 py-3.5 rounded-xl font-bold text-sm shadow-lg hover:brightness-110 transition-all text-center"
-              >
-                Book Service Now
-              </button>
-            </div>
           </div>
-        </div>
-        
-        {/* Bottom fade out */}
-        <div className="absolute bottom-0 left-0 right-0 h-14 bg-gradient-to-t from-white to-transparent"></div>
-      </section>
 
-      {/* LEAD FORM SECTION (Positioned overlapping the hero slightly) */}
-      <section className="relative z-20 -mt-14 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-12">
-        <LeadForm preselectedBrand={brand.name} sourcePage={`${brand.name} Service Page`} buttonColor={theme.ctaBtnBg} hideBrandSelector={true} />
-      </section>
+          {/* 2. BRAND LOGO CARD */}
+          <div className="bg-black rounded-2xl p-4 sm:p-5 border border-slate-800 shadow-2xl flex items-center justify-center">
+            {brand.logoUrl ? (
+              <img
+                src={brand.logoUrl}
+                alt={`${brand.name} Mineral RO Water Purifiers`}
+                width="300"
+                height="130"
+                className="max-h-24 sm:max-h-28 w-auto object-contain mx-auto"
+                loading="eager"
+                decoding="async"
+              />
+            ) : (
+              <span className="text-2xl font-black tracking-wider text-white py-4">
+                {brand.name.toUpperCase()}
+              </span>
+            )}
+          </div>
 
-      {/* WATER PURIFIER SHOWCASE SECTION */}
-      {brand.showcaseImage && (
-        <section className="py-10 bg-white border-b border-slate-100">
-          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-6">
-              Water Purifier RO + UV + UF + Alkaline + MC + TF
+          {/* 3. BOOKING FORM CARD */}
+          <div id="lead-form" className="bg-[#c2cbde] text-slate-900 rounded-3xl p-5 sm:p-7 shadow-2xl border border-white/50">
+            <h2 className="text-xl sm:text-2xl font-extrabold text-[#0f2444] text-center mb-5">
+              Book Appointment Today
             </h2>
-            
-            <div className="mb-8">
-              <div className="bg-white rounded-2xl p-3 sm:p-6 shadow-sm border border-slate-200/80 overflow-hidden flex items-center justify-center">
-                <img
-                  src={brand.showcaseImage}
-                  alt={`${brand.name} Water Purifier Models & Service Showcase`}
-                  width="800"
-                  height="500"
-                  className="w-full h-auto aspect-[8/5] object-contain max-h-[500px] mx-auto rounded-xl"
-                  loading="lazy"
-                  decoding="async"
-                />
+
+            {isSuccess ? (
+              <div className="py-6 text-center space-y-4 animate-fadeIn">
+                <div className="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-3 shadow-xs">
+                  <CheckCircle2 className="w-9 h-9" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-slate-900">Appointment Booked!</h3>
+                  <p className="text-sm text-slate-600 mt-1 max-w-xs mx-auto">
+                    Thank you! Our {brand.name} service technician will contact you shortly for dispatch.
+                  </p>
+                </div>
+                <div className="pt-2 flex flex-col gap-2">
+                  <a
+                    href={`tel:${BUSINESS_DETAILS.phone}`}
+                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-[#0c54a0] hover:bg-blue-800 text-white font-bold text-sm shadow-md"
+                  >
+                    <Phone className="w-4 h-4" />
+                    Call {BUSINESS_DETAILS.phone}
+                  </a>
+                  <button
+                    onClick={() => setIsSuccess(false)}
+                    className="text-xs text-slate-600 hover:text-slate-900 py-1 underline font-medium"
+                  >
+                    Book another appointment
+                  </button>
+                </div>
               </div>
-            </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-3.5" noValidate>
+                {/* Your Full Name */}
+                <div>
+                  <input
+                    type="text"
+                    id="fullName"
+                    name="fullName"
+                    value={formData.fullName}
+                    onChange={(e) => {
+                      setFormData((prev) => ({ ...prev, fullName: e.target.value }));
+                      if (errors.fullName) setErrors((prev) => ({ ...prev, fullName: '' }));
+                    }}
+                    placeholder="Your Full Name"
+                    className={`w-full px-4 py-3 sm:py-3.5 text-sm bg-white border rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all shadow-2xs ${
+                      errors.fullName ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:ring-blue-200 focus:border-blue-400'
+                    }`}
+                  />
+                  {errors.fullName && <p className="text-xs text-red-600 mt-1 font-medium ml-1">{errors.fullName}</p>}
+                </div>
 
-            <a
-              href={`tel:${BUSINESS_DETAILS.phone}`}
-              className="inline-flex items-center justify-center px-8 py-3.5 bg-[#1d63d8] hover:bg-[#154db0] text-base font-bold rounded-xl text-white transition-all shadow-md hover:shadow-lg"
-            >
-              <Phone className="w-5 h-5 mr-2 fill-white" />
-              Book Service Now
-            </a>
+                {/* Mobile Number */}
+                <div>
+                  <input
+                    type="tel"
+                    id="mobileNumber"
+                    name="mobileNumber"
+                    maxLength={10}
+                    value={formData.mobileNumber}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, '');
+                      setFormData((prev) => ({ ...prev, mobileNumber: val }));
+                      if (errors.mobileNumber) setErrors((prev) => ({ ...prev, mobileNumber: '' }));
+                    }}
+                    placeholder="Mobile Number"
+                    className={`w-full px-4 py-3 sm:py-3.5 text-sm bg-white border rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 transition-all shadow-2xs ${
+                      errors.mobileNumber ? 'border-red-400 focus:ring-red-200' : 'border-slate-200 focus:ring-blue-200 focus:border-blue-400'
+                    }`}
+                  />
+                  {errors.mobileNumber && <p className="text-xs text-red-600 mt-1 font-medium ml-1">{errors.mobileNumber}</p>}
+                </div>
+
+                {/* PinCode */}
+                <div>
+                  <input
+                    type="text"
+                    id="pinCode"
+                    name="pinCode"
+                    maxLength={6}
+                    value={formData.pinCode}
+                    onChange={(e) => {
+                      const val = e.target.value.replace(/\D/g, '');
+                      setFormData((prev) => ({ ...prev, pinCode: val }));
+                    }}
+                    placeholder="PinCode"
+                    className="w-full px-4 py-3 sm:py-3.5 text-sm bg-white border border-slate-200 rounded-xl text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all shadow-2xs"
+                  />
+                </div>
+
+                {/* Select Product */}
+                <div className="relative">
+                  <select
+                    id="selectedProduct"
+                    name="selectedProduct"
+                    value={formData.selectedProduct}
+                    onChange={(e) => setFormData((prev) => ({ ...prev, selectedProduct: e.target.value }))}
+                    className="w-full px-4 py-3 sm:py-3.5 text-sm bg-white border border-slate-200 rounded-xl text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-200 focus:border-blue-400 transition-all appearance-none cursor-pointer shadow-2xs font-medium"
+                  >
+                    <option value="" className="text-slate-400">Select Product</option>
+                    {productOptions.map((opt) => (
+                      <option key={opt} value={opt} className="text-slate-900">
+                        {opt}
+                      </option>
+                    ))}
+                  </select>
+                  <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 flex items-center text-slate-500">
+                    <ChevronDown className="w-4 h-4" />
+                  </div>
+                </div>
+
+                {/* Book Service Now Button */}
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full mt-4 py-3.5 px-6 rounded-xl bg-[#8ec5fc] hover:bg-[#74b4f5] text-[#0f2444] font-extrabold text-sm sm:text-base flex items-center justify-center gap-2 transition-all shadow-md active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4 h-4 animate-spin text-[#0f2444]" />
+                      <span>Submitting...</span>
+                    </>
+                  ) : (
+                    <span>Book Service Now</span>
+                  )}
+                </button>
+              </form>
+            )}
           </div>
-        </section>
-      )}
 
-      {/* SECTION 1: OUR BRAND RO SERVICES (Simplified clean layout as in reference image) */}
+          {/* 4. SHOWCASE IMAGE RIGHT BELOW THE BOOKING FORM */}
+          {brand.showcaseImage && (
+            <div className="pt-2 sm:pt-4 flex items-center justify-center">
+              <img
+                src={brand.showcaseImage}
+                alt={`${brand.name} RO Water Purifier Models`}
+                width="600"
+                height="380"
+                className="w-full max-w-sm sm:max-w-md h-auto object-contain mx-auto drop-shadow-2xl"
+                loading="eager"
+                decoding="async"
+              />
+            </div>
+          )}
+
+        </div>
+      </section>
+
+      {/* SECTION 1: OUR BRAND RO SERVICES (Simplified clean layout) */}
       <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
@@ -262,7 +395,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         </div>
       </section>
 
-      {/* SECTION 2: COMMON PROBLEMS WE FIX (Simplified clean layout as in reference image) */}
+      {/* SECTION 2: COMMON PROBLEMS WE FIX */}
       <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8 leading-snug">
@@ -279,7 +412,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
         </div>
       </section>
 
-      {/* SECTION 3: WHY CHOOSE BRAND SERVICE CENTER (Simplified clean layout as in reference image) */}
+      {/* SECTION 3: WHY CHOOSE BRAND SERVICE CENTER */}
       <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
