@@ -154,7 +154,11 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
             <p style="margin:0;">Call: <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; font-weight:bold;">${BUSINESS_DETAILS.phone}</a> | Bangalore, Karnataka</p>
           </div>
         </div>
-      </footer>
+      <div style="position:fixed; bottom:0; left:0; right:0; background:#1d63d8; color:#ffffff; padding:12px 16px; text-align:center; z-index:1000; box-shadow:0 -4px 12px rgba(0,0,0,0.15);">
+        <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; text-decoration:none; font-weight:bold; font-size:18px;">
+          Call Now : ${BUSINESS_DETAILS.phone}
+        </a>
+      </div>
     `;
   } else if (BRAND_PAGES_DATA[brandKey]) {
     // BRAND PAGE SSR CONTENT
@@ -340,6 +344,11 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
           </div>
         </div>
       </footer>
+      <div style="position:fixed; bottom:0; left:0; right:0; background:#1d63d8; color:#ffffff; padding:12px 16px; text-align:center; z-index:1000; box-shadow:0 -4px 12px rgba(0,0,0,0.15);">
+        <a href="tel:${BUSINESS_DETAILS.phone}" style="color:#ffffff; text-decoration:none; font-weight:bold; font-size:18px;">
+          Call Now : ${BUSINESS_DETAILS.phone}
+        </a>
+      </div>
     `;
   } else {
     // POLICY PAGES OR OTHER ROUTES

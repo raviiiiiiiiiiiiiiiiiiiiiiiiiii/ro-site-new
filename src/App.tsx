@@ -7,6 +7,7 @@ import { BRAND_PAGES_DATA, BUSINESS_DETAILS } from './data/content';
 import { X } from 'lucide-react';
 import { LeadForm } from './components/LeadForm';
 import { SEO, SEOProps } from './components/SEO';
+import { CallWidgets } from './components/CallWidgets';
 
 const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
 const PolicyPage = lazy(() => import('./pages/PolicyPage').then(m => ({ default: m.PolicyPage })));
@@ -336,7 +337,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white pb-14 sm:pb-16">
       {/* Dynamic SEO Meta & Structured Data */}
       <SEO {...seoConfig} />
 
@@ -353,6 +354,9 @@ export default function App() {
 
       {/* Footer */}
       <Footer currentRoute={currentRoute} lastBrandRoute={lastBrandRoute} onNavigate={navigate} />
+
+      {/* Sticky Bottom Call Bar & Floating Call Icon */}
+      <CallWidgets />
 
       {/* Pop-up Booking Modal if triggered from sticky mobile or secondary CTA */}
       {isBookModalOpen && (
