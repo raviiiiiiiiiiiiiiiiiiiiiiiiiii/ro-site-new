@@ -1,6 +1,6 @@
 import React from 'react';
-import { Phone, CheckCircle2, ChevronRight, Star } from 'lucide-react';
-import { BUSINESS_DETAILS, HOMEPAGE_FAQS, HOMEPAGE_TESTIMONIALS, BRAND_PAGES_DATA } from '../data/content';
+import { Phone, Star } from 'lucide-react';
+import { BUSINESS_DETAILS, HOMEPAGE_FAQS, HOMEPAGE_TESTIMONIALS } from '../data/content';
 import { LeadForm } from '../components/LeadForm';
 import { FAQAccordion } from '../components/FAQAccordion';
 import { PageRoute } from '../types';
@@ -9,7 +9,7 @@ interface HomePageProps {
   onNavigate: (route: PageRoute) => void;
 }
 
-export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
+export const HomePage: React.FC<HomePageProps> = ({ onNavigate: _onNavigate }) => {
   const homeServices = [
     {
       title: 'RO Water Purifier Repair & Service',
@@ -68,8 +68,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       description: 'Full warranty coverage on labor and up to 1-year replacement warranty on major spare parts.',
     },
   ];
-
-  const brandKeys = Object.keys(BRAND_PAGES_DATA);
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -189,38 +187,6 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
                 </p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BRANDS WE SERVICE DAILY */}
-      <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-100">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-2">
-            Brands We Service Daily
-          </h2>
-          <p className="text-slate-600 text-sm sm:text-base mb-8">
-            Expert doorstep repair with original spares for all top water purifier manufacturers.
-          </p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-            {brandKeys.map((key) => {
-              const brand = BRAND_PAGES_DATA[key];
-              return (
-                <div
-                  key={brand.id}
-                  onClick={() => onNavigate(brand.slug)}
-                  className="bg-white p-4 rounded-2xl shadow-xs border border-slate-200/80 hover:border-[#1d63d8] hover:shadow-md cursor-pointer transition-all flex flex-col items-center justify-center text-center group"
-                >
-                  <h3 className="font-bold text-slate-900 text-base group-hover:text-[#1d63d8] transition-colors mb-1">
-                    {brand.name}
-                  </h3>
-                  <span className="text-xs text-blue-600 font-semibold flex items-center gap-0.5">
-                    View Service <ChevronRight className="w-3.5 h-3.5" />
-                  </span>
-                </div>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -349,3 +315,4 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     </div>
   );
 };
+
