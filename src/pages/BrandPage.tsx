@@ -27,7 +27,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
   'lg-service': {
     primary: '#A50034',
     secondary: '#6D6E71',
-    heroOverlay: 'from-slate-950/80 via-[#A50034]/40 to-slate-900/80',
+    heroOverlay: 'from-slate-950/45 via-[#A50034]/20 to-slate-900/35',
     heroTitleAccent: 'from-red-300 via-rose-200 to-white',
     heroCallText: '#A50034',
     heroBookBg: '#A50034',
@@ -39,7 +39,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
   'aquaguard-service': {
     primary: '#0072BC',
     secondary: '#005a96',
-    heroOverlay: 'from-slate-950/80 via-[#0072BC]/45 to-slate-900/80',
+    heroOverlay: 'from-slate-950/45 via-[#0072BC]/20 to-slate-900/35',
     heroTitleAccent: 'from-sky-200 via-cyan-100 to-white',
     heroCallText: '#0072BC',
     heroBookBg: '#0072BC',
@@ -51,7 +51,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
   'pureit-service': {
     primary: '#2B2A6B',
     secondary: '#4CA6DE',
-    heroOverlay: 'from-slate-950/80 via-[#2B2A6B]/55 to-slate-900/80',
+    heroOverlay: 'from-slate-950/45 via-[#2B2A6B]/25 to-slate-900/35',
     heroTitleAccent: 'from-sky-300 via-[#4CA6DE] to-cyan-100',
     heroCallText: '#2B2A6B',
     heroBookBg: '#4CA6DE',
@@ -63,7 +63,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
   'aosmith-service': {
     primary: '#00843D',
     secondary: '#231F20',
-    heroOverlay: 'from-slate-950/80 via-[#00843D]/45 to-slate-900/80',
+    heroOverlay: 'from-slate-950/45 via-[#00843D]/20 to-slate-900/35',
     heroTitleAccent: 'from-emerald-300 via-green-200 to-teal-100',
     heroCallText: '#00843D',
     heroBookBg: '#00843D',
@@ -75,7 +75,7 @@ const BRAND_THEMES: Record<string, BrandTheme> = {
   'kent-service': {
     primary: '#1B3F8C',
     secondary: '#0284C7',
-    heroOverlay: 'from-slate-950/80 via-[#1B3F8C]/50 to-slate-900/80',
+    heroOverlay: 'from-slate-950/45 via-[#1B3F8C]/25 to-slate-900/35',
     heroTitleAccent: 'from-sky-300 via-blue-200 to-white',
     heroCallText: '#1B3F8C',
     heroBookBg: '#1B3F8C',
@@ -160,22 +160,22 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           height="1080"
           decoding="async"
           fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-85 scale-105"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-95 scale-105"
         />
 
-        {/* Brand specific Gradient Overlay for image visibility & contrast */}
-        <div className={`absolute inset-0 bg-gradient-to-br ${theme.heroOverlay} backdrop-blur-[0.5px] z-[1]`}></div>
+        {/* Brand specific Gradient Overlay with reduced intensity for vibrant clarity */}
+        <div className={`absolute inset-0 bg-gradient-to-br ${theme.heroOverlay} z-[1]`}></div>
 
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 relative z-10 text-left">
           <div className="max-w-[340px] sm:max-w-lg">
-            <h1 className="text-3xl sm:text-[40px] font-bold tracking-tight mb-4 leading-[1.15] text-white drop-shadow-sm">
+            <h1 className="text-3xl sm:text-[40px] font-bold tracking-tight mb-4 leading-[1.15] text-white drop-shadow-md">
               {brand.name} RO Water Purifier Repair
               <span className={`block mt-1 bg-gradient-to-r ${theme.heroTitleAccent} bg-clip-text text-transparent`}>
                 & Service in Bangalore
               </span>
             </h1>
 
-            <p className="text-sm sm:text-[15px] font-medium mb-8 text-slate-100 max-w-[320px] leading-relaxed drop-shadow-sm">
+            <p className="text-sm sm:text-[15px] font-medium mb-8 text-white max-w-[320px] leading-relaxed drop-shadow-md">
               Fast 60–90 min doorstep repair, genuine filter replacements & AMC by certified technicians in Bangalore.
             </p>
 
