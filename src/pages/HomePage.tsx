@@ -131,7 +131,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate: _onNavigate }) =
 
       {/* LEAD FORM SECTION */}
       <section className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-12">
-        <LeadForm sourcePage="Homepage Hero" hideServiceSelector={true} />
+        <LeadForm sourcePage="Homepage Hero" />
       </section>
 
       {/* SECTION 1: OUR RO SERVICES (Simplified clean layout as in reference image) */}

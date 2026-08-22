@@ -61,14 +61,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   const brandOptions = [
     'Kent',
     'Aquaguard',
-    'Pureit (HUL)',
+    'Pureit',
     'AO Smith',
     'LG',
-    'Livpure',
-    'Blue Star',
-    'Whirlpool',
-    'Havells',
-    'Others / Multi-brand',
   ];
 
   const serviceOptions = getServiceOptionsForBrand(formData.selectedBrand);
