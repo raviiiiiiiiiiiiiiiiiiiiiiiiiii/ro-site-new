@@ -135,40 +135,40 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         </div>
 
-        {/* Main Navbar */}
+        {/* Main Navbar - Slimmer & Clean */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 sm:h-20">
+          <div className="flex items-center justify-between h-13 sm:h-15">
             
             {/* Brand Logo & Name */}
             <button
               onClick={() => handleNavClick('/')}
-              className="flex items-center gap-3 text-left focus:outline-none group"
+              className="flex items-center gap-2 sm:gap-3 text-left focus:outline-none group"
             >
-              <div className="h-10 sm:h-12 bg-white px-2 py-1 rounded-xl shrink-0 overflow-hidden border border-slate-200 shadow-xs flex items-center justify-center group-hover:border-slate-400 transition-colors">
+              <div className="h-8 sm:h-9 bg-white px-1.5 py-0.5 rounded-lg shrink-0 overflow-hidden border border-slate-200 shadow-2xs flex items-center justify-center group-hover:border-slate-400 transition-colors">
                 <img
                   src={BUSINESS_DETAILS.logoUrl}
                   alt={BUSINESS_DETAILS.name}
-                  width="48"
-                  height="48"
+                  width="36"
+                  height="36"
                   loading="eager"
                   decoding="async"
-                  className="h-full w-auto max-w-[90px] sm:max-w-[110px] object-contain"
+                  className="h-full w-auto max-w-[70px] sm:max-w-[85px] object-contain"
                 />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-center gap-1 font-['Outfit'] font-black text-lg sm:text-2xl tracking-tight text-slate-900 leading-none">
+                <div className="flex items-center gap-1 font-['Outfit'] font-black text-base sm:text-xl tracking-tight text-slate-900 leading-none">
                   <span style={{ color: brandTheme.primary }} className="transition-colors duration-300">
                     RO
                   </span>
                   <span>-service</span>
                   <span 
                     style={{ backgroundColor: brandTheme.badgeBg }}
-                    className="text-white text-[9px] sm:text-[11px] font-black px-1.5 py-0.5 rounded shadow-xs tracking-wider uppercase ml-0.5 transition-colors duration-300"
+                    className="text-white text-[8px] sm:text-[10px] font-black px-1.5 py-0.5 rounded shadow-2xs tracking-wider uppercase ml-0.5 transition-colors duration-300"
                   >
                     24x7
                   </span>
                 </div>
-                <span className="text-[10px] sm:text-xs font-semibold text-slate-500 tracking-wider uppercase mt-0.5">
+                <span className="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-wider uppercase mt-0.5">
                   Bangalore Service Center
                 </span>
               </div>
@@ -283,7 +283,7 @@ export const Header: React.FC<HeaderProps> = ({
             </nav>
 
             {/* Desktop Action Buttons */}
-            <div className="hidden sm:flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-2.5">
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 style={{
@@ -291,36 +291,26 @@ export const Header: React.FC<HeaderProps> = ({
                   color: brandTheme.phoneTextColor,
                   borderColor: brandTheme.borderColor,
                 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-bold transition-all shadow-2xs hover:brightness-95"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border text-xs font-bold transition-all shadow-2xs hover:brightness-95"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-3.5 h-3.5" />
                 <span>{BUSINESS_DETAILS.phone}</span>
               </a>
               <button
                 onClick={handleScrollToForm}
                 style={{ backgroundColor: brandTheme.buttonBg }}
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-white text-sm font-bold shadow-md hover:brightness-110 transition-all"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-white text-xs font-bold shadow-xs hover:brightness-110 transition-all"
               >
-                <Calendar className="w-4 h-4" />
+                <Calendar className="w-3.5 h-3.5" />
                 <span>Book Service</span>
               </button>
             </div>
 
-            {/* Mobile Actions */}
-            <div className="flex sm:hidden items-center gap-2">
-              <a
-                href={`tel:${BUSINESS_DETAILS.phone}`}
-                style={{ backgroundColor: brandTheme.buttonBg }}
-                className="inline-flex items-center gap-1 px-3 py-1.5 rounded-lg text-white text-xs font-bold shadow-xs hover:brightness-110"
-                aria-label="Call Now"
-              >
-                <Phone className="w-3.5 h-3.5 fill-white text-white" />
-                <span>Call</span>
-              </a>
-              
+            {/* Mobile Actions - Clean hamburger only */}
+            <div className="flex sm:hidden items-center">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
+                className="p-1.5 rounded-lg text-slate-700 hover:bg-slate-100 transition-colors"
                 aria-label="Toggle navigation menu"
               >
                 {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

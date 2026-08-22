@@ -213,27 +213,27 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           {/* 1. TEXT ON TOP */}
           <div className="text-left">
             <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight drop-shadow-md">
-              Ro Water Purifier Services
+              {brandKey === 'kent-service' ? 'Kent Service Center' : `${brand.name} Water Purifier Services`}
             </h1>
             <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal drop-shadow-sm">
-              Ro Service Center online is your trusted partner for comprehensive {brand.name} water purifier services. From installation to maintenance and repairs, we ensure your {brand.name} purifier delivers pure, healthy water.
+              Certified doorstep {brand.name} RO repair, genuine filter replacements &amp; AMC across Bangalore in 60–90 mins. Experienced technicians ensure 100% pure, healthy water with warranty.
             </p>
           </div>
 
-          {/* 2. BRAND LOGO CARD (Even Bigger) */}
-          <div className="bg-black rounded-2xl p-6 sm:p-8 md:p-10 border border-slate-700/80 shadow-2xl flex items-center justify-center">
+          {/* 2. BRAND LOGO CARD - MATCHING REFERENCE PROPORTIONS */}
+          <div className="bg-black rounded-3xl p-6 sm:p-8 border-2 border-slate-700/70 shadow-2xl flex items-center justify-center overflow-hidden min-h-[140px] sm:min-h-[170px]">
             {brand.logoUrl ? (
               <img
                 src={brand.logoUrl}
                 alt={`${brand.name} Mineral RO Water Purifiers`}
-                width="480"
+                width="520"
                 height="220"
-                className="max-h-40 sm:max-h-52 md:max-h-60 w-auto max-w-[95%] sm:max-w-[90%] object-contain mx-auto rounded-lg shadow-sm"
+                className="w-full max-w-[94%] sm:max-w-[88%] max-h-32 sm:max-h-40 md:max-h-44 object-contain mx-auto rounded-xl"
                 loading="eager"
                 decoding="async"
               />
             ) : (
-              <span className="text-4xl sm:text-5xl font-black tracking-wider text-white py-8">
+              <span className="text-3xl sm:text-5xl font-black tracking-wider text-white py-4">
                 {brand.name.toUpperCase()}
               </span>
             )}
