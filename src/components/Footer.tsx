@@ -1,10 +1,14 @@
+'use client';
+
 import React from 'react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Phone, MapPin, Mail, Clock } from 'lucide-react';
-import { BUSINESS_DETAILS } from '../data/content';
-import { PageRoute } from '../types';
+import { BUSINESS_DETAILS, BANGALORE_LOCALITIES } from '@/src/data/content';
+import { PageRoute } from '@/src/types';
 
 interface FooterProps {
-  onNavigate: (route: PageRoute) => void;
+  onNavigate?: (route: PageRoute) => void;
   currentRoute?: PageRoute;
   lastBrandRoute?: PageRoute | null;
 }
@@ -37,7 +41,10 @@ const BRAND_FOOTER_CONFIGS: Record<string, BrandFooterStyle> = {
   },
 };
 
-export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', lastBrandRoute }) => {
+export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, lastBrandRoute }) => {
+  const pathname = usePathname() || '/';
+  const currentRoute = propCurrentRoute || (pathname as PageRoute);
+
   const activeRouteForBrand = (currentRoute && currentRoute.endsWith('-service'))
     ? currentRoute
     : (currentRoute !== '/' && lastBrandRoute ? lastBrandRoute : null);
@@ -92,48 +99,48 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
           {/* Column 2: Policy Links */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/20 pb-2">
-              Legal & Policies
+              Legal &amp; Policies
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
-                <button
-                  onClick={() => onNavigate('/privacy-policy')}
-                  className="text-white/85 hover:text-white transition-colors"
+                <Link
+                  href="/privacy-policy"
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  Privacy Policy
-                </button>
+                  <span className="text-white/60">›</span> Privacy Policy
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/terms-of-service')}
-                  className="text-white/85 hover:text-white transition-colors"
+                <Link
+                  href="/terms-of-service"
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  Terms of Service
-                </button>
+                  <span className="text-white/60">›</span> Terms and Conditions
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/refund-policy')}
-                  className="text-white/85 hover:text-white transition-colors"
+                <Link
+                  href="/refund-policy"
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  Refund & Return Policy
-                </button>
+                  <span className="text-white/60">›</span> Cancellation &amp; Refund Policy
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/disclaimer')}
-                  className="text-white/85 hover:text-white transition-colors"
+                <Link
+                  href="/disclaimer"
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  Disclaimer & Affiliation
-                </button>
+                  <span className="text-white/60">›</span> Disclaimer
+                </Link>
               </li>
               <li>
-                <button
-                  onClick={() => onNavigate('/cookie-policy')}
-                  className="text-white/85 hover:text-white transition-colors"
+                <Link
+                  href="/cookie-policy"
+                  className="hover:text-white transition-colors flex items-center gap-1.5"
                 >
-                  Cookie Policy
-                </button>
+                  <span className="text-white/60">›</span> Cookie Policy
+                </Link>
               </li>
             </ul>
           </div>
@@ -141,56 +148,65 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
           {/* Column 3: Contact Info */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/20 pb-2">
-              Contact & Location
+              Bangalore Service Helpline
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
-              <li className="flex items-start gap-2.5 text-white/90">
-                <MapPin className="w-4 h-4 text-white shrink-0 mt-0.5" />
-                <span>{BUSINESS_DETAILS.address}</span>
+              <li className="flex items-start gap-2.5">
+                <MapPin className="w-4 h-4 text-white/80 shrink-0 mt-0.5" />
+                <span className="leading-tight text-white/90">
+                  {BUSINESS_DETAILS.address}
+                </span>
               </li>
-              <li className="flex items-center gap-2.5 text-white/90">
-                <Phone className="w-4 h-4 text-white shrink-0" />
-                <a href={`tel:${BUSINESS_DETAILS.phone}`} className="hover:text-white transition-colors font-bold">
+              <li className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-white/80 shrink-0" />
+                <a 
+                  href={`tel:${BUSINESS_DETAILS.phone}`} 
+                  className="text-white font-bold hover:underline"
+                >
                   {BUSINESS_DETAILS.phone}
                 </a>
               </li>
-              <li className="flex items-center gap-2.5 text-white/90">
-                <Mail className="w-4 h-4 text-white shrink-0" />
-                <a href={`mailto:${BUSINESS_DETAILS.email}`} className="hover:text-white transition-colors">
+              <li className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-white/80 shrink-0" />
+                <a 
+                  href={`mailto:${BUSINESS_DETAILS.email}`} 
+                  className="hover:text-white break-all transition-colors"
+                >
                   {BUSINESS_DETAILS.email}
                 </a>
               </li>
             </ul>
           </div>
+
         </div>
 
-        {/* Brand Trademark & Affiliation Disclaimer */}
-        <div className="mb-8 p-4 sm:p-5 rounded-2xl bg-black/20 border border-white/20 text-center sm:text-left shadow-xs">
-          <p id="brand-footer-disclaimer" className="text-xs sm:text-[13px] text-white/95 leading-relaxed font-normal">
-            <strong className="font-bold text-white uppercase tracking-wider text-[11px] mr-2 inline-block">
-              Disclaimer:
-            </strong>
-            All brand names and trademarks belong to their respective owners. Their use does not imply any affiliation or endorsement.
+        {/* Localities Tags */}
+        <div className="pt-6 border-t border-white/10 mb-8">
+          <p className="text-xs font-semibold text-white/70 uppercase tracking-wider mb-3">
+            Service Areas in Bangalore:
           </p>
-        </div>
-
-        {/* Bottom copyright */}
-        <div className="pt-8 border-t border-white/20 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/80 text-center sm:text-left">
-          <p>
-            © {new Date().getFullYear()} {BUSINESS_DETAILS.fullName}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-4">
-            <button onClick={() => onNavigate('/')} className="hover:text-white">
-              Home
-            </button>
-            <button onClick={() => onNavigate('/privacy-policy')} className="hover:text-white">
-              Privacy
-            </button>
-            <button onClick={() => onNavigate('/terms-of-service')} className="hover:text-white">
-              Terms
-            </button>
+          <div className="flex flex-wrap gap-1.5">
+            {BANGALORE_LOCALITIES.map((loc, idx) => (
+              <span 
+                key={idx}
+                className="text-[11px] bg-white/10 hover:bg-white/20 text-white px-2 py-0.5 rounded transition-colors"
+              >
+                {loc}
+              </span>
+            ))}
           </div>
         </div>
+
+        {/* Bottom Disclaimer & Copyright */}
+        <div className="pt-6 border-t border-white/10 text-center space-y-2">
+          <p className="text-[11px] text-white/70 max-w-4xl mx-auto leading-relaxed">
+            {BUSINESS_DETAILS.disclaimer}
+          </p>
+          <p className="text-xs text-white/60">
+            &copy; {new Date().getFullYear()} {BUSINESS_DETAILS.name}. All rights reserved. Registered MSME Enterprise (UDYAM-KR-03-0561611).
+          </p>
+        </div>
+
       </div>
     </footer>
   );

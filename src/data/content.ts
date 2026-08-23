@@ -14,6 +14,7 @@ export const BUSINESS_DETAILS = {
   workingHours: '8:00 AM - 9:00 PM (All 7 Days)',
   email: 'contact@roservicehelpline.in',
   formSubmitEmail: 'syedsmaula786@gmail.com',
+  disclaimer: 'Disclaimer: Ro-service helpline is an independent multi-brand water purifier service center in Bangalore. We provide repair, maintenance, and genuine filter replacement services. Brand names and logos are used strictly for identification and compatibility purposes.',
 };
 
 export const SERVICES_LIST: ServiceItem[] = [

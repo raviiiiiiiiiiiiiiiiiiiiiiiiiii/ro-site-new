@@ -1,7 +1,8 @@
+'use client';
+
 import React, { useState } from 'react';
 import { ChevronDown } from 'lucide-react';
-
-import { FAQItem } from '../types';
+import { FAQItem } from '@/src/types';
 
 interface FAQAccordionProps {
   faqs: FAQItem[];
@@ -28,11 +29,11 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
         <div 
           className="text-center max-w-3xl mx-auto mb-10"
         >
-          <h2 className="text-3xl sm:text-4xl font-black text-[#1a1a1a] tracking-tight">
+          <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-2 tracking-tight">
             {title}
           </h2>
           {subtitle && (
-            <p className="text-base sm:text-lg text-slate-600 mt-3">
+            <p className="text-sm sm:text-base text-slate-600">
               {subtitle}
             </p>
           )}
@@ -58,32 +59,24 @@ export const FAQAccordion: React.FC<FAQAccordionProps> = ({
                 onClick={() => toggleIndex(index)}
                 className="w-full text-left p-5 sm:p-6 flex items-center justify-between gap-4 focus:outline-none"
               >
-                <span
-                  style={isOpen ? { color: activeColor } : undefined}
-                  className={`text-[17px] font-bold leading-snug ${isOpen ? '' : 'text-[#1a1a1a]'}`}
-                >
+                <span className="font-bold text-slate-900 text-base sm:text-lg">
                   {faq.question}
                 </span>
-                <span
-                  style={isOpen ? { color: activeColor } : undefined}
-                  className={`flex items-center justify-center shrink-0 transition-transform duration-300 ${
-                    isOpen ? 'rotate-180' : 'text-slate-400'
+                <span 
+                  style={isOpen ? { backgroundColor: `${activeColor}15`, color: activeColor } : undefined}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 transition-transform duration-200 ${
+                    isOpen ? 'rotate-180' : 'bg-slate-100 text-slate-500'
                   }`}
                 >
-                  <ChevronDown className="w-6 h-6" />
+                  <ChevronDown className="w-5 h-5" />
                 </span>
               </button>
 
-              <div >
-                {isOpen && (
-                  <div 
-                  >
-                    <div className="px-5 pb-6 pt-0 sm:px-6 text-[15px] text-slate-600 leading-relaxed border-t border-slate-100">
-                      <p className="pt-4">{faq.answer}</p>
-                    </div>
-                  </div>
-                )}
-              </div>
+              {isOpen && (
+                <div className="px-5 sm:px-6 pb-6 text-sm sm:text-base text-slate-600 leading-relaxed border-t border-slate-100 pt-4">
+                  {faq.answer}
+                </div>
+              )}
             </div>
           );
         })}

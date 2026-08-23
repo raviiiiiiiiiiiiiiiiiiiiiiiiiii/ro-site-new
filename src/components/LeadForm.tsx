@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState, useEffect } from 'react';
 import { Phone, CheckCircle2, AlertCircle, Loader2, Send, User, MapPin, Wrench } from 'lucide-react';
 import { BUSINESS_DETAILS } from '../data/content';
