@@ -5,10 +5,18 @@
       "includeFiles": "dist/**"
     }
   },
-  "rewrites": [
+  "routes": [
     {
-      "source": "/((?!assets/|favicon.ico|robots.txt|sitemap.xml|llms.txt|.*\\..*).*)",
-      "destination": "/api/index"
+      "src": "/assets/(.*)",
+      "dest": "/dist/assets/$1"
+    },
+    {
+      "src": "/(favicon\\.ico|robots\\.txt|sitemap\\.xml|llms\\.txt)",
+      "dest": "/dist/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/api/index.ts"
     }
   ]
 }
