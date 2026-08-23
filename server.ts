@@ -45,7 +45,7 @@ async function startServer() {
       }
 
       try {
-        const urlHost = req.headers.host || "roservice24x7.in";
+        const urlHost = req.headers.host || "roservicehelpline.in";
         const { title, metaDescription, canonicalUrl, jsonLd, bodyHtml } = renderPageContent(req.originalUrl, urlHost);
 
         let template = fs.readFileSync(path.resolve(process.cwd(), "index.html"), "utf-8");
@@ -88,7 +88,7 @@ async function startServer() {
       }
 
       try {
-        const urlHost = req.headers.host || "roservice24x7.in";
+        const urlHost = req.headers.host || "roservicehelpline.in";
         const { title, metaDescription, canonicalUrl, jsonLd, bodyHtml } = renderPageContent(req.originalUrl, urlHost);
 
         let template = fs.readFileSync(path.join(distPath, "index.html"), "utf-8");

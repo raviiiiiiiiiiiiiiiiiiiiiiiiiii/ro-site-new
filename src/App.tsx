@@ -8,6 +8,7 @@ import { X } from 'lucide-react';
 import { LeadForm } from './components/LeadForm';
 import { SEO, SEOProps } from './components/SEO';
 import { CallWidgets } from './components/CallWidgets';
+import { getRouteFromSubdomain, SUBDOMAIN_ROUTE_MAP } from './utils/subdomains';
 
 const BrandPage = lazy(() => import('./pages/BrandPage').then(m => ({ default: m.BrandPage })));
 const PolicyPage = lazy(() => import('./pages/PolicyPage').then(m => ({ default: m.PolicyPage })));
@@ -28,19 +29,33 @@ const VALID_ROUTES: PageRoute[] = [
   '/404',
 ];
 
+export { SUBDOMAIN_ROUTE_MAP, getRouteFromSubdomain };
+
 function getInitialRoute(): PageRoute {
   const rawPath = typeof window !== 'undefined' ? window.location.pathname : '/';
   const path = rawPath as PageRoute;
-  if (VALID_ROUTES.includes(path)) {
+  const hash = typeof window !== 'undefined' ? (window.location.hash.replace('#', '') as PageRoute) : null;
+  const subdomainRoute = getRouteFromSubdomain();
+
+  // If path is a specific valid route (e.g. /privacy-policy, /terms-of-service, /kent-service), path routing works normally
+  if (path !== '/' && VALID_ROUTES.includes(path)) {
     return path;
   }
-  const hash = typeof window !== 'undefined' ? (window.location.hash.replace('#', '') as PageRoute) : null;
-  if (hash && VALID_ROUTES.includes(hash)) {
+
+  if (hash && hash !== '/' && VALID_ROUTES.includes(hash)) {
     return hash;
   }
+
+  // If path is unknown and not root, return 404
   if (rawPath !== '/' && rawPath !== '') {
     return '/404';
   }
+
+  // If path is root "/" and subdomain matches, prioritize the subdomain route
+  if (subdomainRoute) {
+    return subdomainRoute;
+  }
+
   return '/';
 }
 
@@ -81,12 +96,16 @@ export default function App() {
       const rawPath = window.location.pathname;
       const path = rawPath as PageRoute;
       const hash = window.location.hash.replace('#', '') as PageRoute;
-      if (VALID_ROUTES.includes(path)) {
+      const subdomainRoute = getRouteFromSubdomain();
+
+      if (path !== '/' && VALID_ROUTES.includes(path)) {
         setCurrentRoute(path);
-      } else if (hash && VALID_ROUTES.includes(hash)) {
+      } else if (hash && hash !== '/' && VALID_ROUTES.includes(hash)) {
         setCurrentRoute(hash);
       } else if (rawPath !== '/' && rawPath !== '') {
         setCurrentRoute('/404');
+      } else if (subdomainRoute) {
+        setCurrentRoute(subdomainRoute);
       } else {
         setCurrentRoute('/');
       }
@@ -111,8 +130,13 @@ export default function App() {
 
   // Generate complete SEO configuration per page
   const getSEOConfig = (): SEOProps => {
-    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://roservice24x7.in';
-    const canonicalUrl = `${origin}${currentRoute}`;
+    const origin = typeof window !== 'undefined' ? window.location.origin : 'https://roservicehelpline.in';
+    const subdomainRoute = getRouteFromSubdomain();
+    const isSubdomainRoot =
+      Boolean(subdomainRoute &&
+      currentRoute === subdomainRoute &&
+      (typeof window !== 'undefined' ? window.location.pathname === '/' || window.location.pathname === '' : false));
+    const canonicalUrl = isSubdomainRoot ? origin : `${origin}${currentRoute === '/' ? '' : currentRoute}`;
 
     if (currentRoute === '/') {
       return {

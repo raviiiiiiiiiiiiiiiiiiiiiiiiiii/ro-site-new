@@ -1,5 +1,6 @@
 import { BRAND_PAGES_DATA, BUSINESS_DETAILS, HOMEPAGE_FAQS, SERVICES_LIST, BANGALORE_LOCALITIES } from './data/content';
 import { getBrandTheme } from './utils/brandTheme';
+import { getRouteFromSubdomain } from './utils/subdomains';
 import { PageRoute } from './types';
 
 export interface RenderResult {
@@ -10,11 +11,17 @@ export interface RenderResult {
   bodyHtml: string;
 }
 
-export function renderPageContent(urlPath: string, host: string = 'www.roservice24x7.in'): RenderResult {
-  const normalizedHost = host === 'roservice24x7.in' ? 'www.roservice24x7.in' : host;
+export function renderPageContent(urlPath: string, host: string = 'www.roservicehelpline.in'): RenderResult {
+  const normalizedHost = host === 'roservicehelpline.in' ? 'www.roservicehelpline.in' : host;
   const baseUrl = `https://${normalizedHost}`;
   const cleanPath = urlPath.split('?')[0].replace(/\/$/, '') || '/';
   const canonicalUrl = `${baseUrl}${cleanPath === '/' ? '' : cleanPath}`;
+
+  // Check if request is on a mapped brand subdomain (e.g. kent.roservicehelpline.in)
+  const subdomainRoute = getRouteFromSubdomain(host);
+  // If path is root "/" and on a mapped subdomain, treat it as the mapped brand route for SEO & content
+  const effectiveRoute: PageRoute = cleanPath === '/' && subdomainRoute ? subdomainRoute : (cleanPath as PageRoute);
+  const brandKey = effectiveRoute.replace(/^\//, '');
 
   // Default homepage render result
   let title = 'RO-service 24x7 | RO Water Purifier Repair & Service Bangalore | Call 8050291180';
@@ -73,9 +80,7 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
 
   let bodyHtml = '';
 
-  const brandKey = cleanPath.replace(/^\//, '');
-
-  if (cleanPath === '/' || cleanPath === '') {
+  if (effectiveRoute === '/') {
     // HOMEPAGE SSR CONTENT
     bodyHtml = `
       <header style="padding:16px; background:#0c54a0; color:#ffffff;">
@@ -364,7 +369,7 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
       '/cookie-policy': 'Cookie Policy',
     };
 
-    const policyName = policyTitles[cleanPath] || 'Customer Care Policy';
+    const policyName = policyTitles[effectiveRoute] || policyTitles[cleanPath] || 'Customer Care Policy';
     title = `${policyName} | ${BUSINESS_DETAILS.name} Bangalore`;
     metaDescription = `${policyName} for ${BUSINESS_DETAILS.name} doorstep water purifier repair services in Bangalore.`;
 
