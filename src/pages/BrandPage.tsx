@@ -99,8 +99,8 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
             </p>
           </div>
 
-          {/* 2. BRAND LOGO CARD - MATCHING REFERENCE PROPORTIONS */}
-          <div className="bg-black rounded-3xl p-6 sm:p-8 border-2 border-slate-700/70 shadow-2xl flex items-center justify-center overflow-hidden min-h-[140px] sm:min-h-[170px]">
+          {/* 2. BRAND LOGO CARD - WHITE BACKGROUND MATCHING LOGO ASSETS */}
+          <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-100 shadow-2xl flex items-center justify-center overflow-hidden min-h-[140px] sm:min-h-[170px]">
             {brand.logoUrl ? (
               <img
                 src={brand.logoUrl}
@@ -112,14 +112,14 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
                 decoding="async"
               />
             ) : (
-              <span className="text-3xl sm:text-5xl font-black tracking-wider text-white py-4">
+              <span className="text-3xl sm:text-5xl font-black tracking-wider text-slate-900 py-4">
                 {brand.name.toUpperCase()}
               </span>
             )}
           </div>
 
           {/* 3. BOOKING FORM CARD */}
-          <LeadForm preselectedBrand={brand.name} sourcePage={`${brand.name} Brand Page`} />
+          <LeadForm preselectedBrand={brand.name} hideBrandSelector={true} sourcePage={`${brand.name} Brand Page`} />
 
           {/* 4. SHOWCASE IMAGE RIGHT BELOW THE BOOKING FORM */}
           {brand.showcaseImage && (
