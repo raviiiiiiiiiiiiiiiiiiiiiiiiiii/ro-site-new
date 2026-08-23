@@ -158,10 +158,10 @@ export default async function BrandPage({ params }: PageProps) {
               width={1920}
               height={1080}
               fetchPriority="high"
-              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-30 sm:opacity-35 scale-105 z-0"
+              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-65 sm:opacity-75 scale-100 z-0"
             />
           )}
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/90 to-slate-950 z-0"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-900/50 to-slate-950/75 z-0"></div>
 
           <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
             
