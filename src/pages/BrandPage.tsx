@@ -91,7 +91,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
           
           {/* 1. TEXT ON TOP */}
           <div className="text-left">
-            <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight drop-shadow-md">
+            <h1 className={`text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight drop-shadow-md ${brandKey === 'kent-service' ? 'text-center' : ''}`}>
               {brandKey === 'kent-service' ? 'Kent Service Center' : `${brand.name} Water Purifier Services`}
             </h1>
             <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal drop-shadow-sm">

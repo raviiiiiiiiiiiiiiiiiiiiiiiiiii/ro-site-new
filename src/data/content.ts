@@ -76,7 +76,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     name: 'Kent',
     slug: '/kent-service',
     logoText: 'KENT',
-    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787457728/IMG-20260823-WA0005_cbiuhf.jpg',
+    logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787456695/IMG-20260822-WA0038_eea1tq.jpg',
     tagline: 'House of Purity - Your Trusted Kent Service Center Alternative in Bangalore',
     accentColor: 'from-blue-600 to-cyan-500',
     description: 'Looking for fast, reliable Kent RO service in Bangalore? Our certified technicians specialize in Kent Grand Plus, Pearl, Supreme, Prime, Wonder, and all Kent RO+UV+UF water purifiers. We provide professional Kent water purifier service Bangalore relies on, featuring 100% genuine filters and same-day doorstep support.',
