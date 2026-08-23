@@ -72,7 +72,7 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
     <div className="min-h-screen bg-white font-sans">
       
       {/* BRAND HERO SECTION - MATCHING REFERENCE DESIGN WITH BRAND BACKGROUND IMAGE */}
-      <section className="bg-slate-950 text-white pt-8 pb-12 sm:pt-12 sm:pb-16 px-4 sm:px-6 relative overflow-hidden">
+      <section className="bg-slate-950 text-white pt-2.5 pb-10 sm:pt-4 sm:pb-14 px-4 sm:px-6 relative overflow-hidden">
         {/* Background Image from previous design */}
         <img
           src={brand.heroImage || "https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"}

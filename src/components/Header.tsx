@@ -407,7 +407,7 @@ export const Header: React.FC<HeaderProps> = ({
       </header>
 
       {/* Spacer to prevent content overlap */}
-      <div className="h-24 sm:h-28"></div>
+      <div className="h-[78px] sm:h-[88px]"></div>
     </>
   );
 };

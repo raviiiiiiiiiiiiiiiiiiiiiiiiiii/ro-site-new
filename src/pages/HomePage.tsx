@@ -73,7 +73,7 @@ export const HomePage: React.FC<HomePageProps> = ({ onNavigate: _onNavigate }) =
     <div className="min-h-screen bg-white font-sans">
       
       {/* HERO SECTION */}
-      <section className="relative text-white pt-12 pb-24 sm:pt-16 sm:pb-32 lg:pt-20 lg:pb-36 overflow-hidden bg-slate-950">
+      <section className="relative text-white pt-4 pb-20 sm:pt-6 sm:pb-28 lg:pt-8 lg:pb-32 overflow-hidden bg-slate-950">
         
         {/* Background Video */}
         <video 
