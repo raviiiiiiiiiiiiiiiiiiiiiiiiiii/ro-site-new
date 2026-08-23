@@ -1,4 +1,4 @@
-# robots.txt for RO-service 24x7
+# robots.txt for Ro-service helpline
 User-agent: *
 Allow: /
 
@@ -33,7 +33,8 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://www.roservice24x7.in/sitemap.xml
+Sitemap: https://www.roservicehelpline.in/sitemap.xml
 # LLM Information File
-# https://www.roservice24x7.in/llms.txt
+# https://www.roservicehelpline.in/llms.txt
+
 
