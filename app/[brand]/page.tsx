@@ -151,15 +151,17 @@ export default async function BrandPage({ params }: PageProps) {
         
         {/* BRAND HERO SECTION */}
         <section className="bg-slate-950 text-white pt-2.5 pb-10 sm:pt-4 sm:pb-14 px-4 sm:px-6 relative overflow-hidden">
-          <img
-            src="https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_00000000b2188211ba7ea4563a3bb0e0_x1fwwk.png"
-            alt="Doorstep RO Water Purifier Repair & Service Background"
-            width={1920}
-            height={1080}
-            fetchPriority="high"
-            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 z-0"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/90 to-slate-950 z-0"></div>
+          {brand.heroImage && (
+            <img
+              src={brand.heroImage}
+              alt={`${brand.name} RO Water Purifier Repair Background`}
+              width={1920}
+              height={1080}
+              fetchPriority="high"
+              className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-30 sm:opacity-35 scale-105 z-0"
+            />
+          )}
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-900/90 to-slate-950 z-0"></div>
 
           <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
             
