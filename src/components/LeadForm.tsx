@@ -64,6 +64,14 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     'Pureit',
     'AO Smith',
     'LG',
+    'Havells',
+    'Zero B',
+    'Aqua Pearl',
+    'V-Guard',
+    'Livpure',
+    'Blue Star',
+    'Whirlpool',
+    'Other Brands',
   ];
 
   const serviceOptions = getServiceOptionsForBrand(formData.selectedBrand);
