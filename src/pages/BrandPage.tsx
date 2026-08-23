@@ -68,24 +68,32 @@ export const BrandPage: React.FC<BrandPageProps> = ({ route }) => {
     },
   ];
 
+  // Brand specific custom background gradients
+  const getBrandHeroGradient = (key: string) => {
+    switch (key) {
+      case 'kent-service':
+        return 'bg-gradient-to-br from-[#072448] via-[#0d47a1] to-[#01579b]'; // Deep rich royal blue into electric blue
+      case 'aquaguard-service':
+        return 'bg-gradient-to-br from-[#064e3b] via-[#0f766e] to-[#042f2e]'; // Deep emerald teal
+      case 'pureit-service':
+        return 'bg-gradient-to-br from-[#0c4a6e] via-[#0284c7] to-[#1e3a8a]'; // Sky to ocean blue
+      case 'aosmith-service':
+        return 'bg-gradient-to-br from-[#1e293b] via-[#1e3a5f] to-[#0f172a]'; // Slate luxury blue
+      case 'lg-service':
+        return 'bg-gradient-to-br from-[#831843] via-[#9d174d] to-[#4c0519]'; // Deep LG ruby crimson
+      default:
+        return 'bg-gradient-to-br from-slate-950 via-[#0d3b66] to-slate-900';
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans">
       
-      {/* BRAND HERO SECTION - MATCHING REFERENCE DESIGN WITH BRAND BACKGROUND IMAGE */}
-      <section className="bg-slate-950 text-white pt-2.5 pb-10 sm:pt-4 sm:pb-14 px-4 sm:px-6 relative overflow-hidden">
-        {/* Background Image from previous design */}
-        <img
-          src={brand.heroImage || "https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"}
-          alt={`${brand.name} RO Water Purifier Background`}
-          width="1920"
-          height="1080"
-          decoding="async"
-          fetchPriority="high"
-          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-90 scale-105"
-        />
-
-        {/* Light subtle overlay for vivid image visibility */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-[#0b1c3a]/30 to-slate-950/55 z-[1]"></div>
+      {/* BRAND HERO SECTION - BRAND COLOR GRADIENT BACKGROUND */}
+      <section className={`${getBrandHeroGradient(brandKey)} text-white pt-3 pb-10 sm:pt-5 sm:pb-14 px-4 sm:px-6 relative overflow-hidden`}>
+        {/* Subtle decorative glow highlights */}
+        <div className="absolute -top-24 -left-24 w-96 h-96 bg-white/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div className="absolute top-1/2 -right-24 w-96 h-96 bg-black/20 rounded-full blur-3xl pointer-events-none"></div>
 
         <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
           
