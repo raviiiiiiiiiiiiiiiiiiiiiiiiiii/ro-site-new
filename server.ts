@@ -11,6 +11,17 @@ app.get("/api/health", (req, res) => {
   res.json({ status: "ok" });
 });
 
+// Diagnostic debug host route
+app.get("/api/debug-host", (req, res) => {
+  res.json({
+    host: req.headers.host,
+    xForwardedHost: req.headers["x-forwarded-host"],
+    xVercelDeploymentUrl: req.headers["x-vercel-deployment-url"],
+    allHeaders: req.headers,
+    originalUrl: req.originalUrl,
+  });
+});
+
 // Explicit SEO routes
 app.get("/robots.txt", (req, res) => {
   const robotsPath = path.join(process.cwd(), "public", "robots.txt");
