@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Cookie Policy | Ro-service helpline Bangalore',
-  description: 'Cookie Policy for Ro-service helpline Bangalore. Information regarding cookies, session storage and analytics.',
+  title: 'Cookie Policy | Ro-service Bangalore',
+  description: 'Cookie Policy for Ro-service Bangalore. Information regarding cookies, session storage and analytics.',
   alternates: {
-    canonical: 'https://www.roservicehelpline.in/cookie-policy',
+    canonical: 'https://www.roservice.in/cookie-policy',
   },
 };
 

@@ -180,7 +180,7 @@ export const Header: React.FC<HeaderProps> = ({
                     style={{ backgroundColor: brandTheme.badgeBg }}
                     className="text-white text-[8px] sm:text-[10px] font-black px-1.5 py-0.5 rounded shadow-2xs tracking-wider uppercase ml-0.5 transition-colors duration-300"
                   >
-                    helpline
+                    24x7
                   </span>
                 </div>
                 <span className="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-wider uppercase mt-0.5">
@@ -325,7 +325,7 @@ export const Header: React.FC<HeaderProps> = ({
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 style={{ backgroundColor: brandTheme.primary }}
                 className="p-2 rounded-lg text-white shadow-xs"
-                aria-label="Call Helpline"
+                aria-label="Call Now"
               >
                 <Phone className="w-4 h-4 fill-white" />
               </a>

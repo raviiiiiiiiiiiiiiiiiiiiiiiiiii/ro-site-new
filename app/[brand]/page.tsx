@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const brand = BRAND_PAGES_DATA[brandKey];
   if (!brand) return {};
 
-  const canonicalUrl = `https://www.roservicehelpline.in/${brandKey}`;
+  const canonicalUrl = `https://www.roservice.in/${brandKey}`;
 
   return {
     title: brand.metaTitle,
@@ -52,56 +52,60 @@ export default async function BrandPage({ params }: PageProps) {
 
   const brandServices = [
     {
-      title: `${brand.name} RO Water Purifier Repair & Service`,
-      description: 'Complete troubleshooting and repair for power, leakage, and motor issues.',
+      title: `Dedicated ${brand.name} RO Diagnostic & Repair`,
+      description: `Comprehensive on-site troubleshooting for electrical faults, pump pressure drop, beeping alarms, and leakage in all ${brand.name} systems.`,
     },
     {
-      title: `${brand.name} RO Water Purifier Repair`,
-      description: 'Fix purification problems, filter issues, low flow, and error indicators.',
+      title: `Original ${brand.name} Filter & Membrane Replacement`,
+      description: `Installation of authentic sediment pre-filters, carbon blocks, and certified high-TDS rejection RO membranes to restore crisp, sweet water.`,
     },
     {
-      title: 'Installation & Uninstallation Support',
-      description: `Safe and professional installation or removal of ${brand.name} RO appliances.`,
+      title: 'Precision Wall Mounting & Relocation',
+      description: `Safe, leak-free wall bracket installation, inlet pressure regulator setup, and damage-free uninstallation for house shifting.`,
     },
     {
-      title: 'Annual Maintenance Contracts (AMC)',
-      description: 'Affordable AMC plans for regular servicing and preventive maintenance.',
+      title: `${brand.name} Annual Maintenance Contract (AMC)`,
+      description: `Yearly protection plans including scheduled preventive checkups, routine filter changes, deep sanitization, and unlimited breakdown visits.`,
     },
     {
-      title: 'Genuine Spare Parts Replacement',
-      description: 'Only high-quality and compatible spare parts used for long-term reliability.',
+      title: '100% Genuine Spare Parts & Electronics',
+      description: `Installation of authentic booster pumps, SMPS adapters, solenoid valves, and UV lamps with warranty support.`,
     },
   ];
 
   const brandProblems = brand.commonProblems || [
-    'Water leakage, power failure, or tripping issues',
-    `${brand.name} RO not purifying water effectively`,
-    'Low water flow or slow dispensing from RO purifier',
-    'Error lights, warning indicators, or unusual noise',
-    'Foul smell or bad taste in purified water',
-    'Auto-cut or motor pump vibration issues',
+    'Water leakage from casing, pipe connectors, or solenoid valve',
+    `${brand.name} RO not purifying water effectively or high TDS output`,
+    'Slow water dispensing flow rate or tank taking hours to fill',
+    'Warning buzzer beeping, flashing error lights, or motor vibration',
+    'Unpleasant foul smell or bitter taste in purified water',
+    'Automatic shut-off sensor failure causing continuous drain water overflow',
   ];
 
   const whyChoosePoints = [
     {
-      title: '60–90 Minutes Fast Doorstep Service',
-      description: 'Quick technician dispatch across all areas in Bangalore with same-day resolution.',
+      title: '60–90 Minutes Doorstep Response',
+      description: `Quick technician dispatch across all areas in Bangalore with same-day fix for your ${brand.name} purifier.`,
     },
     {
-      title: '100% Genuine Spare Parts & Filters',
-      description: `Original certified ${brand.name} compatible sediment filters, carbon blocks, and membranes.`,
+      title: '100% Genuine Spare Parts & Certified Filters',
+      description: `Authentic ${brand.name}-compatible high-density sediment, activated carbon, and high-rejection membranes.`,
     },
     {
-      title: 'Transparent & Fixed Pricing',
-      description: 'Upfront quotation post diagnosis with zero hidden charges or extra travel fees.',
+      title: 'Upfront & Transparent Quotations',
+      description: 'Clear itemized estimate given post inspection with zero hidden charges or surprise travel fees.',
     },
     {
-      title: 'Certified Senior Technicians',
-      description: 'Verified technicians with extensive training in all water purifier models.',
+      title: 'Specialized Senior Technicians',
+      description: `Seasoned specialists with extensive hands-on expertise across all ${brand.name} models.`,
     },
     {
       title: '30-Day Labor Service Warranty',
-      description: 'Complete peace of mind with our 30-day labor warranty and authentic part warranty.',
+      description: 'Complete peace of mind with our 30-day labor guarantee and manufacturer warranties on fitted spares.',
+    },
+    {
+      title: 'Doorstep Service All 7 Days (8 AM – 9 PM)',
+      description: 'Available seven days a week, including weekends and public holidays, for easy booking.',
     },
   ];
 
@@ -148,14 +152,14 @@ export default async function BrandPage({ params }: PageProps) {
         {/* BRAND HERO SECTION */}
         <section className="bg-slate-950 text-white pt-2.5 pb-10 sm:pt-4 sm:pb-14 px-4 sm:px-6 relative overflow-hidden">
           <img
-            src={brand.heroImage || "https://res.cloudinary.com/dieq3fjuv/image/upload/w_1920,h_1080,c_fill,q_auto,f_auto/v1785990425/IMG_20260806_095543_woel3l.jpg"}
-            alt={`${brand.name} RO Water Purifier Background`}
+            src="https://res.cloudinary.com/dieq3fjuv/image/upload/v1787239134/file_00000000b2188211ba7ea4563a3bb0e0_x1fwwk.png"
+            alt="Doorstep RO Water Purifier Repair & Service Background"
             width={1920}
             height={1080}
-            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-90 scale-105"
+            fetchPriority="high"
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-45 z-0"
           />
-
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-[#0b1c3a]/30 to-slate-950/55 z-[1]"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/85 via-slate-900/90 to-slate-950 z-0"></div>
 
           <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
             
@@ -174,7 +178,7 @@ export default async function BrandPage({ params }: PageProps) {
               {brand.logoUrl ? (
                 <img
                   src={brand.logoUrl}
-                  alt={`${brand.name} Mineral RO Water Purifiers`}
+                  alt={`${brand.name} Water Purifiers`}
                   width={520}
                   height={220}
                   className="w-full max-w-[94%] sm:max-w-[88%] max-h-32 sm:max-h-40 md:max-h-44 object-contain mx-auto rounded-xl"
@@ -209,7 +213,7 @@ export default async function BrandPage({ params }: PageProps) {
         <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
-              Our {brand.name} Ro Services
+              Our {brand.name} RO Services
             </h2>
 
             <div className="space-y-6 text-slate-700">
@@ -229,7 +233,7 @@ export default async function BrandPage({ params }: PageProps) {
         <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8 leading-snug">
-              Common {brand.name} Ro Problems<br className="hidden sm:inline" /> We Fix
+              Common {brand.name} RO Problems<br className="hidden sm:inline" /> We Fix
             </h2>
 
             <div className="space-y-4 text-slate-700">
@@ -246,7 +250,7 @@ export default async function BrandPage({ params }: PageProps) {
         <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
-              Why Choose {brand.name} Ro<br className="hidden sm:inline" /> Service Center?
+              Why Choose {brand.name} RO<br className="hidden sm:inline" /> Service Center?
             </h2>
 
             <div className="space-y-5 text-slate-700">
@@ -311,7 +315,7 @@ export default async function BrandPage({ params }: PageProps) {
             <FAQAccordion
               faqs={brand.brandFaqs}
               title={`${brand.name} Service FAQs`}
-              subtitle={`Common answers for servicing your ${brand.name} RO system in Bangalore.`}
+              subtitle={`Frequently asked questions about servicing your ${brand.name} RO purifier in Bangalore.`}
               brandColor="#1d63d8"
             />
           </div>

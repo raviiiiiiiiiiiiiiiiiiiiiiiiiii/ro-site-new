@@ -77,7 +77,7 @@ export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, 
                   <span style={{ color: badgeAccent }}>Ro</span>
                   <span className="text-white font-extrabold">-service</span>
                   <span className="ml-0.5 bg-white/20 border border-white/30 text-white text-[10px] sm:text-[11px] font-black px-1.5 py-0.5 rounded-md shadow-xs tracking-wider inline-block transform -translate-y-0.5 uppercase">
-                    helpline
+                    24x7
                   </span>
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-white/80 tracking-wider uppercase mt-0.5 block font-['Plus_Jakarta_Sans']">
@@ -148,7 +148,7 @@ export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, 
           {/* Column 3: Contact Info */}
           <div>
             <h4 className="text-sm font-bold text-white uppercase tracking-wider mb-4 border-b border-white/20 pb-2">
-              Bangalore Service Helpline
+              Bangalore Support &amp; Service
             </h4>
             <ul className="space-y-3 text-xs sm:text-sm">
               <li className="flex items-start gap-2.5">

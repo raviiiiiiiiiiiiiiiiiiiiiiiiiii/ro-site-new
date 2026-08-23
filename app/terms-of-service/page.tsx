@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions | Ro-service helpline Bangalore',
-  description: 'Terms and conditions for doorstep RO water purifier repair, maintenance, installation and filter replacement services by Ro-service helpline in Bangalore.',
+  title: 'Terms and Conditions | Ro-service Bangalore',
+  description: 'Terms and conditions for doorstep RO water purifier repair, maintenance, installation and filter replacement services by Ro-service in Bangalore.',
   alternates: {
-    canonical: 'https://www.roservicehelpline.in/terms-of-service',
+    canonical: 'https://www.roservice.in/terms-of-service',
   },
 };
 

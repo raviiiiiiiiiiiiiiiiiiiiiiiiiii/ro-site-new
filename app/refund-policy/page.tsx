@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Refund & Return Policy | Ro-service helpline Bangalore',
+  title: 'Refund & Return Policy | Ro-service Bangalore',
   description: 'Cancellation and refund terms for doorstep RO water purifier repair, inspection fee policy, and 30-day labor warranty in Bangalore.',
   alternates: {
-    canonical: 'https://www.roservicehelpline.in/refund-policy',
+    canonical: 'https://www.roservice.in/refund-policy',
   },
 };
 

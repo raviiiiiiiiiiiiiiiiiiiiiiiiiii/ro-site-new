@@ -4,10 +4,10 @@ import { ArrowLeft, MapPin, Phone, Mail, ShieldCheck } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Ro-service helpline Bangalore',
-  description: 'Privacy Policy for Ro-service helpline. Learn how we handle and protect customer information for doorstep RO water purifier repair in Bangalore.',
+  title: 'Privacy Policy | Ro-service Bangalore',
+  description: 'Privacy Policy for Ro-service. Learn how we handle and protect customer information for doorstep RO water purifier repair in Bangalore.',
   alternates: {
-    canonical: 'https://www.roservicehelpline.in/privacy-policy',
+    canonical: 'https://www.roservice.in/privacy-policy',
   },
 };
 
@@ -85,7 +85,7 @@ export default function PrivacyPolicyPage() {
 
             <div className="border-t border-slate-100 pt-6 mt-8">
               <p className="text-xs text-slate-500 font-medium">
-                For questions regarding this policy or data inquiries, contact us at <a href={`mailto:${BUSINESS_DETAILS.email}`} className="text-sky-600 font-bold hover:underline">{BUSINESS_DETAILS.email}</a> or call our helpline <a href={`tel:${BUSINESS_DETAILS.phone}`} className="text-sky-600 font-bold hover:underline">{BUSINESS_DETAILS.phone}</a>.
+                For questions regarding this policy or data inquiries, contact us at <a href={`mailto:${BUSINESS_DETAILS.email}`} className="text-sky-600 font-bold hover:underline">{BUSINESS_DETAILS.email}</a> or call our support line <a href={`tel:${BUSINESS_DETAILS.phone}`} className="text-sky-600 font-bold hover:underline">{BUSINESS_DETAILS.phone}</a>.
               </p>
             </div>
           </div>

@@ -1,20 +1,21 @@
 import type { Metadata } from 'next';
-import { Phone, Star } from 'lucide-react';
-import { BUSINESS_DETAILS, HOMEPAGE_FAQS, HOMEPAGE_TESTIMONIALS, BANGALORE_LOCALITIES } from '@/src/data/content';
+import Link from 'next/link';
+import { Phone, Star, ShieldCheck, Clock, Award, Wrench, CheckCircle2, Droplets, Zap } from 'lucide-react';
+import { BUSINESS_DETAILS, HOMEPAGE_FAQS, HOMEPAGE_TESTIMONIALS, BANGALORE_LOCALITIES, SERVICES_LIST } from '@/src/data/content';
 import { LeadForm } from '@/src/components/LeadForm';
 import { FAQAccordion } from '@/src/components/FAQAccordion';
 
 export const metadata: Metadata = {
-  title: 'Ro-service helpline | Best RO Water Purifier Repair & Service Bangalore | Call 8050291180',
+  title: 'Ro-service | Best RO Water Purifier Repair & Service Bangalore | Call 080502 91180',
   description:
-    'Fastest 60-90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
+    'Fastest 60–90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
   alternates: {
-    canonical: 'https://www.roservicehelpline.in',
+    canonical: 'https://www.roservice.in',
   },
   openGraph: {
-    title: 'Ro-service helpline | Best RO Water Purifier Repair Bangalore',
-    description: 'Fastest 60-90 min doorstep RO water purifier repair, filter replacement & AMC in Bangalore.',
-    url: 'https://www.roservicehelpline.in',
+    title: 'Ro-service | Best RO Water Purifier Repair & Maintenance Bangalore',
+    description: 'Fastest 60–90 min doorstep RO water purifier repair, filter replacement & AMC in Bangalore.',
+    url: 'https://www.roservice.in',
     type: 'website',
   },
 };
@@ -22,60 +23,64 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const homeServices = [
     {
-      title: 'RO Water Purifier Repair & Service',
-      description: 'Complete troubleshooting and repair for power, leakage, and motor issues.',
+      title: 'Comprehensive RO Diagnostic & Repair',
+      description: 'Expert on-site troubleshooting for water leakage, low output pressure, motor noise, continuous beeping, and power failure across all purifier models.',
     },
     {
-      title: 'RO Membrane & Filter Replacement',
-      description: 'Fix purification problems, filter issues, low flow, and error indicators.',
+      title: 'Multi-Stage Filter & Membrane Overhaul',
+      description: 'Replacement of spun sediment cartridges, pre/post carbon blocks, and high-TDS rejection RO membranes to eliminate bad odor and restore sweet taste.',
     },
     {
-      title: 'Installation & Uninstallation Support',
-      description: 'Safe and professional installation or removal of all RO water purifier appliances.',
+      title: 'Precision Wall Mounting & Relocation',
+      description: 'Clean, leak-free plumbing connections, wall-mount bracket installation, inlet pressure balancing, and uninstallation for home relocation.',
     },
     {
       title: 'Annual Maintenance Contracts (AMC)',
-      description: 'Affordable AMC plans for regular servicing and preventive maintenance.',
+      description: 'Cost-effective year-round maintenance plans covering periodic filter renewals, deep sanitization, and unlimited breakdown service visits.',
     },
     {
-      title: 'Genuine Spare Parts Replacement',
-      description: 'Only high-quality and compatible spare parts used for long-term reliability.',
+      title: '100% Genuine Spare Parts Replacement',
+      description: 'Authentic booster pumps, SMPS power adapters, high-pressure switches, and solenoid valves installed with manufacturer warranty coverage.',
     },
     {
-      title: 'UV / UF & Alkaline System Servicing',
-      description: 'Disinfection lamp inspection, quartz cleaning, and mineral cartridge restoration.',
+      title: 'UV Sterilization & Alkaline Mineral Balance',
+      description: 'Quartz tube cleaning, UV disinfection lamp renewal, and active mineral cartridge integration for healthy, mineral-rich drinking water.',
     },
   ];
 
   const homeProblems = [
-    'Water leakage from pipes, filter housing, or purifier body',
-    'RO not purifying water effectively or high TDS output',
-    'Low water flow or slow dispensing from storage tank',
-    'Error lights, warning beeps, or unusual vibrating noise',
-    'Foul smell, chemical odor, or bad taste in purified water',
-    'RO auto-cut not working or pump continuously running',
+    'Persistent water leakage from pipe elbows, filter bowls, or purifier bottom',
+    'Purifier not filtering water properly or high TDS reading in drinking water',
+    'Extremely slow water flow or storage tank taking hours to fill',
+    'Electronic error alerts, constant alarm beeps, or unusual vibrating motor sounds',
+    'Unpleasant chemical smell, bitter taste, or cloudy appearance in purified water',
+    'Auto-cut sensor failure causing water overflow or pump running non-stop',
   ];
 
   const whyChoosePoints = [
     {
-      title: '60–90 Minutes Fast Doorstep Service',
-      description: 'Rapid technician dispatch across all localities in Bangalore with same-day fix.',
+      title: '60–90 Minutes Fast Doorstep Arrival',
+      description: 'Local technician hubs deployed throughout Bangalore guarantee swift same-day response for urgent leaks and breakdowns.',
     },
     {
-      title: '100% Genuine Spare Parts & Authentic Filters',
-      description: 'Original high-density sediment, carbon blocks, and certified high-rejection RO membranes.',
+      title: '100% Genuine Spare Parts & Certified Filters',
+      description: 'Original high-density sediment cartridges, coconut shell carbon, and lab-tested high-rejection RO membranes.',
     },
     {
-      title: 'Transparent & Fixed Pricing',
-      description: 'Upfront estimate post inspection with zero hidden charges or extra travel fees.',
+      title: 'Upfront & Transparent Quotations',
+      description: 'Clear itemized quote provided post diagnostic inspection before starting any repair with zero hidden costs.',
     },
     {
-      title: 'Certified Senior Technicians',
-      description: 'Background-verified technicians with years of hands-on expertise across all major brands.',
+      title: 'Certified Senior Water Purifier Technicians',
+      description: 'Background-verified technicians with years of hands-on mastery servicing all domestic and commercial RO systems.',
     },
     {
-      title: '30-Day Labor Service Warranty',
-      description: 'Full warranty coverage on labor and up to 1-year replacement warranty on major spare parts.',
+      title: '30-Day Workmanship Service Warranty',
+      description: 'Full labor warranty on all repairs and up to 1-year replacement warranty on pumps, SMPS adapters, and membranes.',
+    },
+    {
+      title: 'Doorstep Service All 7 Days (8 AM – 9 PM)',
+      description: 'Available every day of the week, including weekends and public holidays, for hassle-free service scheduling.',
     },
   ];
 
@@ -99,7 +104,7 @@ export default function HomePage() {
         name: `${loc}, Bangalore`,
       })),
       priceRange: '₹299 - ₹3500',
-      description: 'Doorstep RO water purifier repair, filter replacement, membrane change and AMC service in Bangalore.',
+      description: 'Doorstep RO water purifier repair, filter replacement, membrane overhaul and AMC service across Bangalore.',
     },
     {
       '@context': 'https://schema.org',
@@ -226,7 +231,7 @@ export default function HomePage() {
         <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
-              Why Choose RO-service 24x7<br className="hidden sm:inline" /> Service Center?
+              Why Choose Ro-service<br className="hidden sm:inline" /> Service Center?
             </h2>
 
             <div className="space-y-5 text-slate-700">
