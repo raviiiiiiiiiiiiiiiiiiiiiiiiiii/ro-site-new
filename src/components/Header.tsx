@@ -158,14 +158,14 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-col">
                 <div className="flex items-center gap-1 font-['Outfit'] font-black text-base sm:text-xl tracking-tight text-slate-900 leading-none">
                   <span style={{ color: brandTheme.primary }} className="transition-colors duration-300">
-                    RO
+                    Ro
                   </span>
                   <span>-service</span>
                   <span 
                     style={{ backgroundColor: brandTheme.badgeBg }}
                     className="text-white text-[8px] sm:text-[10px] font-black px-1.5 py-0.5 rounded shadow-2xs tracking-wider uppercase ml-0.5 transition-colors duration-300"
                   >
-                    24x7
+                    helpline
                   </span>
                 </div>
                 <span className="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-wider uppercase mt-0.5">

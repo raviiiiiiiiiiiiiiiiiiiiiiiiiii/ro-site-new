@@ -67,10 +67,10 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate, currentRoute = '/', 
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1 font-['Outfit'] font-black text-xl sm:text-2xl tracking-tight leading-none text-white">
-                  <span style={{ color: badgeAccent }}>RO</span>
+                  <span style={{ color: badgeAccent }}>Ro</span>
                   <span className="text-white font-extrabold">-service</span>
                   <span className="ml-0.5 bg-white/20 border border-white/30 text-white text-[10px] sm:text-[11px] font-black px-1.5 py-0.5 rounded-md shadow-xs tracking-wider inline-block transform -translate-y-0.5 uppercase">
-                    24x7
+                    helpline
                   </span>
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-white/80 tracking-wider uppercase mt-0.5 block font-['Plus_Jakarta_Sans']">

@@ -140,7 +140,7 @@ export default function App() {
 
     if (currentRoute === '/') {
       return {
-        title: 'RO-service 24x7 | Best RO Water Purifier Repair & Service Bangalore | Call 8050291180',
+        title: 'Ro-service helpline | Best RO Water Purifier Repair & Service Bangalore | Call 8050291180',
         description:
           'Fastest 60-90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
         keywords:
@@ -150,7 +150,7 @@ export default function App() {
           {
             '@context': 'https://schema.org',
             '@type': 'LocalBusiness',
-            name: 'RO-service 24x7',
+            name: BUSINESS_DETAILS.name,
             image: 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
             telephone: `+91${BUSINESS_DETAILS.phone}`,
             email: BUSINESS_DETAILS.email,
@@ -216,7 +216,7 @@ export default function App() {
               name: `${brand.name} Water Purifier Repair & Service Bangalore`,
               provider: {
                 '@type': 'LocalBusiness',
-                name: 'RO-service 24x7',
+                name: BUSINESS_DETAILS.name,
                 telephone: `+91${BUSINESS_DETAILS.phone}`,
                 address: {
                   '@type': 'PostalAddress',
@@ -267,33 +267,33 @@ export default function App() {
     }
 
     const policyTitles: Record<string, string> = {
-      '/privacy-policy': 'Privacy Policy | RO-service 24x7 Bangalore',
-      '/terms-of-service': 'Terms of Service | RO-service 24x7 Bangalore',
-      '/refund-policy': 'Refund & Return Policy | RO-service 24x7 Bangalore',
-      '/disclaimer': 'Disclaimer & Brand Affiliation Notice | RO-service 24x7',
-      '/cookie-policy': 'Cookie Policy | RO-service 24x7 Bangalore',
-      '/404': 'Page Not Found (404) | RO-service 24x7 Bangalore',
+      '/privacy-policy': `Privacy Policy | ${BUSINESS_DETAILS.name} Bangalore`,
+      '/terms-of-service': `Terms of Service | ${BUSINESS_DETAILS.name} Bangalore`,
+      '/refund-policy': `Refund & Return Policy | ${BUSINESS_DETAILS.name} Bangalore`,
+      '/disclaimer': `Disclaimer & Brand Affiliation Notice | ${BUSINESS_DETAILS.name}`,
+      '/cookie-policy': `Cookie Policy | ${BUSINESS_DETAILS.name} Bangalore`,
+      '/404': `Page Not Found (404) | ${BUSINESS_DETAILS.name} Bangalore`,
     };
 
     const policyDescs: Record<string, string> = {
       '/privacy-policy':
-        'Read the Privacy Policy of RO-service 24x7. Learn how we protect customer details during water purifier service bookings in Bangalore.',
+        `Read the Privacy Policy of ${BUSINESS_DETAILS.name}. Learn how we protect customer details during water purifier service bookings in Bangalore.`,
       '/terms-of-service':
-        'Terms of Service for RO-service 24x7 water purifier repair, installation, and AMC services across Bangalore, Karnataka.',
+        `Terms of Service for ${BUSINESS_DETAILS.name} water purifier repair, installation, and AMC services across Bangalore, Karnataka.`,
       '/refund-policy':
-        'Transparent refund, cancellation, and warranty policy for RO water purifier repair and AMC services in Bangalore.',
+        `Transparent refund, cancellation, and warranty policy for ${BUSINESS_DETAILS.name} RO water purifier repair and AMC services in Bangalore.`,
       '/disclaimer':
-        'Important independent service provider notice and brand trademark disclaimer for RO-service 24x7 Bangalore.',
+        `Important independent service provider notice and brand trademark disclaimer for ${BUSINESS_DETAILS.name} Bangalore.`,
       '/cookie-policy':
-        'Learn how RO-service 24x7 uses essential cookies to ensure smooth service booking and optimized mobile browsing.',
+        `Learn how ${BUSINESS_DETAILS.name} uses essential cookies to ensure smooth service booking and optimized mobile browsing.`,
       '/404':
-        'The requested page was not found. Contact RO-service 24x7 for fast doorstep water purifier repair service in Bangalore.',
+        `The requested page was not found. Contact ${BUSINESS_DETAILS.name} for fast doorstep water purifier repair service in Bangalore.`,
     };
 
-    const title = policyTitles[currentRoute] || 'RO-service 24x7 | Bangalore';
+    const title = policyTitles[currentRoute] || `${BUSINESS_DETAILS.name} | Bangalore`;
     const description =
       policyDescs[currentRoute] ||
-      'RO water purifier repair and doorstep maintenance service in Bangalore.';
+      `${BUSINESS_DETAILS.name} - RO water purifier repair and doorstep maintenance service in Bangalore.`;
 
     return {
       title,

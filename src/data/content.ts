@@ -1,8 +1,8 @@
 import { BrandInfo, FAQItem, ServiceItem, Testimonial } from '../types';
 
 export const BUSINESS_DETAILS = {
-  name: 'RO-service 24x7',
-  fullName: 'RO-service 24x7 - Water Purifier Repair & Service',
+  name: 'Ro-service helpline',
+  fullName: 'Ro-service helpline - Water Purifier Repair & Service',
   logoUrl: 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
   phone: '08050291180',
   formattedPhone: '080502 91180',
@@ -12,7 +12,7 @@ export const BUSINESS_DETAILS = {
   state: 'Karnataka',
   pincodePlaceholder: '560001',
   workingHours: '8:00 AM - 9:00 PM (All 7 Days)',
-  email: 'contact@roservice24x7.in',
+  email: 'contact@roservicehelpline.in',
   formSubmitEmail: 'syedsmaula786@gmail.com',
 };
 

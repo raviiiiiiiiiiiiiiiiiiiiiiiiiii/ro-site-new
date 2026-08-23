@@ -31,8 +31,8 @@ export const PolicyPage: React.FC<PolicyPageProps> = ({ route, onNavigate, lastB
           lastUpdated: 'August 6, 2026',
           sections: [
             {
-              heading: 'Welcome to RO-service 24x7!',
-              text: `These terms and conditions outline the rules and regulations for the use of ${BUSINESS_DETAILS.name}'s Website, located at contact@roservice24x7.in and our doorstep service platform in Bangalore.`,
+              heading: `Welcome to ${BUSINESS_DETAILS.name}!`,
+              text: `These terms and conditions outline the rules and regulations for the use of ${BUSINESS_DETAILS.name}'s Website, located at ${BUSINESS_DETAILS.email} and our doorstep service platform in Bangalore.`,
               additionalText: `By accessing this website we assume you accept these terms and conditions. Do not continue to use ${BUSINESS_DETAILS.name} if you do not agree to take all of the terms and conditions stated on this page.`,
             },
             {

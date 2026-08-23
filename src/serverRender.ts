@@ -24,7 +24,7 @@ export function renderPageContent(urlPath: string, host: string = 'www.roservice
   const brandKey = effectiveRoute.replace(/^\//, '');
 
   // Default homepage render result
-  let title = 'RO-service 24x7 | RO Water Purifier Repair & Service Bangalore | Call 8050291180';
+  let title = 'Ro-service helpline | RO Water Purifier Repair & Service Bangalore | Call 8050291180';
   let metaDescription = "Bangalore's trusted independent RO water purifier repair, filter replacement, installation & AMC service center. Servicing Kent, Aquaguard, Pureit, AO Smith, LG. Same-day technician in 60 mins.";
   
   let jsonLd: object[] = [
