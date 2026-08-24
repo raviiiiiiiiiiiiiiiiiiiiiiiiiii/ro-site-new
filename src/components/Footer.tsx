@@ -202,9 +202,9 @@ export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, 
           <p className="text-[11px] text-white/70 max-w-4xl mx-auto leading-relaxed">
             {BUSINESS_DETAILS.disclaimer}
           </p>
-          <p className="text-xs sm:text-sm text-white/90 max-w-3xl mx-auto leading-relaxed font-medium">
-            &copy; 2026 {BUSINESS_DETAILS.name} (roservicecentre24x7.in). All rights reserved. | RO Water Purifier Service Near Me | Kent RO Service Center | LG Water Purifier Repair | AO Smith RO Service | ro service near me
-          </p>
+          <div className="text-xs sm:text-sm text-white/90 max-w-2xl mx-auto leading-relaxed font-medium space-y-1">
+            <p>&copy; 2026 roservicecentre24x7.in. All rights reserved. | RO Water Purifier Service Near Me | Kent RO Service Center | LG Water Purifier Repair | AO Smith RO Service | ro service near me</p>
+          </div>
           <p className="text-[11px] text-white/50">
             Registered MSME Enterprise (UDYAM-KR-03-0561611) • Bangalore, Karnataka
           </p>
