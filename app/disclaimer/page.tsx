@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer & Brand Notice | Ro-service Bangalore',
-  description: 'Independent service center disclaimer and brand trademark notices for Ro-service Bangalore.',
+  title: 'Disclaimer & Brand Notice | RO Service Centre 24x7 Bangalore',
+  description: 'Independent service center disclaimer and brand trademark notices for RO Service Centre 24x7 Bangalore.',
   alternates: {
-    canonical: 'https://www.roservice.in/disclaimer',
+    canonical: 'https://www.roservicecentre24x7.in/disclaimer',
   },
 };
 

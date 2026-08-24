@@ -4,10 +4,10 @@ import { ArrowLeft, MapPin, Phone, Mail, ShieldCheck } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | Ro-service Bangalore',
-  description: 'Privacy Policy for Ro-service. Learn how we handle and protect customer information for doorstep RO water purifier repair in Bangalore.',
+  title: 'Privacy Policy | RO Service Centre 24x7 Bangalore',
+  description: 'Privacy Policy for RO Service Centre 24x7. Learn how we handle and protect customer information for doorstep RO water purifier repair in Bangalore.',
   alternates: {
-    canonical: 'https://www.roservice.in/privacy-policy',
+    canonical: 'https://www.roservicecentre24x7.in/privacy-policy',
   },
 };
 

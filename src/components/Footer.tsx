@@ -74,8 +74,11 @@ export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, 
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center font-['Outfit'] font-black text-xl sm:text-2xl tracking-tight leading-none text-white">
-                  <span style={{ color: badgeAccent }}>Ro</span>
-                  <span className="text-white font-extrabold">-service</span>
+                  <span style={{ color: badgeAccent }}>RO</span>
+                  <span className="ml-1 text-white font-extrabold">Service Centre</span>
+                  <span className="ml-1.5 bg-white/20 border border-white/30 text-white text-[10px] sm:text-[11px] font-black px-1.5 py-0.5 rounded-md shadow-xs tracking-wider inline-block transform -translate-y-0.5 uppercase">
+                    24x7
+                  </span>
                 </div>
                 <span className="text-[10px] sm:text-[11px] font-semibold text-white/80 tracking-wider uppercase mt-0.5 block font-['Plus_Jakarta_Sans']">
                   Water Purifier Experts
@@ -195,12 +198,15 @@ export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, 
         </div>
 
         {/* Bottom Disclaimer & Copyright */}
-        <div className="pt-6 border-t border-white/10 text-center space-y-2">
+        <div className="pt-6 border-t border-white/10 text-center space-y-3">
           <p className="text-[11px] text-white/70 max-w-4xl mx-auto leading-relaxed">
             {BUSINESS_DETAILS.disclaimer}
           </p>
-          <p className="text-xs text-white/60">
-            &copy; {new Date().getFullYear()} {BUSINESS_DETAILS.name}. All rights reserved. Registered MSME Enterprise (UDYAM-KR-03-0561611).
+          <p className="text-xs sm:text-sm text-white/90 max-w-3xl mx-auto leading-relaxed font-medium">
+            &copy; 2026 {BUSINESS_DETAILS.name} (roservicecentre24x7.in). All rights reserved. | RO Water Purifier Service Near Me | Kent RO Service Center | LG Water Purifier Repair | AO Smith RO Service | ro service near me
+          </p>
+          <p className="text-[11px] text-white/50">
+            Registered MSME Enterprise (UDYAM-KR-03-0561611) • Bangalore, Karnataka
           </p>
         </div>
 

@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const brand = BRAND_PAGES_DATA[brandKey];
   if (!brand) return {};
 
-  const canonicalUrl = `https://www.roservice.in/${brandKey}`;
+  const canonicalUrl = `https://www.roservicecentre24x7.in/${brandKey}`;
 
   return {
     title: brand.metaTitle,

@@ -17,7 +17,7 @@ export interface BrandThemeConfig {
 
 export const DEFAULT_THEME: BrandThemeConfig = {
   id: 'default',
-  name: 'Ro-service',
+  name: 'RO Service Centre 24x7',
   primary: '#1d63d8',
   hover: '#154db0',
   lightBg: '#EFF6FF',

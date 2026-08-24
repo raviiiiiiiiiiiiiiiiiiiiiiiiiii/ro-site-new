@@ -1,8 +1,8 @@
 import { BrandInfo, FAQItem, ServiceItem, Testimonial } from '../types';
 
 export const BUSINESS_DETAILS = {
-  name: 'Ro-service',
-  fullName: 'Ro-service - Water Purifier Repair & Maintenance',
+  name: 'RO Service Centre 24x7',
+  fullName: 'RO Service Centre 24x7 - Water Purifier Repair & Maintenance',
   logoUrl: 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
   phone: '08050291180',
   formattedPhone: '080502 91180',
@@ -12,9 +12,9 @@ export const BUSINESS_DETAILS = {
   state: 'Karnataka',
   pincodePlaceholder: '560001',
   workingHours: '8:00 AM - 9:00 PM (All 7 Days)',
-  email: 'contact@roservice.in',
+  email: 'contact@roservicecentre24x7.in',
   formSubmitEmail: 'syedsmaula786@gmail.com',
-  disclaimer: 'Disclaimer: Ro-service is an independent multi-brand water purifier service center in Bangalore. We provide repair, maintenance, and genuine filter replacement services. Brand names and logos are used strictly for identification and compatibility purposes.',
+  disclaimer: 'Disclaimer: RO Service Centre 24x7 is an independent multi-brand water purifier service center in Bangalore. We provide repair, maintenance, and genuine filter replacement services. Brand names and logos are used strictly for identification and compatibility purposes.',
 };
 
 export const SERVICES_LIST: ServiceItem[] = [

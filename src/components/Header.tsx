@@ -173,9 +173,15 @@ export const Header: React.FC<HeaderProps> = ({
               <div className="flex flex-col">
                 <div className="flex items-center font-['Outfit'] font-black text-base sm:text-xl tracking-tight text-slate-900 leading-none">
                   <span style={{ color: brandTheme.primary }} className="transition-colors duration-300">
-                    Ro
+                    RO
                   </span>
-                  <span>-service</span>
+                  <span className="ml-1 text-slate-900">Service Centre</span>
+                  <span 
+                    style={{ backgroundColor: brandTheme.badgeBg || '#1d63d8' }}
+                    className="ml-1.5 text-white text-[8px] sm:text-[10px] font-black px-1.5 py-0.5 rounded shadow-2xs tracking-wider uppercase transition-colors duration-300"
+                  >
+                    24x7
+                  </span>
                 </div>
                 <span className="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-wider uppercase mt-0.5">
                   Bangalore Service Center
@@ -194,25 +200,6 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 Home
               </Link>
-
-              {/* Brand Links in Header for Quick Access */}
-              <div className="flex items-center gap-5 text-sm font-semibold text-slate-700">
-                <Link href="/kent-service" className={`hover:text-slate-950 transition-colors ${currentRoute === '/kent-service' ? 'font-bold text-sky-600' : ''}`}>
-                  Kent
-                </Link>
-                <Link href="/aquaguard-service" className={`hover:text-slate-950 transition-colors ${currentRoute === '/aquaguard-service' ? 'font-bold text-sky-600' : ''}`}>
-                  Aquaguard
-                </Link>
-                <Link href="/pureit-service" className={`hover:text-slate-950 transition-colors ${currentRoute === '/pureit-service' ? 'font-bold text-sky-600' : ''}`}>
-                  Pureit
-                </Link>
-                <Link href="/aosmith-service" className={`hover:text-slate-950 transition-colors ${currentRoute === '/aosmith-service' ? 'font-bold text-sky-600' : ''}`}>
-                  AO Smith
-                </Link>
-                <Link href="/lg-service" className={`hover:text-slate-950 transition-colors ${currentRoute === '/lg-service' ? 'font-bold text-sky-600' : ''}`}>
-                  LG
-                </Link>
-              </div>
 
               <button
                 onClick={() => handleScrollToForm()}
@@ -347,47 +334,6 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 Home
               </Link>
-              
-              <div className="px-3 pt-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
-                Brands We Service
-              </div>
-              <div className="grid grid-cols-2 gap-1.5 px-3">
-                <Link
-                  href="/kent-service"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-1.5 text-xs font-semibold text-slate-700 hover:text-sky-600"
-                >
-                  • Kent Service
-                </Link>
-                <Link
-                  href="/aquaguard-service"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-1.5 text-xs font-semibold text-slate-700 hover:text-sky-600"
-                >
-                  • Aquaguard Service
-                </Link>
-                <Link
-                  href="/pureit-service"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-1.5 text-xs font-semibold text-slate-700 hover:text-sky-600"
-                >
-                  • Pureit Service
-                </Link>
-                <Link
-                  href="/aosmith-service"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-1.5 text-xs font-semibold text-slate-700 hover:text-sky-600"
-                >
-                  • AO Smith Service
-                </Link>
-                <Link
-                  href="/lg-service"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="py-1.5 text-xs font-semibold text-slate-700 hover:text-sky-600"
-                >
-                  • LG RO Service
-                </Link>
-              </div>
 
               <div className="px-3 pt-2 text-xs font-bold text-slate-400 uppercase tracking-wider">
                 Legal &amp; Policies

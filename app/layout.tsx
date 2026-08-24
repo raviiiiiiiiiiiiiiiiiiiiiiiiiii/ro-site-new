@@ -13,7 +13,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.roservicehelpline.in'),
+  metadataBase: new URL('https://www.roservicecentre24x7.in'),
   title: {
     default: `${BUSINESS_DETAILS.name} | Doorstep RO Water Purifier Repair & Service Bangalore`,
     template: `%s | ${BUSINESS_DETAILS.name}`,
