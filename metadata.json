@@ -1,6 +1,6 @@
 {
-  "name": "RO Service Centre 24x7",
-  "description": "RO Service Centre 24x7 - RO water purifier repair, installation, AMC, and filter replacement service in Bangalore, Karnataka.",
+  "name": "Bangalore Service Centre",
+  "description": "Bangalore Service Centre - RO water purifier repair, installation, AMC, and filter replacement service in Bangalore, Karnataka.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -17,9 +17,9 @@ export interface BrandThemeConfig {
 
 export const DEFAULT_THEME: BrandThemeConfig = {
   id: 'default',
-  name: 'RO Service Centre 24x7',
-  primary: '#1d63d8',
-  hover: '#154db0',
+  name: 'Bangalore Service Centre',
+  primary: '#006ce4',
+  hover: '#0056b8',
   lightBg: '#EFF6FF',
   borderColor: '#BFDBFE',
   gradientFrom: '#38bdf8',

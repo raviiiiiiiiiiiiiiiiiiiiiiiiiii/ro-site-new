@@ -148,7 +148,7 @@ export const Header: React.FC<HeaderProps> = ({
 
         {/* Main Navbar */}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-13 sm:h-15">
+          <div className="flex items-center justify-between h-16 sm:h-20 lg:h-22">
             
             {/* Brand Logo & Name */}
             <Link
@@ -157,34 +157,25 @@ export const Header: React.FC<HeaderProps> = ({
                 setMobileMenuOpen(false);
                 setPoliciesDropdownOpen(false);
               }}
-              className="flex items-center gap-2 sm:gap-3 text-left focus:outline-none group"
+              className="flex items-center gap-2.5 sm:gap-3.5 text-left focus:outline-none group py-1"
             >
-              <div className="h-8 sm:h-9 bg-white px-1.5 py-0.5 rounded-lg shrink-0 overflow-hidden border border-slate-200 shadow-2xs flex items-center justify-center group-hover:border-slate-400 transition-colors">
+              <div className="h-9 sm:h-11 bg-white px-2 py-1 rounded-xl shrink-0 overflow-hidden border border-slate-200 shadow-2xs flex items-center justify-center group-hover:border-[#0070e0]/40 transition-colors">
                 <img
                   src={BUSINESS_DETAILS.logoUrl}
                   alt={BUSINESS_DETAILS.name}
-                  width="36"
-                  height="36"
+                  width="44"
+                  height="44"
                   loading="eager"
                   decoding="async"
-                  className="h-full w-auto max-w-[70px] sm:max-w-[85px] object-contain"
+                  className="h-full w-auto max-w-[80px] sm:max-w-[95px] object-contain"
                 />
               </div>
               <div className="flex flex-col">
-                <div className="flex items-center font-['Outfit'] font-black text-base sm:text-xl tracking-tight text-slate-900 leading-none">
-                  <span style={{ color: brandTheme.primary }} className="transition-colors duration-300">
-                    RO
-                  </span>
-                  <span className="ml-1 text-slate-900">Service Centre</span>
-                  <span 
-                    style={{ backgroundColor: brandTheme.badgeBg || '#1d63d8' }}
-                    className="ml-1.5 text-white text-[8px] sm:text-[10px] font-black px-1.5 py-0.5 rounded shadow-2xs tracking-wider uppercase transition-colors duration-300"
-                  >
-                    24x7
-                  </span>
-                </div>
-                <span className="text-[9px] sm:text-[10px] font-semibold text-slate-500 tracking-wider uppercase mt-0.5">
-                  Bangalore Service Center
+                <span className="font-['Outfit',sans-serif] font-bold text-xl sm:text-2xl lg:text-[26px] tracking-tight text-[#0070e0] hover:text-[#005ec4] transition-colors leading-tight">
+                  Bangalore Service Centre
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-semibold text-slate-500 tracking-wider uppercase">
+                  Doorstep RO Water Purifier Repair
                 </span>
               </div>
             </Link>
@@ -293,9 +284,9 @@ export const Header: React.FC<HeaderProps> = ({
                 style={{
                   background: `linear-gradient(135deg, ${brandTheme.gradientFrom}, ${brandTheme.gradientTo})`,
                 }}
-                className="px-4 py-2 rounded-xl text-white font-bold text-xs sm:text-sm shadow-md hover:opacity-95 transition-all flex items-center gap-2"
+                className="px-5 py-2.5 rounded-xl text-white font-bold text-xs sm:text-sm shadow-md hover:opacity-95 transition-all flex items-center gap-2"
               >
-                <Phone className="w-3.5 h-3.5 fill-white" />
+                <Phone className="w-4 h-4 fill-white" />
                 <span>{BUSINESS_DETAILS.phone}</span>
               </a>
             </div>
@@ -305,7 +296,7 @@ export const Header: React.FC<HeaderProps> = ({
               <a
                 href={`tel:${BUSINESS_DETAILS.phone}`}
                 style={{ backgroundColor: brandTheme.primary }}
-                className="p-2 rounded-lg text-white shadow-xs"
+                className="p-2.5 rounded-lg text-white shadow-xs"
                 aria-label="Call Now"
               >
                 <Phone className="w-4 h-4 fill-white" />
@@ -313,10 +304,10 @@ export const Header: React.FC<HeaderProps> = ({
 
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-lg text-slate-700 hover:bg-slate-100 focus:outline-none"
+                className="p-2 rounded-lg text-slate-800 hover:bg-slate-100 focus:outline-none"
                 aria-label="Toggle Menu"
               >
-                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+                {mobileMenuOpen ? <X className="w-7 h-7" strokeWidth={2.2} /> : <Menu className="w-7 h-7" strokeWidth={2.2} />}
               </button>
             </div>
 

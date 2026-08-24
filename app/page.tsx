@@ -6,14 +6,14 @@ import { LeadForm } from '@/src/components/LeadForm';
 import { FAQAccordion } from '@/src/components/FAQAccordion';
 
 export const metadata: Metadata = {
-  title: 'RO Service Centre 24x7 | Best RO Water Purifier Repair & Service Bangalore | Call 080502 91180',
+  title: 'Bangalore Service Centre | Best RO Water Purifier Repair & Service Bangalore | Call 080502 91180',
   description:
     'Fastest 60–90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
   alternates: {
     canonical: 'https://www.roservicecentre24x7.in',
   },
   openGraph: {
-    title: 'RO Service Centre 24x7 | Best RO Water Purifier Repair & Maintenance Bangalore',
+    title: 'Bangalore Service Centre | Best RO Water Purifier Repair & Maintenance Bangalore',
     description: 'Fastest 60–90 min doorstep RO water purifier repair, filter replacement & AMC in Bangalore.',
     url: 'https://www.roservicecentre24x7.in',
     type: 'website',
@@ -230,8 +230,8 @@ export default function HomePage() {
         {/* SECTION 3: WHY CHOOSE US */}
         <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
           <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
-              Why Choose RO Service Centre 24x7<br className="hidden sm:inline" /> Service Center?
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#006ce4] mb-8">
+              Why Choose Bangalore Service Centre<br className="hidden sm:inline" /> Service Center?
             </h2>
 
             <div className="space-y-5 text-slate-700">
