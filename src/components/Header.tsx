@@ -35,9 +35,6 @@ export const Header: React.FC<HeaderProps> = ({
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [policiesDropdownOpen, setPoliciesDropdownOpen] = useState(false);
   const [announcementIndex, setAnnouncementIndex] = useState(0);
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [showHeader, setShowHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
 
   const brandTheme = getBrandTheme(currentRoute, propLastBrandRoute);
 
@@ -48,34 +45,6 @@ export const Header: React.FC<HeaderProps> = ({
     }, 3500);
     return () => clearInterval(interval);
   }, []);
-
-  // Hide / show header on scroll & shadow detection
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-
-      setIsScrolled(currentScrollY > 10);
-
-      if (mobileMenuOpen) {
-        setShowHeader(true);
-        setLastScrollY(currentScrollY);
-        return;
-      }
-
-      if (currentScrollY <= 60) {
-        setShowHeader(true);
-      } else if (currentScrollY > lastScrollY && currentScrollY - lastScrollY > 6) {
-        setShowHeader(false);
-      } else if (lastScrollY - currentScrollY > 6) {
-        setShowHeader(true);
-      }
-
-      setLastScrollY(currentScrollY);
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [lastScrollY, mobileMenuOpen]);
 
   const handleNavClick = (route: PageRoute) => {
     if (onNavigate) {
@@ -110,16 +79,11 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <>
-      <header
-        id="main-header"
-        className={`fixed top-0 left-0 right-0 z-50 transform transition-transform duration-300 ease-in-out ${
-          showHeader ? 'translate-y-0' : '-translate-y-full'
-        } ${
-          isScrolled ? 'bg-white shadow-md border-b border-slate-200/80' : 'bg-white border-b border-slate-100'
-        }`}
-      >
-        {/* Top Info Banner with dynamic brand background */}
+    <header
+      id="main-header"
+      className="relative z-40 bg-white border-b border-slate-200/80"
+    >
+      {/* Top Info Banner with dynamic brand background */}
         <div 
           style={{ backgroundColor: brandTheme.bannerBg }}
           className="text-white text-[11px] sm:text-xs py-1.5 px-4 font-medium tracking-wide transition-colors duration-300"
@@ -377,9 +341,5 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
       </header>
-
-      {/* Spacer to offset fixed header */}
-      <div className="h-20 sm:h-22" />
-    </>
   );
 };

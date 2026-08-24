@@ -150,7 +150,7 @@ export default async function BrandPage({ params }: PageProps) {
       <div className="min-h-screen bg-white font-sans">
         
         {/* BRAND HERO SECTION */}
-        <section className="bg-slate-950 text-white pt-2.5 pb-10 sm:pt-4 sm:pb-14 px-4 sm:px-6 relative overflow-hidden">
+        <section className="bg-slate-950 text-white pt-6 pb-12 sm:pt-10 sm:pb-16 px-4 sm:px-6 relative overflow-hidden">
           {brand.heroImage && (
             <img
               src={brand.heroImage}
