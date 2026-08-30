@@ -10,12 +10,12 @@ export const metadata: Metadata = {
   description:
     'Fastest 60–90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Bangalore. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
   alternates: {
-    canonical: 'https://www.roservicecentre24x7.in',
+    canonical: 'https://www.roservice24x7.in',
   },
   openGraph: {
     title: 'Bangalore Service Centre | Best RO Water Purifier Repair & Maintenance Bangalore',
     description: 'Fastest 60–90 min doorstep RO water purifier repair, filter replacement & AMC in Bangalore.',
-    url: 'https://www.roservicecentre24x7.in',
+    url: 'https://www.roservice24x7.in',
     type: 'website',
   },
 };

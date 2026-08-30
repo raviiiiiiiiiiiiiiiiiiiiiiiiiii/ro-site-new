@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { BRAND_PAGES_DATA } from '@/src/data/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.roservicecentre24x7.in';
+  const baseUrl = 'https://www.roservice24x7.in';
   const lastModified = new Date('2026-08-06');
 
   const staticRoutes: MetadataRoute.Sitemap = [
