@@ -44,8 +44,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const brandRoutes: MetadataRoute.Sitemap = Object.keys(BRAND_PAGES_DATA).map((brandKey) => ({
-    url: `${baseUrl}/${brandKey}`,
+  const brandRoutes: MetadataRoute.Sitemap = Object.entries(BRAND_PAGES_DATA).map(([brandKey, brand]) => ({
+    url: brand.id ? `https://${brand.id}.roservice24x7.in` : `${baseUrl}/${brandKey}`,
     lastModified,
     changeFrequency: 'weekly',
     priority: 0.9,
