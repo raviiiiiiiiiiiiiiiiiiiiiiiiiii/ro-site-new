@@ -23,64 +23,55 @@ export const metadata: Metadata = {
 export default function HomePage() {
   const homeServices = [
     {
-      title: 'Comprehensive RO Diagnostic & Repair',
-      description: 'Expert on-site troubleshooting for water leakage, low output pressure, motor noise, continuous beeping, and power failure across all purifier models.',
+      title: 'RO Water Purifier Repair & Service',
+      description: 'Complete troubleshooting and repair for power, leakage, and thermostat issues.',
     },
     {
-      title: 'Multi-Stage Filter & Membrane Overhaul',
-      description: 'Replacement of spun sediment cartridges, pre/post carbon blocks, and high-TDS rejection RO membranes to eliminate bad odor and restore sweet taste.',
+      title: 'RO Water Purifier Repair',
+      description: 'Fix purification problems, filter issues, low flow, and error indicators.',
     },
     {
-      title: 'Precision Wall Mounting & Relocation',
-      description: 'Clean, leak-free plumbing connections, wall-mount bracket installation, inlet pressure balancing, and uninstallation for home relocation.',
+      title: 'Installation & Uninstallation Support',
+      description: 'Safe and professional installation or removal of RO appliances.',
     },
     {
       title: 'Annual Maintenance Contracts (AMC)',
-      description: 'Cost-effective year-round maintenance plans covering periodic filter renewals, deep sanitization, and unlimited breakdown service visits.',
+      description: 'Affordable AMC plans for regular servicing and preventive maintenance.',
     },
     {
-      title: '100% Genuine Spare Parts Replacement',
-      description: 'Authentic booster pumps, SMPS power adapters, high-pressure switches, and solenoid valves installed with manufacturer warranty coverage.',
-    },
-    {
-      title: 'UV Sterilization & Alkaline Mineral Balance',
-      description: 'Quartz tube cleaning, UV disinfection lamp renewal, and active mineral cartridge integration for healthy, mineral-rich drinking water.',
+      title: 'Genuine Spare Parts Replacement',
+      description: 'Only high-quality and compatible spare parts used for long-term reliability.',
     },
   ];
 
   const homeProblems = [
-    'Persistent water leakage from pipe elbows, filter bowls, or purifier bottom',
-    'Purifier not filtering water properly or high TDS reading in drinking water',
-    'Extremely slow water flow or storage tank taking hours to fill',
-    'Electronic error alerts, constant alarm beeps, or unusual vibrating motor sounds',
-    'Unpleasant chemical smell, bitter taste, or cloudy appearance in purified water',
-    'Auto-cut sensor failure causing water overflow or pump running non-stop',
+    'Water purifier not purifying water properly',
+    'RO machine leakage, power failure, or tripping issues',
+    'RO not purifying water effectively',
+    'Low water flow or slow dispensing from RO purifier',
+    'Error lights, warning indicators, or unusual noise',
   ];
 
   const whyChoosePoints = [
     {
-      title: '60–90 Minutes Fast Doorstep Arrival',
-      description: 'Local technician hubs deployed throughout Bangalore guarantee swift same-day response for urgent leaks and breakdowns.',
+      title: 'Experienced & Verified Technicians',
+      description: 'Skilled professionals trained to handle all RO models.',
     },
     {
-      title: '100% Genuine Spare Parts & Certified Filters',
-      description: 'Original high-density sediment cartridges, coconut shell carbon, and lab-tested high-rejection RO membranes.',
+      title: 'Same-Day Doorstep Service',
+      description: 'Fast response and quick service at your location.',
     },
     {
-      title: 'Upfront & Transparent Quotations',
-      description: 'Clear itemized quote provided post diagnostic inspection before starting any repair with zero hidden costs.',
+      title: 'Affordable & Transparent Pricing',
+      description: 'No hidden charges, clear cost estimates.',
     },
     {
-      title: 'Certified Senior Water Purifier Technicians',
-      description: 'Background-verified technicians with years of hands-on mastery servicing all domestic and commercial RO systems.',
+      title: 'Support for All RO Models',
+      description: 'Old and new water purifiers and RO systems covered.',
     },
     {
-      title: '30-Day Workmanship Service Warranty',
-      description: 'Full labor warranty on all repairs and up to 1-year replacement warranty on pumps, SMPS adapters, and membranes.',
-    },
-    {
-      title: 'Doorstep Service All 7 Days (8 AM – 9 PM)',
-      description: 'Available every day of the week, including weekends and public holidays, for hassle-free service scheduling.',
+      title: 'Customer Satisfaction Guaranteed',
+      description: 'Quality service you can trust.',
     },
   ];
 
@@ -152,32 +143,34 @@ export default function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/45 via-[#0c54a0]/35 to-slate-900/60 backdrop-blur-[0.5px] z-[1]"></div>
 
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-2 sm:mb-3 drop-shadow-lg">
-              Doorstep RO Water Purifier
-              <span className="block mt-1 bg-gradient-to-r from-sky-300 via-blue-100 to-cyan-200 bg-clip-text text-transparent">
-                Repair &amp; Service in Bangalore
-              </span>
-            </h1>
+            <div className="animate-slideInLeft">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-2 sm:mb-3 drop-shadow-lg">
+                Doorstep RO Water Purifier
+                <span className="block mt-1 bg-gradient-to-r from-sky-300 via-blue-100 to-cyan-200 bg-clip-text text-transparent">
+                  Repair &amp; Service in Bangalore
+                </span>
+              </h1>
 
-            <p className="text-sm sm:text-base font-semibold mb-5 sm:mb-6 text-blue-100 drop-shadow max-w-lg mx-auto">
-              Fast, Reliable, Affordable doorstep service across Bangalore (60–90 mins)
-            </p>
+              <p className="text-sm sm:text-base font-semibold mb-5 sm:mb-6 text-blue-100 drop-shadow max-w-lg mx-auto">
+                Fast, Reliable, Affordable doorstep service across Bangalore (60–90 mins)
+              </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-sm mx-auto mb-8 sm:mb-12">
-              <a
-                href={`tel:${BUSINESS_DETAILS.phone}`}
-                className="flex-1 px-4 py-2.5 rounded-xl bg-white text-[#1a1a1a] font-bold text-xs sm:text-sm shadow-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
-              >
-                <Phone className="w-4 h-4 text-[#1d63d8]" />
-                <span>Call Now</span>
-              </a>
-              <a
-                href="#lead-form"
-                className="flex-1 px-4 py-2.5 rounded-xl bg-[#1d63d8] hover:bg-[#154db0] text-white font-bold text-xs sm:text-sm shadow-lg transition-all text-center whitespace-nowrap flex items-center justify-center"
-              >
-                Book Service
-              </a>
+              {/* Action Buttons */}
+              <div className="flex flex-row items-center justify-center gap-3 sm:gap-4 max-w-xs sm:max-w-sm mx-auto mb-8 sm:mb-12">
+                <a
+                  href={`tel:${BUSINESS_DETAILS.phone}`}
+                  className="flex-1 px-4 py-2.5 rounded-xl bg-white text-[#1a1a1a] font-bold text-xs sm:text-sm shadow-lg hover:bg-slate-50 transition-all flex items-center justify-center gap-1.5 whitespace-nowrap"
+                >
+                  <Phone className="w-4 h-4 text-[#1d63d8]" />
+                  <span>Call Now</span>
+                </a>
+                <a
+                  href="#lead-form"
+                  className="flex-1 px-4 py-2.5 rounded-xl bg-[#1d63d8] hover:bg-[#154db0] text-white font-bold text-xs sm:text-sm shadow-lg transition-all text-center whitespace-nowrap flex items-center justify-center"
+                >
+                  Book Service
+                </a>
+              </div>
             </div>
           </div>
           
@@ -186,7 +179,7 @@ export default function HomePage() {
         </section>
 
         {/* LEAD FORM SECTION */}
-        <section id="lead-form" className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-12">
+        <section id="lead-form" className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-12 animate-slideInLeft" style={{ animationDelay: '0.1s' }}>
           <LeadForm sourcePage="Homepage Hero" />
         </section>
 
@@ -247,45 +240,32 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* HOW OUR SERVICE WORKS */}
+        {/* BOOK SERVICE TODAY CTA */}
         <section className="py-12 sm:py-16 bg-white border-b border-slate-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
-              How Our Service Works
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-4">
+              Book RO Service Today
             </h2>
+            <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Get fast, dependable, and professional RO repair service at your doorstep. Our support team is ready to assist you with quick booking and immediate service scheduling.
+            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div className="bg-slate-50 p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-[#1d63d8] text-white font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  1
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Book Online / Call</h3>
-                <p className="text-sm text-slate-500">Call us or submit our quick booking form.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <div className="bg-slate-50 border border-slate-200 shadow-sm rounded-xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span className="text-2xl">📞</span>
+                <span className="text-slate-800 font-semibold">Call Now for RO Service Support</span>
               </div>
+              <div className="bg-slate-50 border border-slate-200 shadow-sm rounded-xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span className="text-2xl">⏱</span>
+                <span className="text-slate-800 font-semibold">Same-Day Service Available</span>
+              </div>
+            </div>
 
-              <div className="bg-slate-50 p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-[#1d63d8] text-white font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  2
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Doorstep Visit</h3>
-                <p className="text-sm text-slate-500">Technician reaches you within 60–90 minutes.</p>
-              </div>
-
-              <div className="bg-slate-50 p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-[#1d63d8] text-white font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  3
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Diagnosis &amp; Quote</h3>
-                <p className="text-sm text-slate-500">Transparent upfront estimate post checkup.</p>
-              </div>
-
-              <div className="bg-slate-50 p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-[#1d63d8] text-white font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  4
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Instant Repair</h3>
-                <p className="text-sm text-slate-500">Fixed with genuine spares &amp; 30-day warranty.</p>
-              </div>
+            <div className="bg-slate-50 border border-[#1d63d8]/20 shadow-md rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Need More Help?</h3>
+              <p className="text-slate-600 text-sm sm:text-base">
+                Connect instantly with our dedicated support team for service requests, pricing details, or technical assistance
+              </p>
             </div>
           </div>
         </section>

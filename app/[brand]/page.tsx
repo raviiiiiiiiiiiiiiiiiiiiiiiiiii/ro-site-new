@@ -55,60 +55,55 @@ export default async function BrandPage({ params }: PageProps) {
 
   const brandServices = [
     {
-      title: `Dedicated ${brand.name} RO Diagnostic & Repair`,
-      description: `Comprehensive on-site troubleshooting for electrical faults, pump pressure drop, beeping alarms, and leakage in all ${brand.name} systems.`,
+      title: `${brand.name} RO Water Purifier Repair & Service`,
+      description: `Complete troubleshooting and repair for power, leakage, and thermostat issues.`,
     },
     {
-      title: `Original ${brand.name} Filter & Membrane Replacement`,
-      description: `Installation of authentic sediment pre-filters, carbon blocks, and certified high-TDS rejection RO membranes to restore crisp, sweet water.`,
+      title: `${brand.name} RO Water Purifier Repair`,
+      description: `Fix purification problems, filter issues, low flow, and error indicators.`,
     },
     {
-      title: 'Precision Wall Mounting & Relocation',
-      description: `Safe, leak-free wall bracket installation, inlet pressure regulator setup, and damage-free uninstallation for house shifting.`,
+      title: 'Installation & Uninstallation Support',
+      description: `Safe and professional installation or removal of ${brand.name} RO appliances.`,
     },
     {
-      title: `${brand.name} Annual Maintenance Contract (AMC)`,
-      description: `Yearly protection plans including scheduled preventive checkups, routine filter changes, deep sanitization, and unlimited breakdown visits.`,
+      title: 'Annual Maintenance Contracts (AMC)',
+      description: `Affordable AMC plans for regular servicing and preventive maintenance.`,
     },
     {
-      title: '100% Genuine Spare Parts & Electronics',
-      description: `Installation of authentic booster pumps, SMPS adapters, solenoid valves, and UV lamps with warranty support.`,
+      title: 'Genuine Spare Parts Replacement',
+      description: `Only high-quality and compatible spare parts used for long-term reliability.`,
     },
   ];
 
-  const brandProblems = brand.commonProblems || [
-    'Water leakage from casing, pipe connectors, or solenoid valve',
-    `${brand.name} RO not purifying water effectively or high TDS output`,
-    'Slow water dispensing flow rate or tank taking hours to fill',
-    'Warning buzzer beeping, flashing error lights, or motor vibration',
-    'Unpleasant foul smell or bitter taste in purified water',
-    'Automatic shut-off sensor failure causing continuous drain water overflow',
+  const brandProblems = [
+    'Water purifier not purifying water properly',
+    'RO machine leakage, power failure, or tripping issues',
+    `${brand.name} RO not purifying water effectively`,
+    'Low water flow or slow dispensing from RO purifier',
+    'Error lights, warning indicators, or unusual noise',
   ];
 
   const whyChoosePoints = [
     {
-      title: '60–90 Minutes Doorstep Response',
-      description: `Quick technician dispatch across all areas in Bangalore with same-day fix for your ${brand.name} purifier.`,
+      title: 'Experienced & Verified Technicians',
+      description: `Skilled professionals trained to handle all ${brand.name} RO models.`,
     },
     {
-      title: '100% Genuine Spare Parts & Certified Filters',
-      description: `Authentic ${brand.name}-compatible high-density sediment, activated carbon, and high-rejection membranes.`,
+      title: 'Same-Day Doorstep Service',
+      description: `Fast response and quick service at your location.`,
     },
     {
-      title: 'Upfront & Transparent Quotations',
-      description: 'Clear itemized estimate given post inspection with zero hidden charges or surprise travel fees.',
+      title: 'Affordable & Transparent Pricing',
+      description: 'No hidden charges, clear cost estimates.',
     },
     {
-      title: 'Specialized Senior Technicians',
-      description: `Seasoned specialists with extensive hands-on expertise across all ${brand.name} models.`,
+      title: `Support for All ${brand.name} RO Models`,
+      description: `Old and new water purifiers and RO systems covered.`,
     },
     {
-      title: '30-Day Labor Service Warranty',
-      description: 'Complete peace of mind with our 30-day labor guarantee and manufacturer warranties on fitted spares.',
-    },
-    {
-      title: 'Doorstep Service All 7 Days (8 AM – 9 PM)',
-      description: 'Available seven days a week, including weekends and public holidays, for easy booking.',
+      title: 'Customer Satisfaction Guaranteed',
+      description: 'Quality service you can trust.',
     },
   ];
 
@@ -167,50 +162,52 @@ export default async function BrandPage({ params }: PageProps) {
           <div className="absolute inset-0 bg-gradient-to-b from-slate-950/60 via-slate-900/50 to-slate-950/75 z-0"></div>
 
           <div className="max-w-md sm:max-w-lg mx-auto space-y-6 relative z-10">
-            
-            {/* 1. TEXT ON TOP */}
-            <div className="text-left">
-              <h1 className={`text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight drop-shadow-md ${brandKey === 'kent-service' ? 'text-center' : ''}`}>
-                {brandKey === 'kent-service' ? 'Kent Service Center' : `${brand.name} Water Purifier Services`}
-              </h1>
-              <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal drop-shadow-sm">
-                Certified doorstep {brand.name} RO repair, genuine filter replacements &amp; AMC across Bangalore in 60–90 mins. Experienced technicians ensure 100% pure, healthy water with warranty.
-              </p>
-            </div>
+            <div className="animate-slideInLeft">
+              {/* 1. TEXT ON TOP */}
+              <div className="text-left">
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-white mb-3 tracking-tight leading-tight drop-shadow-md">
+                  RO {brand.name} Water Purifier Service
+                </h1>
+                <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal drop-shadow-sm">
+                  Certified doorstep {brand.name} RO repair, genuine filter replacements &amp; AMC across Bangalore in 60–90 mins. Experienced technicians ensure 100% pure, healthy water with warranty.
+                </p>
+              </div>
 
-            {/* 2. BRAND LOGO CARD */}
-            <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-100 shadow-2xl flex items-center justify-center overflow-hidden min-h-[140px] sm:min-h-[170px]">
-              {brand.logoUrl ? (
-                <img
-                  src={brand.logoUrl}
-                  alt={`${brand.name} Water Purifiers`}
-                  width={520}
-                  height={220}
-                  className="w-full max-w-[94%] sm:max-w-[88%] max-h-32 sm:max-h-40 md:max-h-44 object-contain mx-auto rounded-xl"
-                />
-              ) : (
-                <span className="text-3xl sm:text-5xl font-black tracking-wider text-slate-900 py-4">
-                  {brand.name.toUpperCase()}
-                </span>
+              {/* 2. BRAND LOGO CARD */}
+              <div className="bg-white rounded-3xl p-6 sm:p-8 border-2 border-slate-100 shadow-2xl flex items-center justify-center overflow-hidden min-h-[140px] sm:min-h-[170px] mt-6">
+                {brand.logoUrl ? (
+                  <img
+                    src={brand.logoUrl}
+                    alt={`${brand.name} Water Purifiers`}
+                    width={520}
+                    height={220}
+                    className="w-full max-w-[94%] sm:max-w-[88%] max-h-32 sm:max-h-40 md:max-h-44 object-contain mx-auto rounded-xl"
+                  />
+                ) : (
+                  <span className="text-3xl sm:text-5xl font-black tracking-wider text-slate-900 py-4">
+                    {brand.name.toUpperCase()}
+                  </span>
+                )}
+              </div>
+
+              {/* 3. BOOKING FORM CARD */}
+              <div className="mt-6">
+                <LeadForm preselectedBrand={brand.name} hideBrandSelector={true} sourcePage={`${brand.name} Brand Page`} />
+              </div>
+
+              {/* 4. SHOWCASE IMAGE RIGHT BELOW THE BOOKING FORM */}
+              {brand.showcaseImage && (
+                <div className="pt-8 sm:pt-10 flex items-center justify-center">
+                  <img
+                    src={brand.showcaseImage}
+                    alt={`${brand.name} RO Water Purifier Models`}
+                    width={600}
+                    height={380}
+                    className="w-full max-w-sm sm:max-w-md h-auto object-contain mx-auto drop-shadow-2xl"
+                  />
+                </div>
               )}
             </div>
-
-            {/* 3. BOOKING FORM CARD */}
-            <LeadForm preselectedBrand={brand.name} hideBrandSelector={true} sourcePage={`${brand.name} Brand Page`} />
-
-            {/* 4. SHOWCASE IMAGE RIGHT BELOW THE BOOKING FORM */}
-            {brand.showcaseImage && (
-              <div className="pt-2 sm:pt-4 flex items-center justify-center">
-                <img
-                  src={brand.showcaseImage}
-                  alt={`${brand.name} RO Water Purifier Models`}
-                  width={600}
-                  height={380}
-                  className="w-full max-w-sm sm:max-w-md h-auto object-contain mx-auto drop-shadow-2xl"
-                />
-              </div>
-            )}
-
           </div>
         </section>
 
@@ -271,45 +268,32 @@ export default async function BrandPage({ params }: PageProps) {
           </div>
         </section>
 
-        {/* HOW OUR SERVICE WORKS */}
+        {/* BOOK SERVICE TODAY CTA */}
         <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-8">
-              How It Works
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 className="text-2xl sm:text-3xl font-bold text-[#1d63d8] mb-4">
+              Book {brand.name} RO Service Today
             </h2>
+            <p className="text-base sm:text-lg text-slate-600 mb-8 max-w-2xl mx-auto leading-relaxed">
+              Get fast, dependable, and professional {brand.name} RO repair service at your doorstep. Our support team is ready to assist you with quick booking and immediate service scheduling.
+            </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-              <div className="bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1d63d8] font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  1
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Book Online / Call</h3>
-                <p className="text-sm text-slate-500">Call us or submit our quick booking form.</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+              <div className="bg-white border border-slate-200 shadow-sm rounded-xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span className="text-2xl">📞</span>
+                <span className="text-slate-800 font-semibold">Call Now for {brand.name} RO Service Support</span>
               </div>
+              <div className="bg-white border border-slate-200 shadow-sm rounded-xl px-6 py-4 flex items-center gap-3 w-full sm:w-auto justify-center">
+                <span className="text-2xl">⏱</span>
+                <span className="text-slate-800 font-semibold">Same-Day Service Available</span>
+              </div>
+            </div>
 
-              <div className="bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1d63d8] font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  2
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Doorstep Visit</h3>
-                <p className="text-sm text-slate-500">Technician reaches you within 60–90 minutes.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1d63d8] font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  3
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Diagnosis &amp; Quote</h3>
-                <p className="text-sm text-slate-500">Transparent upfront estimate post checkup.</p>
-              </div>
-
-              <div className="bg-white p-6 rounded-2xl shadow-xs border border-slate-200/80">
-                <div className="w-10 h-10 rounded-full bg-blue-50 text-[#1d63d8] font-bold text-lg flex items-center justify-center mx-auto mb-3">
-                  4
-                </div>
-                <h3 className="font-bold text-slate-900 text-base mb-1">Instant Repair</h3>
-                <p className="text-sm text-slate-500">Fixed with genuine spares &amp; 30-day warranty.</p>
-              </div>
+            <div className="bg-white border border-[#1d63d8]/20 shadow-md rounded-2xl p-6 sm:p-8 max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold text-slate-900 mb-2">Need More Help?</h3>
+              <p className="text-slate-600 text-sm sm:text-base">
+                Connect instantly with our dedicated support team for service requests, pricing details, or technical assistance
+              </p>
             </div>
           </div>
         </section>
