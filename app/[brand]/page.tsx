@@ -169,7 +169,7 @@ export default async function BrandPage({ params }: PageProps) {
                   RO {brand.name} Water Purifier Service
                 </h1>
                 <p className="text-sm sm:text-[15px] text-slate-200 leading-relaxed font-normal drop-shadow-sm">
-                  Certified doorstep {brand.name} RO repair, genuine filter replacements &amp; AMC across Bangalore in 60–90 mins. Experienced technicians ensure 100% pure, healthy water with warranty.
+                  Expert {brand.name} RO water purifier repair, filter replacement, and maintenance services across Bangalore. Our certified technicians provide fast 60-90 minute doorstep service using 100% genuine spare parts, ensuring safe, pure, and healthy drinking water for your family.
                 </p>
               </div>
 
