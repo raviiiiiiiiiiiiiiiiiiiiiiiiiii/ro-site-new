@@ -199,15 +199,15 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
 
   'pureit-service': {
     id: 'pureit',
-    name: 'HUL Pureit',
+    name: 'Pureit',
     slug: '/pureit-service',
     logoText: 'Pureit',
     logoUrl: 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1787456695/IMG-20260822-WA0034_vmyqqk.jpg',
-    tagline: 'Reliable Water Purity — Fast HUL Pureit GKK Kit & RO Servicing',
+    tagline: 'Reliable Water Purity — Fast Pureit GKK Kit & RO Servicing',
     accentColor: 'from-sky-600 to-indigo-500',
-    description: 'Keep your HUL Pureit water purifier in perfect working order. We provide swift doorstep maintenance for Pureit Marvella, Ultima, Copper RO+UV, Mineral RO, and Classic models across Bangalore. From original Germkill Kit (GKK) renewals to motor repairs, our certified experts deliver same-day peace of mind.',
-    metaTitle: 'Pureit Service Bangalore | HUL Pureit GKK Replacement & Repair',
-    metaDescription: 'Same-day doorstep HUL Pureit water purifier repair & GKK filter replacement in Bangalore. Genuine parts, electronic reset, and 30-day labor warranty.',
+    description: 'Keep your Pureit water purifier in perfect working order. We provide swift doorstep maintenance for Pureit Marvella, Ultima, Copper RO+UV, Mineral RO, and Classic models across Bangalore. From original Germkill Kit (GKK) renewals to motor repairs, our certified experts deliver same-day peace of mind.',
+    metaTitle: 'Pureit Service Bangalore | Pureit GKK Replacement & Repair',
+    metaDescription: 'Same-day doorstep Pureit water purifier repair & GKK filter replacement in Bangalore. Genuine parts, electronic reset, and 30-day labor warranty.',
     commonProblems: [
       'Pureit Germkill Kit (GKK) indicator turned red with automatic water lock activated',
       'No water output despite sufficient inlet water supply and power',
@@ -218,7 +218,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
     ],
     brandFaqs: [
       {
-        question: 'Do you carry original HUL Pureit Germkill Kits (GKK)?',
+        question: 'Do you carry original Pureit Germkill Kits (GKK)?',
         answer: 'Yes, our technicians carry factory-sealed, genuine Pureit GKK kits for 1500L, 2000L, 3000L, and 6000L purifiers, ensuring authentic replacement on the spot.',
       },
       {
@@ -242,7 +242,7 @@ export const BRAND_PAGES_DATA: Record<string, BrandInfo> = {
         answer: 'Our doorstep inspection fee is ₹299 (adjusted upon service completion). Replacement GKK kits and parts are priced transparently at fair rates.',
       },
       {
-        question: 'Do you provide AMC coverage for HUL Pureit models?',
+        question: 'Do you provide AMC coverage for Pureit models?',
         answer: 'Yes, our Pureit AMC contracts cover all regular GKK kit replacements, preventive checkups, and unlimited breakdown repairs with zero labor charges.',
       },
       {
@@ -442,7 +442,7 @@ export const HOMEPAGE_FAQS: FAQItem[] = [
   },
   {
     question: 'Which water purifier brands do you repair and service in Bangalore?',
-    answer: 'We service all leading domestic and commercial water purifier brands including Kent, Aquaguard (Eureka Forbes), HUL Pureit, AO Smith, LG, Livpure, Blue Star, Havells, V-Guard, Zero B, and custom multi-stage RO+UV+UF systems.',
+    answer: 'We service all leading domestic and commercial water purifier brands including Kent, Aquaguard (Eureka Forbes), Pureit, AO Smith, LG, Livpure, Blue Star, Havells, V-Guard, Zero B, and custom multi-stage RO+UV+UF systems.',
   },
   {
     question: 'What is the visiting and diagnostic inspection fee?',
