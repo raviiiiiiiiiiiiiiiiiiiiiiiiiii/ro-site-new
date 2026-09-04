@@ -29,6 +29,7 @@ const getServiceOptionsForBrand = (brandName: string): string[] => {
   return [
     `${displayName} water purifier service`,
     `${displayName} water purifier repair`,
+    `${displayName} water purifier filter replacement`,
     `${displayName} water purifier amc`,
   ];
 };

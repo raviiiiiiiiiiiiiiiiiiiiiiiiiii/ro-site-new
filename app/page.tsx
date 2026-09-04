@@ -4,6 +4,7 @@ import { Phone, Star, ShieldCheck, Clock, Award, Wrench, CheckCircle2, Droplets,
 import { BUSINESS_DETAILS, HOMEPAGE_FAQS, HOMEPAGE_TESTIMONIALS, BANGALORE_LOCALITIES, SERVICES_LIST } from '@/src/data/content';
 import { LeadForm } from '@/src/components/LeadForm';
 import { FAQAccordion } from '@/src/components/FAQAccordion';
+import { ReviewCarousel } from '@/src/components/ReviewCarousel';
 
 export const metadata: Metadata = {
   title: 'Bangalore Service Centre | Best RO Water Purifier Repair & Service Bangalore | Call 080502 91180',
@@ -272,7 +273,7 @@ export default function HomePage() {
 
         {/* VERIFIED REVIEWS */}
         <section className="py-12 sm:py-16 bg-slate-50 border-b border-slate-100">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-xs font-bold uppercase tracking-wider mb-3">
               <Star className="w-3.5 h-3.5 fill-amber-500 text-amber-500" />
               Customer Feedback
@@ -281,29 +282,7 @@ export default function HomePage() {
               What Our Customers Say
             </h2>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 text-left">
-              {HOMEPAGE_TESTIMONIALS.slice(0, 3).map((review) => (
-                <div 
-                  key={review.id} 
-                  className="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-xs flex flex-col justify-between"
-                >
-                  <div>
-                    <div className="flex items-center gap-1 mb-3">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 fill-amber-400 text-amber-400" />
-                      ))}
-                    </div>
-                    <p className="text-sm text-slate-700 leading-relaxed italic mb-4">
-                      "{review.comment}"
-                    </p>
-                  </div>
-                  <div className="pt-3 border-t border-slate-100">
-                    <p className="text-sm font-bold text-slate-900">{review.name}</p>
-                    <p className="text-xs text-slate-500">{review.locality} · {review.brandServiced}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+            <ReviewCarousel testimonials={HOMEPAGE_TESTIMONIALS} />
           </div>
         </section>
 
