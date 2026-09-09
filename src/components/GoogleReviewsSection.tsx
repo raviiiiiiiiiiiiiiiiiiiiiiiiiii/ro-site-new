@@ -55,14 +55,6 @@ export const GoogleReviewsSection: React.FC = () => {
           </div>
         </div>
 
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight mb-3">
-          Customer Reviews on Google Maps
-        </h2>
-        
-        <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto mb-8">
-          Read genuine feedback from homeowners and families across Mansarovar, Ganpati Nagar, and Jaipur who trust our doorstep RO water purifier servicing.
-        </p>
-
         {/* Carousel Component */}
         <div className="mb-10">
           <ReviewCarousel testimonials={HOMEPAGE_TESTIMONIALS} />

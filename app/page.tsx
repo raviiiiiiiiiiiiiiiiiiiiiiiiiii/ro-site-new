@@ -63,10 +63,6 @@ export default function HomePage() {
       description: 'Fast 60-90 minute doorstep arrival across Mansarovar, Ganpati Nagar, and all Jaipur localities.',
     },
     {
-      title: 'Affordable & Transparent Pricing',
-      description: 'Inspection fee starts at ₹299 with no hidden charges and clear pre-repair cost estimates.',
-    },
-    {
       title: 'Support for All RO Models & Brands',
       description: 'Complete repair and maintenance for old, new, and commercial water purification systems.',
     },
