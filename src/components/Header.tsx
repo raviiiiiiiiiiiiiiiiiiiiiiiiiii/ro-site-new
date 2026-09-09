@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { Phone, Menu, X, ChevronDown, ShieldCheck, MapPin } from 'lucide-react';
+import { Phone, Menu, X, ChevronDown, ShieldCheck, MapPin, ChevronLeft, ChevronRight } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 import { PageRoute } from '@/src/types';
 import { getBrandTheme } from '@/src/utils/brandTheme';
@@ -45,6 +45,16 @@ export const Header: React.FC<HeaderProps> = ({
     return () => clearInterval(interval);
   }, []);
 
+  const handlePrevAnnouncement = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setAnnouncementIndex((prev) => (prev === 0 ? ANNOUNCEMENTS.length - 1 : prev - 1));
+  };
+
+  const handleNextAnnouncement = (e: React.MouseEvent) => {
+    e.preventDefault();
+    setAnnouncementIndex((prev) => (prev + 1) % ANNOUNCEMENTS.length);
+  };
+
   const handleScrollToForm = () => {
     if (currentRoute === '/') {
       const el = document.getElementById('lead-form');
@@ -78,11 +88,29 @@ export const Header: React.FC<HeaderProps> = ({
         className="text-white text-[11px] sm:text-xs py-1.5 px-4 font-medium tracking-wide transition-colors duration-300"
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <div className="flex items-center gap-2 mx-auto sm:mx-0 overflow-hidden">
+          <div className="flex items-center gap-1.5 mx-auto sm:mx-0 overflow-hidden">
+            <button
+              onClick={handlePrevAnnouncement}
+              type="button"
+              className="p-1 rounded hover:bg-white/20 active:scale-95 text-white/90 hover:text-white transition-all cursor-pointer focus:outline-none"
+              aria-label="Previous announcement"
+              title="Previous"
+            >
+              <ChevronLeft className="w-3.5 h-3.5" />
+            </button>
             <ShieldCheck className="w-3.5 h-3.5 text-white/80 shrink-0 hidden sm:inline" />
-            <span key={announcementIndex} className="animate-fadeIn truncate text-center">
+            <span key={announcementIndex} className="animate-fadeIn truncate text-center font-medium">
               {ANNOUNCEMENTS[announcementIndex]}
             </span>
+            <button
+              onClick={handleNextAnnouncement}
+              type="button"
+              className="p-1 rounded hover:bg-white/20 active:scale-95 text-white/90 hover:text-white transition-all cursor-pointer focus:outline-none"
+              aria-label="Next announcement"
+              title="Next"
+            >
+              <ChevronRight className="w-3.5 h-3.5" />
+            </button>
           </div>
           
           <div className="hidden sm:flex items-center gap-4 text-white/90 text-xs">
