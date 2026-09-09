@@ -115,10 +115,6 @@ export const HOMEPAGE_FAQS: FAQItem[] = [
     answer: 'We service all leading water purifier brands including Kent, Aquaguard (Eureka Forbes), Pureit, AO Smith, LG, Livpure, Blue Star, Havells, Zero B, Aqua Pearl, and custom multi-stage RO+UV+UF systems.',
   },
   {
-    question: 'What is the visiting and diagnostic inspection fee?',
-    answer: 'Our initial doorstep inspection and diagnostic check fee is just ₹299. If you proceed with the recommended repair or filter replacement through us, this fee is adjusted against your final invoice.',
-  },
-  {
     question: 'How often should RO filters and membranes be replaced in Jaipur?',
     answer: 'Due to higher TDS levels in Jaipur borewell and municipal water, sediment and carbon pre-filters should generally be replaced every 6 to 12 months. RO membranes typically last 18 to 24 months. Our technicians always measure water TDS before and after service.',
   },

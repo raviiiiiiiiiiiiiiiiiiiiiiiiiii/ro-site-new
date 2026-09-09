@@ -12,7 +12,7 @@ interface ReviewCarouselProps {
 
 export function ReviewCarousel({
   testimonials,
-  autoPlay = true,
+  autoPlay = false,
   autoPlayInterval = 5000,
 }: ReviewCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
