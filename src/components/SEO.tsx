@@ -12,7 +12,7 @@ export interface SEOProps {
 export const SEO: React.FC<SEOProps> = ({
   title,
   description,
-  keywords = 'RO service Bangalore, RO repair Bangalore, Kent RO service, Aquaguard repair, Pureit service, AO Smith RO repair, LG water purifier service',
+  keywords = 'RO service Jaipur, RO repair Jaipur, Kent RO service Jaipur, Aquaguard repair Jaipur, Pureit service Jaipur, AO Smith RO repair, ro-service centre',
   canonicalUrl,
   ogImage = 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
   jsonLd,
@@ -37,7 +37,7 @@ export const SEO: React.FC<SEOProps> = ({
       let element = document.querySelector(`link[rel="${rel}"]`) as HTMLLinkElement | null;
       if (!element) {
         element = document.createElement('link');
-        element.setAttribute('rel', rel);
+        element.setAttribute(rel, rel);
         document.head.appendChild(element);
       }
       element.setAttribute('href', href);
@@ -58,7 +58,7 @@ export const SEO: React.FC<SEOProps> = ({
     setMetaTag('meta[property="og:description"]', 'property', 'og:description', description);
     setMetaTag('meta[property="og:url"]', 'property', 'og:url', currentUrl);
     setMetaTag('meta[property="og:type"]', 'property', 'og:type', 'website');
-    setMetaTag('meta[property="og:site_name"]', 'property', 'og:site_name', 'Bangalore Service Centre');
+    setMetaTag('meta[property="og:site_name"]', 'property', 'og:site_name', 'ro-service centre');
     setMetaTag('meta[property="og:image"]', 'property', 'og:image', ogImage);
 
     // Twitter

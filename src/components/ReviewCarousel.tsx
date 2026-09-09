@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Testimonial } from '@/src/types';
 
@@ -17,6 +17,9 @@ export function ReviewCarousel({
 }: ReviewCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const totalSlides = testimonials.length;
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
 
   const prevSlide = useCallback((e?: React.MouseEvent) => {
     if (e) {
@@ -42,6 +45,32 @@ export function ReviewCarousel({
     setCurrentIndex(slideIndex);
   };
 
+  // Touch Swipe Handlers for Mobile
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const minSwipeDistance = 45;
+
+    if (distance > minSwipeDistance) {
+      // Swiped Left -> Next
+      nextSlide();
+    } else if (distance < -minSwipeDistance) {
+      // Swiped Right -> Prev
+      prevSlide();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   useEffect(() => {
     if (!autoPlay) return;
     const slideInterval = setInterval(() => nextSlide(), autoPlayInterval);
@@ -51,17 +80,22 @@ export function ReviewCarousel({
   if (!testimonials || totalSlides === 0) return null;
 
   return (
-    <div className="w-full max-w-5xl mx-auto flex flex-col items-center relative">
-      <div className="relative w-full px-12 sm:px-16">
+    <div className="w-full max-w-5xl mx-auto flex flex-col items-center relative select-none">
+      <div className="relative w-full px-4 sm:px-16">
         
-        {/* Track Container */}
-        <div className="overflow-hidden rounded-2xl bg-slate-50/50">
+        {/* Track Container with Touch Gestures */}
+        <div 
+          className="overflow-hidden rounded-2xl bg-slate-50/50 cursor-grab active:cursor-grabbing"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             className="flex w-full transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${currentIndex * 100}%)` }}
           >
             {testimonials.map((review) => (
-              <div key={review.id} className="w-full flex-shrink-0 p-4">
+              <div key={review.id} className="w-full flex-shrink-0 p-2 sm:p-4">
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between h-full text-left max-w-3xl mx-auto">
                   <div>
                     <div className="flex items-center gap-1 mb-4">
@@ -87,24 +121,24 @@ export function ReviewCarousel({
         <button
           onClick={prevSlide}
           type="button"
-          className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-50 text-2xl rounded-full p-2 sm:p-3 bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 hover:text-[#1d63d8] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-blue-100"
+          className="absolute top-1/2 -translate-y-1/2 left-0 sm:left-4 z-30 text-2xl rounded-full p-2 sm:p-3 bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 hover:text-[#0c54a0] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-blue-100 cursor-pointer"
           aria-label="Previous slide"
         >
-          <ChevronLeft className="w-6 h-6" />
+          <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
 
         {/* Right Arrow Button */}
         <button
           onClick={nextSlide}
           type="button"
-          className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-4 z-50 text-2xl rounded-full p-2 sm:p-3 bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 hover:text-[#1d63d8] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-blue-100"
+          className="absolute top-1/2 -translate-y-1/2 right-0 sm:right-4 z-30 text-2xl rounded-full p-2 sm:p-3 bg-white border border-slate-200 text-slate-700 shadow-lg hover:bg-slate-50 hover:text-[#0c54a0] hover:scale-105 active:scale-95 transition-all focus:outline-none focus:ring-4 focus:ring-blue-100 cursor-pointer"
           aria-label="Next slide"
         >
-          <ChevronRight className="w-6 h-6" />
+          <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
         </button>
       </div>
       
-      {/* Indicator Navigation Dots & Number */}
+      {/* Indicator Navigation Dots & Number Below (1/14) */}
       <div className="mt-6 flex flex-col items-center gap-4 z-10 w-full">
         <div className="flex gap-2 flex-wrap justify-center w-full max-w-[80vw]">
           {testimonials.map((_, slideIndex) => (
@@ -113,7 +147,7 @@ export function ReviewCarousel({
               onClick={(e) => goToSlide(slideIndex, e)}
               type="button"
               className={`h-2.5 rounded-full transition-all duration-300 focus:outline-none ${
-                currentIndex === slideIndex ? 'w-8 bg-[#1d63d8]' : 'w-2.5 bg-slate-300 hover:bg-slate-400 cursor-pointer'
+                currentIndex === slideIndex ? 'w-8 bg-[#0c54a0]' : 'w-2.5 bg-slate-300 hover:bg-slate-400 cursor-pointer'
               }`}
               aria-label={`Go to slide ${slideIndex + 1}`}
             />

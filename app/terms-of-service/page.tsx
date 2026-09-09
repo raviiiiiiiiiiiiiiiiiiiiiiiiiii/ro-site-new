@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Terms and Conditions | RO Service Centre 24x7 Bangalore',
-  description: 'Terms and conditions for doorstep RO water purifier repair, maintenance, installation and filter replacement services by RO Service Centre 24x7 in Bangalore.',
+  title: 'Terms and Conditions | ro-service centre Jaipur',
+  description: 'Terms and conditions for doorstep RO water purifier repair, maintenance, installation and filter replacement services by ro-service centre in Jaipur.',
   alternates: {
-    canonical: 'https://www.roservice24x7.in/terms-of-service',
+    canonical: 'https://www.ro-servicecentre.in/terms-of-service',
   },
 };
 
@@ -38,7 +38,7 @@ export default function TermsOfServicePage() {
             <div className="space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-slate-900">Welcome to {BUSINESS_DETAILS.name}!</h2>
               <p className="text-slate-600 text-xs sm:text-sm">
-                These terms and conditions outline the rules and regulations for the use of {BUSINESS_DETAILS.name}'s Website and our doorstep service platform in Bangalore.
+                These terms and conditions outline the rules and regulations for the use of {BUSINESS_DETAILS.name}'s Website and our doorstep service platform in Jaipur.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm">
                 By accessing this website we assume you accept these terms and conditions. Do not continue to use {BUSINESS_DETAILS.name} if you do not agree to take all of the terms and conditions stated on this page.
@@ -62,7 +62,7 @@ export default function TermsOfServicePage() {
             <div className="space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-slate-900">Disclaimer of Warranties</h2>
               <p className="text-slate-600 text-xs sm:text-sm">
-                To the maximum extent permitted by applicable law, {BUSINESS_DETAILS.name} provides independent doorstep repair services for all major RO water purifiers in Bangalore.
+                To the maximum extent permitted by applicable law, {BUSINESS_DETAILS.name} provides independent doorstep repair services for all major RO water purifiers in Jaipur.
               </p>
             </div>
 

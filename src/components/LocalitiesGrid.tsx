@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+'use client';
 
+import React, { useState } from 'react';
 import { MapPin, Search, Check } from 'lucide-react';
-import { BANGALORE_LOCALITIES } from '../data/content';
+import { JAIPUR_LOCALITIES, BUSINESS_DETAILS } from '../data/content';
 
 export const LocalitiesGrid: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const filteredLocalities = BANGALORE_LOCALITIES.filter((loc) =>
+  const filteredLocalities = JAIPUR_LOCALITIES.filter((loc) =>
     loc.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -18,13 +19,13 @@ export const LocalitiesGrid: React.FC = () => {
         >
           <span className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded-full bg-teal-100 text-teal-800 text-xs font-bold uppercase tracking-wider mb-3">
             <MapPin className="w-3.5 h-3.5 text-teal-700" />
-            Coverage Across Bangalore
+            Coverage Across Jaipur
           </span>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            RO Service Areas Serviced in <span className="bg-gradient-to-r from-[#0c54a0] via-sky-600 to-teal-600 bg-clip-text text-transparent">Bangalore</span>
+            RO Service Areas Serviced in <span className="bg-gradient-to-r from-[#0c54a0] via-sky-600 to-teal-600 bg-clip-text text-transparent">Jaipur</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
-            Our local technicians are stationed across East, West, North, and South Bangalore to reach your doorstep within 60 minutes.
+            Our local technicians are stationed across Mansarovar, Ganpati Nagar, Vaishali Nagar, Malviya Nagar, and all parts of Jaipur to reach your doorstep within 60–90 minutes.
           </p>
         </div>
 
@@ -35,7 +36,7 @@ export const LocalitiesGrid: React.FC = () => {
             type="text"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search your Bangalore locality (e.g. Whitefield, HSR, Indiranagar)..."
+            placeholder="Search your Jaipur locality (e.g. Mansarovar, Vaishali Nagar)..."
             className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all"
           />
         </div>
@@ -54,7 +55,7 @@ export const LocalitiesGrid: React.FC = () => {
 
         {filteredLocalities.length === 0 && (
           <p className="text-center text-xs text-slate-500 py-4">
-            No exact match found, but we service ALL areas across Bangalore! Call 8050291180 to check technician availability.
+            No exact match found, but we service ALL areas across Jaipur! Call {BUSINESS_DETAILS.phone} to check technician availability.
           </p>
         )}
       </div>

@@ -16,10 +16,10 @@ export const Testimonials: React.FC = () => {
             Verified Customer Reviews
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            What Our Bangalore Customers <span className="bg-gradient-to-r from-[#0c54a0] via-sky-600 to-teal-600 bg-clip-text text-transparent">Say</span>
+            What Our Jaipur Customers <span className="bg-gradient-to-r from-[#0c54a0] via-sky-600 to-teal-600 bg-clip-text text-transparent">Say</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-2">
-            Real feedback from homeowners and tenants across Bangalore.
+            Real feedback from homeowners and families across Jaipur.
           </p>
         </div>
 

@@ -1,8 +1,7 @@
 import { MetadataRoute } from 'next';
-import { BRAND_PAGES_DATA } from '@/src/data/content';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://www.roservice24x7.in';
+  const baseUrl = 'https://www.ro-servicecentre.in';
   const lastModified = new Date('2026-08-06');
 
   const staticRoutes: MetadataRoute.Sitemap = [
@@ -44,12 +43,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
-  const brandRoutes: MetadataRoute.Sitemap = Object.entries(BRAND_PAGES_DATA).map(([brandKey, brand]) => ({
-    url: brand.id ? `https://${brand.id}.roservice24x7.in` : `${baseUrl}/${brandKey}`,
-    lastModified,
-    changeFrequency: 'weekly',
-    priority: 0.9,
-  }));
-
-  return [...staticRoutes, ...brandRoutes];
+  return staticRoutes;
 }

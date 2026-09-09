@@ -1,6 +1,6 @@
 {
-  "name": "Bangalore Service Centre",
-  "description": "Bangalore Service Centre - RO water purifier repair, installation, AMC, and filter replacement service in Bangalore, Karnataka.",
+  "name": "ro-service centre",
+  "description": "ro-service centre - RO water purifier repair, installation, AMC, and filter replacement service in Mansarovar, Jaipur, Rajasthan.",
   "requestFramePermissions": [],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

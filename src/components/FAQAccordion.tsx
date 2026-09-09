@@ -14,7 +14,7 @@ interface FAQAccordionProps {
 export const FAQAccordion: React.FC<FAQAccordionProps> = ({
   faqs,
   title = 'Frequently Asked Questions',
-  subtitle = 'Everything you need to know about our RO repair & maintenance services in Bangalore.',
+  subtitle = 'Everything you need to know about our RO repair & maintenance services in Jaipur.',
   brandColor,
 }) => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);

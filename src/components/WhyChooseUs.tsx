@@ -33,7 +33,7 @@ export const WhyChooseUs: React.FC = () => {
             A Legacy of <span className="bg-gradient-to-r from-[#0c54a0] via-sky-600 to-teal-600 bg-clip-text text-transparent">Trust & Quality</span>
           </h2>
           <p className="text-base sm:text-lg text-slate-600 mt-3">
-            The preferred choice for RO servicing across Bangalore
+            The preferred choice for RO servicing across Jaipur
           </p>
         </div>
 

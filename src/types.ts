@@ -1,16 +1,12 @@
 export type PageRoute = 
   | '/'
-  | '/kent-service'
-  | '/aquaguard-service'
-  | '/pureit-service'
-  | '/aosmith-service'
-  | '/lg-service'
   | '/privacy-policy'
   | '/terms-of-service'
   | '/refund-policy'
   | '/disclaimer'
   | '/cookie-policy'
-  | '/404';
+  | '/404'
+  | string;
 
 export interface ServiceItem {
   id: string;
@@ -20,24 +16,6 @@ export interface ServiceItem {
   features: string[];
   popularTag?: string;
   startingPrice?: string;
-}
-
-export interface BrandInfo {
-  id: string;
-  name: string;
-  slug: PageRoute;
-  logoText: string;
-  logoUrl?: string;
-  tagline: string;
-  accentColor: string;
-  description: string;
-  metaTitle: string;
-  metaDescription: string;
-  commonProblems: string[];
-  brandFaqs: { question: string; answer: string }[];
-  popularSearches?: string[];
-  showcaseImage?: string;
-  heroImage?: string;
 }
 
 export interface FAQItem {

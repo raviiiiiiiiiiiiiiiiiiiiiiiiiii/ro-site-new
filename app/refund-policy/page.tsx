@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Refund & Return Policy | RO Service Centre 24x7 Bangalore',
-  description: 'Cancellation and refund terms for doorstep RO water purifier repair, inspection fee policy, and 30-day labor warranty in Bangalore.',
+  title: 'Refund & Return Policy | ro-service centre Jaipur',
+  description: 'Cancellation and refund terms for doorstep RO water purifier repair, inspection fee policy, and 30-day labor warranty in Jaipur.',
   alternates: {
-    canonical: 'https://www.roservice24x7.in/refund-policy',
+    canonical: 'https://www.ro-servicecentre.in/refund-policy',
   },
 };
 
@@ -38,7 +38,7 @@ export default function RefundPolicyPage() {
             <div className="space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-slate-900">1. Service &amp; Parts Warranty Coverage</h2>
               <p className="text-slate-600 text-xs sm:text-sm">
-                {BUSINESS_DETAILS.name} provides doorstep repair services for RO water purifiers in Bangalore. All our service calls include:
+                {BUSINESS_DETAILS.name} provides doorstep repair services for RO water purifiers in Jaipur. All our service calls include:
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-600">
                 <li>30-Day Doorstep Labor Warranty on all repairs</li>

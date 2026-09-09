@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowLeft, MapPin, Phone, Mail, ShieldCheck } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy | RO Service Centre 24x7 Bangalore',
-  description: 'Privacy Policy for RO Service Centre 24x7. Learn how we handle and protect customer information for doorstep RO water purifier repair in Bangalore.',
+  title: 'Privacy Policy | ro-service centre Jaipur',
+  description: 'Privacy Policy for ro-service centre. Learn how we handle and protect customer information for doorstep RO water purifier repair in Jaipur.',
   alternates: {
-    canonical: 'https://www.roservice24x7.in/privacy-policy',
+    canonical: 'https://www.ro-servicecentre.in/privacy-policy',
   },
 };
 
@@ -43,7 +43,7 @@ export default function PrivacyPolicyPage() {
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-600">
                 <li>Full Name and Contact Number</li>
-                <li>Bangalore Delivery Area / Pincode &amp; Street Address</li>
+                <li>Jaipur Area / Pincode &amp; Street Address</li>
                 <li>Water Purifier Brand &amp; Problem Description</li>
                 <li>Preferred Date &amp; Time Slot for Service Visit</li>
               </ul>
@@ -55,7 +55,7 @@ export default function PrivacyPolicyPage() {
                 We use your submitted information strictly to facilitate doorstep water purifier repair and maintenance services:
               </p>
               <ul className="list-disc pl-5 space-y-1.5 text-xs sm:text-sm text-slate-600">
-                <li>Dispatching our nearest certified technician in Bangalore to your location</li>
+                <li>Dispatching our nearest certified technician in Jaipur to your location</li>
                 <li>Providing transparent service cost estimates and diagnostic quotes</li>
                 <li>Verifying and tracking 30-day labor and spare part warranty claims</li>
                 <li>Communicating service status updates and AMC renewal reminders</li>

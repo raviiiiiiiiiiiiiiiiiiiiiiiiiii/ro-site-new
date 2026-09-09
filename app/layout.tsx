@@ -13,13 +13,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.roservice24x7.in'),
+  metadataBase: new URL('https://www.ro-servicecentre.in'),
   title: {
-    default: `${BUSINESS_DETAILS.name} | Doorstep RO Water Purifier Repair & Service Bangalore`,
+    default: `${BUSINESS_DETAILS.name} | Doorstep RO Water Purifier Repair & Service Jaipur`,
     template: `%s | ${BUSINESS_DETAILS.name}`,
   },
   description:
-    'Fastest 60–90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Bangalore. Kent, Aquaguard, Pureit, AO Smith & LG expert service.',
+    'Fastest 60–90 min doorstep RO water purifier repair, filter replacement, AMC & installation service in Jaipur. Expert technicians for Kent, Aquaguard, Pureit, AO Smith & LG.',
   robots: {
     index: true,
     follow: true,
@@ -44,6 +44,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Sora:wght@600;700;800&display=swap"
+          rel="stylesheet"
+        />
+      </head>
       <body className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white pb-14 sm:pb-16">
         <Header />
         <main className="flex-1">{children}</main>

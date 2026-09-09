@@ -4,10 +4,10 @@ import { ArrowLeft } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 
 export const metadata: Metadata = {
-  title: 'Disclaimer & Brand Notice | RO Service Centre 24x7 Bangalore',
-  description: 'Independent service center disclaimer and brand trademark notices for RO Service Centre 24x7 Bangalore.',
+  title: 'Disclaimer & Brand Notice | ro-service centre Jaipur',
+  description: 'Independent service center disclaimer and brand trademark notices for ro-service centre Jaipur.',
   alternates: {
-    canonical: 'https://www.roservice24x7.in/disclaimer',
+    canonical: 'https://www.ro-servicecentre.in/disclaimer',
   },
 };
 
@@ -38,7 +38,7 @@ export default function DisclaimerPage() {
             <div className="space-y-3">
               <h2 className="text-base sm:text-lg font-bold text-slate-900">1. Independent Service Provider Status</h2>
               <p className="text-slate-600 text-xs sm:text-sm">
-                {BUSINESS_DETAILS.name} is an independent multi-brand water purifier sales, repair, and doorstep service provider operating in Bangalore, Karnataka.
+                {BUSINESS_DETAILS.name} is an independent multi-brand water purifier sales, repair, and doorstep service provider operating in Jaipur, Rajasthan.
               </p>
               <p className="text-slate-600 text-xs sm:text-sm">
                 We are NOT an official authorized service center, franchise, or direct subsidiary of Kent RO Systems, Eureka Forbes (Aquaguard), Pureit, AO Smith India, LG Electronics, or any other trademark owner unless explicitly stated.

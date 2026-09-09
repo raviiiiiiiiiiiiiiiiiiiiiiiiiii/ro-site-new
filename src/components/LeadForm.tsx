@@ -106,7 +106,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
     const cleanPin = formData.pinCode.replace(/\D/g, '');
     if (cleanPin && cleanPin.length !== 6) {
-      newErrors.pinCode = 'Bangalore Pincode should be 6 digits (e.g. 560001)';
+      newErrors.pinCode = 'Jaipur Pincode should be 6 digits (e.g. 302029)';
     }
 
     setErrors(newErrors);
@@ -144,7 +144,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       const payload = new FormData();
       payload.append('fullName', formData.fullName);
       payload.append('mobileNumber', formData.mobileNumber);
-      payload.append('pinCode', formData.pinCode || 'Bangalore');
+      payload.append('pinCode', formData.pinCode || 'Jaipur 302029');
       payload.append('selectedBrand', formData.selectedBrand);
       payload.append('serviceType', formData.serviceType || 'RO Repair');
       payload.append('sourcePage', sourcePage);
