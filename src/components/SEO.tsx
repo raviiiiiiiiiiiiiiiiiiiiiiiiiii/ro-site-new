@@ -14,7 +14,7 @@ export const SEO: React.FC<SEOProps> = ({
   description,
   keywords = 'RO service Jaipur, RO repair Jaipur, Kent RO service Jaipur, Aquaguard repair Jaipur, Pureit service Jaipur, AO Smith RO repair, ro-service centre',
   canonicalUrl,
-  ogImage = 'https://i.ibb.co/k6cRgnyt/IMG-20260805-WA0010.jpg',
+  ogImage = 'https://res.cloudinary.com/dieq3fjuv/image/upload/v1788993497/file_00000000fc7c82088f69a40e24bf5d9b_cz1w00.png',
   jsonLd,
 }) => {
   useEffect(() => {

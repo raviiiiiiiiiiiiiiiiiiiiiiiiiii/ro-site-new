@@ -98,18 +98,33 @@ export function ReviewCarousel({
               <div key={review.id} className="w-full flex-shrink-0 p-2 sm:p-4">
                 <div className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-sm flex flex-col justify-between h-full text-left max-w-3xl mx-auto">
                   <div>
-                    <div className="flex items-center gap-1 mb-4">
-                      {[...Array(review.rating)].map((_, i) => (
-                        <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
-                      ))}
+                    <div className="flex items-center justify-between gap-2 mb-4">
+                      <div className="flex items-center gap-1">
+                        {[...Array(review.rating)].map((_, i) => (
+                          <Star key={i} className="w-5 h-5 fill-amber-400 text-amber-400" />
+                        ))}
+                      </div>
+                      {review.date && (
+                        <span className="text-xs text-slate-400 font-medium">{review.date}</span>
+                      )}
                     </div>
-                    <p className="text-base sm:text-lg text-slate-700 leading-relaxed italic mb-6">
+                    <p className="text-base sm:text-lg text-slate-800 leading-relaxed italic mb-6 whitespace-pre-line">
                       "{review.comment}"
                     </p>
                   </div>
-                  <div className="pt-4 border-t border-slate-100">
-                    <p className="text-base font-bold text-slate-900">{review.name}</p>
-                    <p className="text-sm text-slate-500 mt-1">{review.locality} &middot; {review.brandServiced}</p>
+                  <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 font-bold text-slate-700 flex items-center justify-center text-sm shadow-2xs">
+                        {review.name.charAt(0).toUpperCase()}
+                      </div>
+                      <div>
+                        <p className="text-base font-bold text-slate-900 leading-tight">{review.name}</p>
+                        <p className="text-xs text-slate-500 mt-0.5">{review.locality} &middot; {review.brandServiced}</p>
+                      </div>
+                    </div>
+                    <span className="text-[11px] font-medium text-slate-500 bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200">
+                      Google Maps Review
+                    </span>
                   </div>
                 </div>
               </div>

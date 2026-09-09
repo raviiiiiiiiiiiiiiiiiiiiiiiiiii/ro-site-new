@@ -39,7 +39,7 @@ export const Testimonials: React.FC = () => {
                   <span className="text-xs text-slate-400">{review.date}</span>
                 </div>
 
-                <p className="text-sm text-slate-700 leading-relaxed italic mb-6">
+                <p className="text-sm text-slate-700 leading-relaxed italic mb-6 whitespace-pre-line">
                   "{review.comment}"
                 </p>
               </div>
