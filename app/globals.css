@@ -4,6 +4,13 @@
   html {
     scroll-behavior: smooth;
   }
+  input, select, textarea {
+    color: #0f172a; /* text-slate-900 */
+  }
+  input::placeholder, textarea::placeholder {
+    color: #94a3b8; /* text-slate-400 */
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {

@@ -36,7 +36,7 @@ export const LocalitiesGrid: React.FC = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             placeholder="Search your Bangalore locality (e.g. Whitefield, HSR, Indiranagar)..."
-            className="w-full pl-10 pr-4 py-2.5 text-sm bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all"
+            className="w-full pl-10 pr-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 font-medium bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-sky-500 focus:outline-none transition-all"
           />
         </div>
 

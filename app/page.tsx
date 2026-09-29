@@ -180,7 +180,7 @@ export default function HomePage() {
         </section>
 
         {/* LEAD FORM SECTION */}
-        <section id="lead-form" className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-12 animate-slideInLeft" style={{ animationDelay: '0.1s' }}>
+        <section id="booking-section" className="relative z-20 -mt-12 sm:-mt-16 lg:-mt-20 px-4 sm:px-6 lg:px-8 max-w-3xl mx-auto mb-12 animate-slideInLeft" style={{ animationDelay: '0.1s' }}>
           <LeadForm sourcePage="Homepage Hero" />
         </section>
 
