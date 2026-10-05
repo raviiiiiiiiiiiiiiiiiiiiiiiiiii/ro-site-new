@@ -1,5 +1,4 @@
 import type { Metadata, Viewport } from 'next';
-import Script from 'next/script';
 import './globals.css';
 import { Header } from '@/src/components/Header';
 import { Footer } from '@/src/components/Footer';
@@ -45,21 +44,23 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <head>
-        <Script
-          strategy="afterInteractive"
+      <body className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white pb-14 sm:pb-16">
+        <script
+          key="gtm-script"
+          async
           src="https://www.googletagmanager.com/gtag/js?id=AW-18344051619"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'AW-18344051619');
-          `}
-        </Script>
-      </head>
-      <body className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-sky-500 selection:text-white pb-14 sm:pb-16">
+        <script
+          key="gtm-config"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'AW-18344051619');
+            `,
+          }}
+        />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

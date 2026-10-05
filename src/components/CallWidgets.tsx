@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { usePathname } from 'next/navigation';
+import { useSafePathname } from '@/src/hooks/useSafePathname';
 import { Phone } from 'lucide-react';
 import { BUSINESS_DETAILS } from '@/src/data/content';
 import { PageRoute } from '@/src/types';
@@ -18,7 +18,7 @@ export const CallWidgets: React.FC<CallWidgetsProps> = ({
   lastBrandRoute,
   customPhone,
 }) => {
-  const pathname = usePathname() || '/';
+  const pathname = useSafePathname();
   const currentRoute = propCurrentRoute || (pathname as PageRoute);
   const phone = customPhone || BUSINESS_DETAILS.phone;
   const telLink = `tel:${phone}`;

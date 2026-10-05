@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { usePathname, useRouter } from 'next/navigation';
+import { useSafePathname } from '@/src/hooks/useSafePathname';
 import { Phone, Menu, X, ChevronDown, Calendar, ShieldCheck } from 'lucide-react';
 import { BUSINESS_DETAILS, BRAND_PAGES_DATA } from '@/src/data/content';
 import { PageRoute } from '@/src/types';
@@ -28,8 +28,7 @@ export const Header: React.FC<HeaderProps> = ({
   onNavigate,
   onOpenBookModal,
 }) => {
-  const pathname = usePathname() || '/';
-  const router = useRouter();
+  const pathname = useSafePathname();
   const currentRoute = (propCurrentRoute || pathname) as PageRoute;
 
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -49,8 +48,6 @@ export const Header: React.FC<HeaderProps> = ({
   const handleNavClick = (route: PageRoute) => {
     if (onNavigate) {
       onNavigate(route);
-    } else {
-      router.push(route);
     }
     setMobileMenuOpen(false);
     setPoliciesDropdownOpen(false);
@@ -67,8 +64,8 @@ export const Header: React.FC<HeaderProps> = ({
     } else {
       if (onNavigate) {
         onNavigate('/');
-      } else {
-        router.push('/');
+      } else if (typeof window !== 'undefined') {
+        window.location.href = '/#lead-form';
       }
       setTimeout(() => {
         const el = document.getElementById('lead-form');

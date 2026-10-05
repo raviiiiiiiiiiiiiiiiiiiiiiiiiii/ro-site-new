@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { useSafePathname } from '@/src/hooks/useSafePathname';
 import { Phone, MapPin, Mail, Clock } from 'lucide-react';
 import { BUSINESS_DETAILS, BANGALORE_LOCALITIES } from '@/src/data/content';
 import { PageRoute } from '@/src/types';
@@ -42,7 +42,7 @@ const BRAND_FOOTER_CONFIGS: Record<string, BrandFooterStyle> = {
 };
 
 export const Footer: React.FC<FooterProps> = ({ currentRoute: propCurrentRoute, lastBrandRoute }) => {
-  const pathname = usePathname() || '/';
+  const pathname = useSafePathname();
   const currentRoute = propCurrentRoute || (pathname as PageRoute);
 
   const activeRouteForBrand = (currentRoute && currentRoute.endsWith('-service'))

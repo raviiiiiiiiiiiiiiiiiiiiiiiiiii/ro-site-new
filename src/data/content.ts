@@ -12,8 +12,8 @@ export const BUSINESS_DETAILS = {
   state: 'Karnataka',
   pincodePlaceholder: '560001',
   workingHours: '8:00 AM - 9:00 PM (All 7 Days)',
-  email: 'contact@roservice24x7.in',
-  formSubmitEmail: 'syedsmaula786@gmail.com',
+  email: 'ravi2009u@gmail.com',
+  formSubmitEmail: 'ravi2009u@gmail.com',
   disclaimer: 'Disclaimer: RO Service 24x7 is an independent multi-brand water purifier service center in Bangalore. We provide repair, maintenance, and genuine filter replacement services. Brand names and logos are used strictly for identification and compatibility purposes.',
 };
 

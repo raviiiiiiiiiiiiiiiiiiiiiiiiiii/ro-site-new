@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import { BUSINESS_DETAILS } from '@/src/data/content';
 
 interface LeadPayload {
   fullName?: string;
@@ -38,9 +39,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!mobileNumber || mobileNumber.length !== 10 || !/^[6-9]\d{9}$/.test(mobileNumber)) {
+    if (!mobileNumber || mobileNumber.length < 8) {
       return NextResponse.json(
-        { success: false, error: 'Valid 10-digit mobile number starting with 6, 7, 8, or 9 is required' },
+        { success: false, error: 'Please enter a valid mobile number' },
         { status: 400 }
       );
     }
@@ -89,7 +90,7 @@ export async function POST(req: NextRequest) {
 
     // Try forwarding to FormSubmit with a fast timeout (3s) so it never blocks the user
     try {
-      const formSubmitEmail = 'syedsmaula786@gmail.com';
+      const formSubmitEmail = BUSINESS_DETAILS.formSubmitEmail || 'ravi2009u@gmail.com';
       const formSubmitUrl = `https://formsubmit.co/ajax/${formSubmitEmail}`;
       
       // Fire-and-forget with short timeout
