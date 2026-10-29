@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
-import { Phone, CheckCircle2, AlertCircle, Loader2, User, MapPin, Wrench, MessageSquare, ArrowRight, Mail } from 'lucide-react';
+import { Phone, CheckCircle2, AlertCircle, Loader2, User, MapPin, Wrench, MessageSquare, ArrowRight, Mail, Sparkles } from 'lucide-react';
 import { BUSINESS_DETAILS } from '../data/content';
 import { LeadFormData } from '../types';
 
@@ -41,12 +41,12 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     serviceType: SERVICE_OPTIONS[0],
   });
 
-  const [botField, setBotField] = useState('');
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [formWarning, setFormWarning] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [submittedLead, setSubmittedLead] = useState<any>(null);
+  const [shake, setShake] = useState(false);
 
   const formContainerRef = useRef<HTMLDivElement>(null);
   const fullNameRef = useRef<HTMLInputElement>(null);
@@ -86,21 +86,22 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
   const validate = (): boolean => {
     const newErrors: Record<string, string> = {};
+    const nameTrimmed = (formData.fullName || '').trim();
+    const cleanMobile = (formData.mobileNumber || '').replace(/\D/g, '');
 
-    if (!formData.fullName.trim()) {
+    if (!nameTrimmed) {
       newErrors.fullName = 'Please enter your full name';
-    } else if (formData.fullName.trim().length < 2) {
+    } else if (nameTrimmed.length < 2) {
       newErrors.fullName = 'Name should be at least 2 characters';
     }
 
-    const cleanMobile = formData.mobileNumber.replace(/\D/g, '');
     if (!cleanMobile) {
       newErrors.mobileNumber = 'Please enter mobile number';
     } else if (cleanMobile.length < 8) {
-      newErrors.mobileNumber = 'Please enter your 10-digit mobile number';
+      newErrors.mobileNumber = 'Please enter a valid 10-digit mobile number';
     }
 
-    const cleanPin = formData.pinCode.replace(/\D/g, '');
+    const cleanPin = (formData.pinCode || '').replace(/\D/g, '');
     if (cleanPin && cleanPin.length !== 6) {
       newErrors.pinCode = 'Bangalore Pincode should be 6 digits (e.g. 560001)';
     }
@@ -108,14 +109,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length > 0) {
+      setShake(true);
+      setTimeout(() => setShake(false), 500);
+
       if (newErrors.fullName) {
-        setFormWarning('Please enter your Name to confirm doorstep booking.');
+        setFormWarning('⚠️ Please enter your Full Name to book service.');
         fullNameRef.current?.focus();
       } else if (newErrors.mobileNumber) {
-        setFormWarning('Please enter your Mobile Number.');
+        setFormWarning('⚠️ Please enter a valid 10-digit Mobile Number.');
         mobileRef.current?.focus();
       } else if (newErrors.pinCode) {
-        setFormWarning('Pincode must be 6 digits (or leave blank).');
+        setFormWarning('⚠️ Bangalore Pincode must be 6 digits (or leave blank).');
       }
       return false;
     }
@@ -128,7 +132,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: '' }));
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next[name];
+        return next;
+      });
     }
     if (formWarning) setFormWarning(null);
   };
@@ -146,7 +154,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
     setFormData((prev) => ({ ...prev, mobileNumber: val }));
     if (errors.mobileNumber) {
-      setErrors((prev) => ({ ...prev, mobileNumber: '' }));
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.mobileNumber;
+        return next;
+      });
     }
     if (formWarning) setFormWarning(null);
   };
@@ -158,24 +170,37 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     }
     setFormData((prev) => ({ ...prev, pinCode: val }));
     if (errors.pinCode) {
-      setErrors((prev) => ({ ...prev, pinCode: '' }));
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.pinCode;
+        return next;
+      });
     }
     if (formWarning) setFormWarning(null);
   };
 
-  const handleSubmit = async (e?: React.FormEvent) => {
-    if (e) {
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter') {
       e.preventDefault();
-      e.stopPropagation();
+      handleSubmit();
     }
+  };
 
+  // Quick fill sample data for quick testing
+  const handleQuickFill = () => {
+    setFormData({
+      fullName: 'Ravi Test Booking',
+      mobileNumber: '9876543210',
+      pinCode: '560001',
+      selectedBrand: preselectedBrand || 'Kent',
+      serviceType: SERVICE_OPTIONS[0],
+    });
+    setErrors({});
+    setFormWarning(null);
+  };
+
+  const handleSubmit = async () => {
     if (!validate()) {
-      return;
-    }
-
-    // Honeypot spam check - if bot filled it, silently complete
-    if (botField) {
-      setIsSuccess(true);
       return;
     }
 
@@ -185,45 +210,21 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     const generatedRef = `RO-${Math.floor(100000 + Math.random() * 900000)}`;
     const submissionPayload = {
       referenceId: generatedRef,
-      fullName: formData.fullName.trim(),
-      mobileNumber: formData.mobileNumber.trim(),
-      pinCode: formData.pinCode.trim() || 'Bangalore',
-      selectedBrand: formData.selectedBrand || 'Kent',
+      fullName: (formData.fullName || '').trim(),
+      mobileNumber: (formData.mobileNumber || '').trim(),
+      pinCode: (formData.pinCode || '').trim() || 'Bangalore',
+      selectedBrand: formData.selectedBrand || preselectedBrand || 'Kent',
       serviceType: formData.serviceType || SERVICE_OPTIONS[0],
       sourcePage,
       bookedAt: new Date().toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit' }),
     };
 
-    // 1. Immediately transition to the Confirmation Screen
+    // 1. Immediately transition to Confirmed / Thank You Screen
     setSubmittedLead(submissionPayload);
     setIsSuccess(true);
     setIsSubmitting(false);
 
-    // 2. Submit to Netlify Forms via standard URL-encoded POST
-    try {
-      const netlifyParams = new URLSearchParams({
-        'form-name': 'ro-booking',
-        'bot-field': botField,
-        fullName: submissionPayload.fullName,
-        mobileNumber: submissionPayload.mobileNumber,
-        pinCode: submissionPayload.pinCode,
-        selectedBrand: submissionPayload.selectedBrand,
-        serviceType: submissionPayload.serviceType,
-        referenceId: submissionPayload.referenceId,
-        sourcePage: submissionPayload.sourcePage,
-        bookedAt: submissionPayload.bookedAt,
-      });
-
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: netlifyParams.toString(),
-      }).catch((err) => console.log('Netlify form submission acknowledged.'));
-    } catch (nfErr) {
-      console.log('Netlify submission handled.');
-    }
-
-    // 3. Persist lead on backend API backup (/api/lead)
+    // 2. Persist lead on server via /api/lead
     try {
       fetch('/api/lead', {
         method: 'POST',
@@ -231,10 +232,10 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         body: JSON.stringify(submissionPayload),
       }).catch((err) => console.warn('Server lead backup notice:', err));
     } catch (apiErr) {
-      console.warn('API lead call skipped:', apiErr);
+      console.warn('API lead call notice:', apiErr);
     }
 
-    // 4. Dispatch lead email fallback via FormSubmit to ravi2009u@gmail.com
+    // 3. Dispatch lead email directly to ravi2009u@gmail.com via FormSubmit from client browser
     try {
       const emailTarget = BUSINESS_DETAILS.formSubmitEmail || 'ravi2009u@gmail.com';
       fetch(`https://formsubmit.co/ajax/${emailTarget}`, {
@@ -255,9 +256,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           _template: 'table',
           _captcha: 'false',
         }),
-      }).catch((fsErr) => console.log('Client notification dispatched.'));
+      }).catch((fsErr) => console.log('FormSubmit notice:', fsErr));
     } catch (fsOuterErr) {
-      console.log('Email dispatch handled.');
+      console.log('FormSubmit handled.');
     }
   };
 
@@ -265,7 +266,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     <div
       ref={formContainerRef}
       id="lead-form"
-      className={`bg-white text-slate-900 rounded-[24px] shadow-xl border border-slate-200/90 p-6 sm:p-8 relative transition-all w-full max-w-lg mx-auto ${className}`}
+      className={`bg-white text-slate-900 rounded-[24px] shadow-xl border border-slate-200/90 p-6 sm:p-8 relative transition-all w-full max-w-lg mx-auto ${
+        shake ? 'animate-bounce' : ''
+      } ${className}`}
     >
       {isSuccess ? (
         /* ================= DEDICATED THANK YOU / CONFIRMATION SCREEN ================= */
@@ -282,7 +285,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               Thank You, {submittedLead?.fullName || 'Customer'}!
             </h3>
             <p className="text-sm sm:text-[15px] text-slate-600 mt-2 max-w-sm mx-auto leading-relaxed">
-              Your service request has been received. Our certified technician is assigned and will reach your doorstep within <span className="font-bold text-slate-950">60–90 minutes</span>.
+              Your service request has been confirmed. Our certified technician is assigned and will reach your doorstep in Bangalore within <span className="font-bold text-slate-950">60–90 minutes</span>.
             </p>
           </div>
 
@@ -317,7 +320,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           </div>
 
           <div className="bg-emerald-50 border border-emerald-200 rounded-xl p-3 text-xs text-emerald-900 max-w-md mx-auto font-medium">
-            ✓ Doorstep Technician Dispatch in Progress (60-90 Mins)
+            ✓ Technician Dispatch Scheduled (60-90 Mins)
           </div>
 
           {/* Action CTAs */}
@@ -372,7 +375,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           </div>
         </div>
       ) : (
-        /* ================= ACTIVE NETLIFY BOOKING FORM ================= */
+        /* ================= ACTIVE BOOKING FORM (DIV CONTAINER - NEVER RELOADS) ================= */
         <>
           <div className="mb-6 text-center">
             <h2 className="text-2xl sm:text-3xl font-black text-slate-950 tracking-tight">
@@ -383,40 +386,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             </p>
           </div>
 
-          <form
-            name="ro-booking"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit}
-            className="space-y-4 text-slate-900"
-            noValidate
-          >
-            {/* Hidden fields for Netlify Forms & tracking */}
-            <input type="hidden" name="form-name" value="ro-booking" />
-            <input type="hidden" name="sourcePage" value={sourcePage} />
-
-            {/* Honeypot field for spam prevention */}
-            <div className="hidden" aria-hidden="true">
-              <label>
-                Don’t fill this out if you're human:
-                <input
-                  name="bot-field"
-                  tabIndex={-1}
-                  autoComplete="off"
-                  value={botField}
-                  onChange={(e) => setBotField(e.target.value)}
-                />
-              </label>
-            </div>
-
+          <div className="space-y-4 text-slate-900">
             {/* Full Name */}
             <div className="relative text-left">
               <label htmlFor="fullName" className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 ml-1">
                 Full Name <span className="text-red-500">*</span>
               </label>
               <div className="relative group">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#0c54a0] transition-colors pointer-events-none">
+                <span className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors pointer-events-none ${
+                  errors.fullName ? 'text-red-500' : 'text-slate-400 group-focus-within:text-[#0c54a0]'
+                }`}>
                   <User className="w-5 h-5" />
                 </span>
                 <input
@@ -426,13 +405,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                   name="fullName"
                   value={formData.fullName}
                   onChange={handleChange}
-                  placeholder="e.g. John Doe"
+                  onKeyDown={handleKeyDown}
+                  placeholder="Enter your full name"
                   className={`w-full pl-11 pr-4 py-3.5 text-[15px] font-medium text-slate-900 placeholder:text-slate-400 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-                    errors.fullName ? 'border-red-400 focus:ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
+                    errors.fullName ? 'border-red-400 bg-red-50/30 ring-2 ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
                   }`}
                 />
               </div>
-              {errors.fullName && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold">{errors.fullName}</p>}
+              {errors.fullName && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold flex items-center gap-1">
+                <AlertCircle className="w-3.5 h-3.5" />
+                {errors.fullName}
+              </p>}
             </div>
 
             {/* Mobile */}
@@ -441,7 +424,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                 Mobile Number <span className="text-red-500">*</span>
               </label>
               <div className="relative group">
-                <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-[#0c54a0] transition-colors flex items-center gap-1.5 pointer-events-none">
+                <span className={`absolute left-4 top-1/2 -translate-y-1/2 transition-colors flex items-center gap-1.5 pointer-events-none ${
+                  errors.mobileNumber ? 'text-red-500' : 'text-slate-400 group-focus-within:text-[#0c54a0]'
+                }`}>
                   <Phone className="w-5 h-5" />
                   <span className="text-[15px] font-bold text-slate-700 pt-0.5">+91</span>
                 </span>
@@ -453,13 +438,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                   maxLength={10}
                   value={formData.mobileNumber}
                   onChange={handleMobileChange}
+                  onKeyDown={handleKeyDown}
                   placeholder="10-digit mobile number"
                   className={`w-full pl-[88px] pr-4 py-3.5 text-[15px] font-semibold text-slate-900 placeholder:text-slate-400 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-                    errors.mobileNumber ? 'border-red-400 focus:ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
+                    errors.mobileNumber ? 'border-red-400 bg-red-50/30 ring-2 ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
                   }`}
                 />
               </div>
-              {errors.mobileNumber && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold">{errors.mobileNumber}</p>}
+              {errors.mobileNumber && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold flex items-center gap-1">
+                <AlertCircle className="w-3.5 h-3.5" />
+                {errors.mobileNumber}
+              </p>}
             </div>
 
             {!hideBrandSelector ? (
@@ -481,13 +470,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                         maxLength={6}
                         value={formData.pinCode}
                         onChange={handlePinCodeChange}
+                        onKeyDown={handleKeyDown}
                         placeholder="e.g. 560001"
                         className={`w-full pl-11 pr-4 py-3.5 text-[15px] font-medium text-slate-900 placeholder:text-slate-400 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-                          errors.pinCode ? 'border-red-400 focus:ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
+                          errors.pinCode ? 'border-red-400 bg-red-50/30 ring-2 ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
                         }`}
                       />
                     </div>
-                    {errors.pinCode && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold">{errors.pinCode}</p>}
+                    {errors.pinCode && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold flex items-center gap-1">
+                      <AlertCircle className="w-3.5 h-3.5" />
+                      {errors.pinCode}
+                    </p>}
                   </div>
 
                   {/* Select Brand */}
@@ -508,7 +501,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                         </option>
                       ))}
                     </select>
-                    {/* Custom arrow for select */}
                     <div className="pointer-events-none absolute right-4 top-[38px] flex items-center text-slate-400">
                       <svg className="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                         <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
@@ -567,13 +559,17 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                       maxLength={6}
                       value={formData.pinCode}
                       onChange={handlePinCodeChange}
+                      onKeyDown={handleKeyDown}
                       placeholder="e.g. 560001"
                       className={`w-full pl-11 pr-4 py-3.5 text-[15px] font-medium text-slate-900 placeholder:text-slate-400 bg-slate-50 border rounded-xl focus:bg-white focus:outline-none focus:ring-2 transition-all ${
-                        errors.pinCode ? 'border-red-400 focus:ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
+                        errors.pinCode ? 'border-red-400 bg-red-50/30 ring-2 ring-red-200 focus:border-red-500' : 'border-slate-200 focus:ring-blue-100 focus:border-[#0c54a0]'
                       }`}
                     />
                   </div>
-                  {errors.pinCode && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold">{errors.pinCode}</p>}
+                  {errors.pinCode && <p className="text-xs text-red-500 mt-1.5 ml-1 font-semibold flex items-center gap-1">
+                    <AlertCircle className="w-3.5 h-3.5" />
+                    {errors.pinCode}
+                  </p>}
                 </div>
 
                 {/* Select Service Required (if not hidden) */}
@@ -612,18 +608,19 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
             {/* Validation Notice Banner above button */}
             {formWarning && (
-              <div className="p-3 bg-amber-50 border border-amber-300 text-amber-900 rounded-xl text-xs sm:text-sm font-semibold flex items-center gap-2 animate-fadeIn text-left">
-                <AlertCircle className="w-4 h-4 shrink-0 text-amber-600" />
+              <div className="p-3.5 bg-amber-50 border-2 border-amber-300 text-amber-950 rounded-xl text-xs sm:text-sm font-bold flex items-center gap-2 animate-pulse text-left shadow-xs">
+                <AlertCircle className="w-5 h-5 shrink-0 text-amber-600" />
                 <span>{formWarning}</span>
               </div>
             )}
 
             {/* Submit Button */}
             <button
-              type="submit"
+              type="button"
+              onClick={handleSubmit}
               disabled={isSubmitting}
               style={buttonColor ? { backgroundColor: buttonColor } : undefined}
-              className={`w-full mt-4 py-4 px-6 rounded-xl text-white font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed disabled:transform-none shadow-lg cursor-pointer ${
+              className={`w-full mt-4 py-4 px-6 rounded-xl text-white font-bold text-base flex items-center justify-center gap-2 transition-all active:scale-95 disabled:opacity-75 disabled:cursor-not-allowed disabled:transform-none shadow-lg cursor-pointer select-none ${
                 buttonColor
                   ? 'hover:brightness-90 shadow-slate-300/40'
                   : 'bg-gradient-to-r from-[#10b981] to-[#059669] hover:from-[#059669] hover:to-[#047857] shadow-emerald-500/30'
@@ -641,7 +638,19 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                 </span>
               )}
             </button>
-          </form>
+
+            {/* Quick Fill Test Link */}
+            <div className="text-center pt-1">
+              <button
+                type="button"
+                onClick={handleQuickFill}
+                className="text-[11px] text-slate-400 hover:text-sky-600 font-medium inline-flex items-center gap-1 transition-colors cursor-pointer"
+              >
+                <Sparkles className="w-3 h-3 text-amber-500" />
+                <span>Auto-fill test details</span>
+              </button>
+            </div>
+          </div>
         </>
       )}
     </div>
